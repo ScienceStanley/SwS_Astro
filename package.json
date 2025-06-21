@@ -1,0 +1,51 @@
+{
+  "name": "smarter-with-science",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Cyberpunk-utopian website for the Smarter with Science movement",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "extract-prompts": "node scripts/extract-prompts.js",
+    "generate-images": "node scripts/generate-images.js",
+    "select-images": "node scripts/image-selector-ui.js"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.1",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/vercel": "^8.1.0",
+    "@fontsource/audiowide": "^5.1.0",
+    "@fontsource/exo-2": "^5.1.0",
+    "@fontsource/fira-code": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/orbitron": "^5.1.0",
+    "@nanostores/react": "^0.8.0",
+    "@react-three/drei": "^9.117.3",
+    "@react-three/fiber": "^8.17.10",
+    "astro": "^5.10.0",
+    "framer-motion": "^11.12.0",
+    "gsap": "^3.12.5",
+    "lottie-react": "^2.4.0",
+    "nanostores": "^0.11.3",
+    "openai": "^4.76.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.15",
+    "three": "^0.171.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.171.0",
+    "chalk": "^5.3.0",
+    "inquirer": "^12.2.0",
+    "ora": "^8.1.1",
+    "typescript": "^5.7.2"
+  }
+}

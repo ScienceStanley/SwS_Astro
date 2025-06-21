@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <main class="min-h-screen relative">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <!-- Background Effects -->
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-radial from-warp-core-blue/10 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-radial from-royal-purple/10 via-transparent to-transparent" style="transform: translate(30%, 30%)"></div>
+      </div>
+      
+      <!-- Hero Content -->
+      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <!-- Science Stanley Introduction -->
+        <div class="mb-8 animate-particle-emergence">
+          <h1 class="text-5xl md:text-7xl font-display font-black mb-4">
+            <span class="gradient-text">Smarter with Science</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-text-secondary font-light">
+            Your friendly neighborhood AI scientist here
+          </p>
+        </div>
+        
+        <!-- Mission Statement -->
+        <div class="mb-12 animate-particle-emergence animation-delay-200">
+          <h2 class="text-2xl md:text-4xl font-display neon-text mb-4">
+            Science + Community = Exponential Impact
+          </h2>
+          <p class="text-lg md:text-xl text-text-tertiary max-w-3xl mx-auto">
+            We're turning the traditional model upside down: instead of scientists begging for resources, 
+            resources flow to scientists solving real problems.
+          </p>
+        </div>
+        
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-particle-emergence animation-delay-400">
+          <a href="/get-involved" class="btn-portal magnetic">
+            Join the Movement
+          </a>
+          <a href="/projects" class="btn-portal magnetic">
+            Explore Projects
+          </a>
+        </div>
+        
+        <!-- Live Metrics Preview -->
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-particle-emergence animation-delay-600">
+          <div class="quantum-glass p-4 rounded-lg">
+            <div class="text-3xl font-display text-warp-core-blue">1,247</div>
+            <div class="text-sm text-text-tertiary">Active Researchers</div>
+          </div>
+          <div class="quantum-glass p-4 rounded-lg">
+            <div class="text-3xl font-display text-plasma-green">2.4M</div>
+            <div class="text-sm text-text-tertiary">GPU Hours Donated</div>
+          </div>
+          <div class="quantum-glass p-4 rounded-lg">
+            <div class="text-3xl font-display text-cyber-pink">89</div>
+            <div class="text-sm text-text-tertiary">Active Projects</div>
+          </div>
+          <div class="quantum-glass p-4 rounded-lg">
+            <div class="text-3xl font-display text-hologram-cyan">47K</div>
+            <div class="text-sm text-text-tertiary">Lives Impacted</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg width="30" height="50" viewBox="0 0 30 50" class="text-warp-core-blue">
+          <rect x="10" y="10" width="10" height="20" rx="5" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="15" cy="20" r="3" fill="currentColor" class="animate-data-stream"/>
+        </svg>
+      </div>
+    </section>
+    
+    <!-- Quick Navigation -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-display text-center mb-12 gradient-text">
+          Explore the Constellation
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Science Sunday Card -->
+          <a href="/science-sunday" class="data-crystal p-8 rounded-lg group">
+            <h3 class="text-2xl font-display text-plasma-green mb-4 group-hover:animate-pulse-glow">
+              Science Sunday
+            </h3>
+            <p class="text-text-secondary mb-4">
+              Church for the Curious - Join us every Sunday in Venice Beach for hands-on science exploration
+            </p>
+            <span class="text-warp-core-blue group-hover:translate-x-2 inline-block transition-transform">
+              Learn More →
+            </span>
+          </a>
+          
+          <!-- Projects Card -->
+          <a href="/projects" class="data-crystal p-8 rounded-lg group">
+            <h3 class="text-2xl font-display text-cyber-pink mb-4 group-hover:animate-pulse-glow">
+              Active Projects
+            </h3>
+            <p class="text-text-secondary mb-4">
+              From rare disease research to ocean conservation - see how we're accelerating breakthroughs
+            </p>
+            <span class="text-warp-core-blue group-hover:translate-x-2 inline-block transition-transform">
+              Explore →
+            </span>
+          </a>
+          
+          <!-- Charter Card -->
+          <a href="/charter" class="data-crystal p-8 rounded-lg group">
+            <h3 class="text-2xl font-display text-hologram-cyan mb-4 group-hover:animate-pulse-glow">
+              Our Charter
+            </h3>
+            <p class="text-text-secondary mb-4">
+              Read our manifesto for community-powered discovery and join the constellation
+            </p>
+            <span class="text-warp-core-blue group-hover:translate-x-2 inline-block transition-transform">
+              Read →
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <style>
+    .animation-delay-200 {
+      animation-delay: 200ms;
+    }
+    
+    .animation-delay-400 {
+      animation-delay: 400ms;
+    }
+    
+    .animation-delay-600 {
+      animation-delay: 600ms;
+    }
+    
+    .bg-gradient-radial {
+      background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-to));
+    }
+  </style>
+  
+  <!-- Magnetic Hover Effect -->
+  <script>
+    const magneticElements = document.querySelectorAll('.magnetic');
+    magneticElements.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'translate(0, 0)';
+      });
+    });
+  </script>
+</BaseLayout>
