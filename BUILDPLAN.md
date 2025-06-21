@@ -41,19 +41,54 @@ Building a **cyberpunk-utopian** digital home for the Smarter with Science movem
 
 ## 🏗️ Development Phases
 
-### Phase 0: Pre-Build Setup & Planning ✅
+### Phase 0: Pre-Build Setup & Planning ✅ COMPLETED
 - [x] Review all context documents
 - [x] Create comprehensive build plan
-- [ ] Create CLAUDE.md for future sessions
-- [ ] Gather from user:
-  - OpenAI API key for image generation
-  - Vercel deployment configuration
+- [x] Create CLAUDE.md for future sessions
+- [x] Gather from user:
+  - [x] OpenAI API key for image generation (secured in .env)
+  - [x] Vercel deployment configuration (token in .env)
+- [x] Set up development environment
+
+### Phase 0.5: Deployment Setup (IN PROGRESS - Manual Steps Required)
+
+#### GitHub Repository
+**Status**: Code committed locally, ready to push
+**Blocker**: Requires GitHub authentication
+
+**Resolution Options**:
+1. **Local Push**: Clone to local machine and push with personal credentials
+2. **Personal Access Token**: Use GitHub PAT in remote URL
+3. **SSH Key**: Configure SSH and update remote URL
+
+**Commands Ready**:
+```bash
+# After authentication is configured:
+git push -u origin main
+```
+
+#### Vercel Deployment
+**Status**: Configuration ready, waiting for GitHub
+**Prerequisites**: 
+- GitHub repository must be accessible
+- Vercel token already in .env
+
+**Deployment Options**:
+1. **Vercel Dashboard** (Recommended):
+   - Import from github.com/ScienceStanley/SwS_Astro
+   - Auto-deploy on push
+   
+2. **Vercel CLI**:
+   ```bash
+   npm i -g vercel
+   vercel --token $VERCEL_TOKEN
+   ```
   - 3-5 design inspiration websites
   - Specific animation/interaction preferences
   - Discord widget ID
   - Analytics setup preferences
 
-### Phase 1: Foundation & Infrastructure (Days 1-2)
+### Phase 1: Foundation & Infrastructure (Days 1-2) ✅ COMPLETED
 
 #### 1.1 Project Initialization
 ```bash
