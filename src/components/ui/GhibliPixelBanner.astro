@@ -95,6 +95,10 @@ const {
   <!-- Content Overlay -->
   <div class="banner-content">
     <slot />
+    <!-- Debug indicator -->
+    <div class="absolute top-4 right-4 text-neon-cyan text-sm font-mono opacity-50">
+      🎨 Ghibli Pixel Banner Active
+    </div>
   </div>
 </div>
 
@@ -106,12 +110,14 @@ const {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
   }
   
   .pixel-forest {
     position: absolute;
     inset: 0;
-    opacity: 0.8;
+    opacity: 1;
   }
   
   /* Digital Trees - Pixel Art Style */
@@ -175,7 +181,7 @@ const {
     background: #48bb78;
     box-shadow: 
       inset 2px 2px 0 #68d391,
-      2px 2px 4px rgba(0, 255, 136, 0.3);
+      0 0 8px rgba(0, 255, 136, 0.8);
   }
   
   .leaves-2 {
@@ -186,7 +192,7 @@ const {
     background: #38a169;
     box-shadow: 
       inset 2px 2px 0 #48bb78,
-      2px 2px 4px rgba(0, 255, 136, 0.2);
+      0 0 8px rgba(0, 255, 136, 0.6);
   }
   
   .leaves-3 {
@@ -197,7 +203,7 @@ const {
     background: #2f855a;
     box-shadow: 
       inset 2px 2px 0 #38a169,
-      2px 2px 4px rgba(0, 255, 136, 0.1);
+      0 0 8px rgba(0, 255, 136, 0.4);
   }
   
   @keyframes tree-sway {
