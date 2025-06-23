@@ -1,0 +1,397 @@
+---
+const navItems = [
+  { label: 'Science Sunday', href: '/science-sunday', color: 'cyber-pink' },
+  { label: 'Projects', href: '/projects', color: 'warp-core-blue' },
+  { label: 'Charter', href: '/charter', color: 'royal-purple' },
+  { label: 'Blog', href: '/blog', color: 'plasma-green' },
+  { label: 'Get Involved', href: '/get-involved', color: 'hologram-cyan' },
+];
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<nav class="navigation" data-nav>
+  <div class="nav-container">
+    <!-- Logo/Home Link -->
+    <a href="/" class="nav-logo magnetic" aria-label="Smarter with Science Home">
+      <div class="logo-wrapper">
+        <div class="warp-core"></div>
+        <span class="logo-text">SwS</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="nav-links desktop-nav">
+      {navItems.map(item => (
+        <li>
+          <a 
+            href={item.href} 
+            class:list={['nav-link', `glow-${item.color}`, { active: currentPath === item.href }]}
+            data-color={item.color}
+          >
+            <span class="link-text">{item.label}</span>
+            <span class="link-underline"></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA Button -->
+    <div class="nav-cta">
+      <a href="https://discord.smarterwithscience.org" class="portal-button magnetic" target="_blank" rel="noopener">
+        <span class="button-text">Join Discord</span>
+        <div class="button-glow"></div>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" aria-label="Toggle navigation menu" data-mobile-toggle>
+      <div class="toggle-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" data-mobile-nav>
+    <ul class="mobile-nav-links">
+      {navItems.map(item => (
+        <li>
+          <a 
+            href={item.href} 
+            class:list={['mobile-nav-link', { active: currentPath === item.href }]}
+            data-color={item.color}
+          >
+            <span class="link-text">{item.label}</span>
+            <div class="link-glow"></div>
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href="https://discord.smarterwithscience.org" class="mobile-discord-link" target="_blank" rel="noopener">
+          <span>Join Our Discord</span>
+          <div class="link-glow"></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    backdrop-filter: blur(20px) saturate(200%);
+    border-bottom: 1px solid rgba(102, 51, 153, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .navigation::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--neural-gradient);
+    opacity: 0.5;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo Styles */
+  .nav-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s var(--spring-bounce);
+  }
+
+  .logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .warp-core {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--singularity-gradient);
+    box-shadow: 
+      0 0 20px rgba(0, 212, 255, 0.5),
+      inset 0 0 20px rgba(102, 51, 153, 0.5);
+    animation: warp-core-pulse 2s ease-in-out infinite;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(102, 51, 153, 0.5));
+  }
+
+  /* Desktop Navigation */
+  .nav-links {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .link-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .link-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--spring-bounce);
+  }
+
+  .nav-link:hover .link-underline,
+  .nav-link.active .link-underline {
+    transform: scaleX(1);
+  }
+
+  /* Color-specific glows */
+  .glow-cyber-pink:hover { color: var(--cyber-pink); filter: drop-shadow(0 0 10px var(--cyber-pink)); }
+  .glow-warp-core-blue:hover { color: var(--warp-core-blue); filter: drop-shadow(0 0 10px var(--warp-core-blue)); }
+  .glow-royal-purple:hover { color: var(--royal-purple); filter: drop-shadow(0 0 10px var(--royal-purple)); }
+  .glow-plasma-green:hover { color: var(--plasma-green); filter: drop-shadow(0 0 10px var(--plasma-green)); }
+  .glow-hologram-cyan:hover { color: var(--hologram-cyan); filter: drop-shadow(0 0 10px var(--hologram-cyan)); }
+
+  .nav-link.active {
+    color: var(--warp-core-blue);
+  }
+
+  /* CTA Button */
+  .nav-cta {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .nav-cta {
+      display: block;
+    }
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-toggle {
+      display: none;
+    }
+  }
+
+  .toggle-lines {
+    width: 24px;
+    height: 20px;
+    position: relative;
+  }
+
+  .toggle-lines span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--warp-core-blue);
+    transition: all 0.3s var(--spring-bounce);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+
+  .toggle-lines span:nth-child(1) { top: 0; }
+  .toggle-lines span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .toggle-lines span:nth-child(3) { bottom: 0; }
+
+  .mobile-toggle[aria-expanded="true"] .toggle-lines span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .toggle-lines span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .toggle-lines span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile Navigation */
+  .mobile-nav {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+    transform: translateX(100%);
+    transition: transform 0.3s var(--spring-bounce);
+    overflow-y: auto;
+  }
+
+  .mobile-nav.active {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  .mobile-nav-links li {
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-nav-link,
+  .mobile-discord-link {
+    display: block;
+    padding: 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--warp-core-blue);
+  }
+
+  .link-glow {
+    position: absolute;
+    inset: 0;
+    background: var(--neural-gradient);
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .mobile-nav-link:hover .link-glow,
+  .mobile-discord-link:hover .link-glow {
+    opacity: 0.3;
+  }
+
+  /* Scroll behavior */
+  .navigation.scrolled {
+    background: rgba(0, 0, 0, 0.98);
+    box-shadow: 0 4px 30px rgba(102, 51, 153, 0.3);
+  }
+</style>
+
+<script>
+  // Mobile navigation toggle
+  const toggle = document.querySelector('[data-mobile-toggle]');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-discord-link');
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !isOpen);
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = !isOpen ? 'hidden' : '';
+    });
+
+    // Close mobile nav on link click
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Scroll behavior
+  const nav = document.querySelector('[data-nav]');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Magnetic effect for desktop
+  const magneticElements = document.querySelectorAll('.magnetic');
+  
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0, 0)';
+    });
+  });
+</script>
