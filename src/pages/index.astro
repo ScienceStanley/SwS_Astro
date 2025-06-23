@@ -1,12 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import PixelButton from '@components/ui/PixelButton.astro';
 import PixelArtButton from '@components/ui/PixelArtButton.astro';
 import PixelArtCard from '@components/ui/PixelArtCard.astro';
-import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
-import PixelDivider from '@components/ui/PixelDivider.astro';
-// import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
-// import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
 ---
 
 <BaseLayout>
@@ -23,7 +18,7 @@ import PixelDivider from '@components/ui/PixelDivider.astro';
         </div>
         
         <!-- Mission Statement -->
-        <div class="mb-12 animate-particle-emergence animation-delay-200">
+        <div class="animate-particle-emergence animation-delay-200">
           <h2 class="text-2xl md:text-4xl font-display font-bold text-white mb-4">
             Science + Community = Exponential Impact
           </h2>
@@ -32,50 +27,16 @@ import PixelDivider from '@components/ui/PixelDivider.astro';
             resources flow to scientists solving real problems.
           </p>
         </div>
-        
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-particle-emergence animation-delay-400">
-          <PixelArtButton variant="primary" size="large" href="/get-involved" icon="arrow-right" iconPosition="right">
-            Join the Movement
-          </PixelArtButton>
-          <PixelArtButton variant="secondary" size="large" href="/projects" icon="science" iconPosition="left">
-            Explore Projects
-          </PixelArtButton>
-        </div>
-        
-        <!-- Live Metrics Preview -->
-        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-particle-emergence animation-delay-600">
-          <div class="neodev-card p-4 rounded-lg">
-            <div class="text-3xl font-display font-bold text-neon-cyan">1,247</div>
-            <div class="text-sm text-text-secondary">Active Researchers</div>
-          </div>
-          <div class="neodev-card p-4 rounded-lg">
-            <div class="text-3xl font-display font-bold text-electric-teal">2.4M</div>
-            <div class="text-sm text-text-secondary">GPU Hours Donated</div>
-          </div>
-          <div class="neodev-card p-4 rounded-lg">
-            <div class="text-3xl font-display font-bold text-neon-cyan">89</div>
-            <div class="text-sm text-text-secondary">Active Projects</div>
-          </div>
-          <div class="neodev-card p-4 rounded-lg">
-            <div class="text-3xl font-display font-bold text-electric-teal">47K</div>
-            <div class="text-sm text-text-secondary">Lives Impacted</div>
-          </div>
-        </div>
       </div>
       
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg width="30" height="50" viewBox="0 0 30 50" class="text-neon-cyan opacity-40">
-            <rect x="10" y="10" width="10" height="20" rx="5" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="15" cy="20" r="2" fill="currentColor" class="animate-data-stream"/>
-          </svg>
-        </div>
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg width="30" height="50" viewBox="0 0 30 50" class="text-neon-cyan opacity-40">
+          <rect x="10" y="10" width="10" height="20" rx="5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="15" cy="20" r="2" fill="currentColor" class="animate-data-stream"/>
+        </svg>
       </div>
     </section>
-    
-    <!-- Pixel Divider -->
-    <PixelDivider variant="data" color="#00ffff" animated={true} />
     
     <!-- Code Demo Section -->
     <section class="py-20 px-6" style="background: linear-gradient(to bottom, #000000, #0a0a0a);">
@@ -102,9 +63,6 @@ import PixelDivider from '@components/ui/PixelDivider.astro';
         </div>
       </div>
     </section>
-    
-    <!-- Pixel Divider -->
-    <PixelDivider variant="wave" color="#00d4aa" animated={true} />
     
     <!-- Quick Navigation -->
     <section class="py-20 px-6">
