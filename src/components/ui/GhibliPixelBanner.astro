@@ -96,8 +96,12 @@ const {
   <div class="banner-content">
     <slot />
     <!-- Debug indicator -->
-    <div class="absolute top-4 right-4 text-neon-cyan text-sm font-mono opacity-50">
+    <div class="absolute top-4 right-4 text-neon-cyan text-lg font-mono bg-black px-3 py-1 border border-neon-cyan">
       🎨 Ghibli Pixel Banner Active
+    </div>
+    <!-- Large visible test -->
+    <div class="absolute top-1/2 left-4 text-6xl animate-pulse">
+      🌳🤖✨
     </div>
   </div>
 </div>
@@ -106,12 +110,17 @@ const {
   .ghibli-pixel-banner {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #000000 0%, #0f0f23 50%, #1a1a2e 100%);
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(0, 255, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(0, 212, 170, 0.2) 0%, transparent 50%),
+      linear-gradient(180deg, #000000 0%, #0f0f23 50%, #1a1a2e 100%);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    border: 2px solid #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    border: 3px solid #00ffff;
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.7),
+      inset 0 0 20px rgba(0, 255, 255, 0.1);
   }
   
   .pixel-forest {
@@ -434,9 +443,11 @@ const {
     position: absolute;
     right: 10%;
     bottom: 20%;
-    width: 60px;
-    height: 80px;
+    width: 80px;
+    height: 100px;
     animation: stanley-bob 3s ease-in-out infinite;
+    z-index: 5;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
   }
   
   .stanley-body {
