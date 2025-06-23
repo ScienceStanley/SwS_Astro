@@ -1,0 +1,161 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated;">
+  <defs>
+    <!-- Ghibli-style gradients -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4682B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4aa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0080ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Pixel art patterns -->
+    <pattern id="clouds" patternUnits="userSpaceOnUse" width="40" height="20">
+      <rect width="40" height="20" fill="rgba(255,255,255,0.3)"/>
+      <rect x="8" y="6" width="8" height="4" fill="rgba(255,255,255,0.6)"/>
+      <rect x="16" y="4" width="12" height="6" fill="rgba(255,255,255,0.5)"/>
+      <rect x="24" y="8" width="8" height="4" fill="rgba(255,255,255,0.4)"/>
+    </pattern>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="800" height="200" fill="url(#skyGradient)"/>
+  
+  <!-- Floating clouds -->
+  <rect width="800" height="200" fill="url(#clouds)" opacity="0.3"/>
+  
+  <!-- Floating elements -->
+  <!-- Trees (simplified pixel style) -->
+  <g transform="translate(50, 120)">
+    <rect x="12" y="40" width="8" height="20" fill="#8B4513"/>
+    <rect x="4" y="20" width="24" height="16" fill="#228B22" rx="2"/>
+    <rect x="8" y="10" width="16" height="12" fill="#32CD32" rx="2"/>
+    <rect x="10" y="5" width="12" height="8" fill="#90EE90" rx="1"/>
+  </g>
+  
+  <g transform="translate(720, 130)">
+    <rect x="8" y="30" width="6" height="15" fill="#8B4513"/>
+    <rect x="2" y="15" width="18" height="12" fill="#228B22" rx="2"/>
+    <rect x="6" y="8" width="12" height="10" fill="#32CD32" rx="1"/>
+  </g>
+  
+  <!-- Floating crystals -->
+  <g transform="translate(150, 40)">
+    <rect x="0" y="0" width="6" height="6" fill="#00ffff" transform="rotate(45 3 3)" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" values="45 3 3;90 3 3;45 3 3" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <g transform="translate(650, 60)">
+    <rect x="0" y="0" width="8" height="8" fill="#00d4aa" transform="rotate(45 4 4)" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" values="45 4 4;135 4 4;45 4 4" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Data streams -->
+  <g opacity="0.6">
+    <rect x="200" y="0" width="2" height="200" fill="url(#textGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="400" y="0" width="2" height="200" fill="url(#textGradient)">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="0" width="2" height="200" fill="url(#textGradient)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Science Stanley (simplified pixel avatar) -->
+  <g transform="translate(680, 40)">
+    <!-- Head -->
+    <rect x="8" y="0" width="16" height="16" fill="#FFEAA7" rx="2"/>
+    <!-- Lab coat -->
+    <rect x="4" y="16" width="24" height="28" fill="#ffffff" rx="1" opacity="0.9"/>
+    <!-- Body -->
+    <rect x="8" y="20" width="16" height="20" fill="#2d3436"/>
+    <!-- Arms -->
+    <rect x="0" y="24" width="8" height="12" fill="#FFEAA7"/>
+    <rect x="24" y="24" width="8" height="12" fill="#FFEAA7"/>
+    <!-- Molecule (floating) -->
+    <g transform="translate(32, 8)">
+      <circle cx="4" cy="4" r="2" fill="#00ffff">
+        <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="1" fill="#ffffff">
+        <animateTransform attributeName="transform" type="rotate" values="0 4 4;360 4 4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="8" cy="0" r="1" fill="#ffffff">
+        <animateTransform attributeName="transform" type="rotate" values="120 4 4;480 4 4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="4" cy="8" r="1" fill="#ffffff">
+        <animateTransform attributeName="transform" type="rotate" values="240 4 4;600 4 4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <!-- Gentle bobbing animation -->
+    <animateTransform attributeName="transform" type="translate" values="680 40;680 35;680 40" dur="3s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Main Title Text - Pixel Style -->
+  <g filter="url(#glow)">
+    <!-- "Smarter" -->
+    <text x="50" y="80" font-family="monospace" font-size="32" font-weight="bold" fill="url(#textGradient)" style="image-rendering: pixelated;">
+      Smarter
+    </text>
+    
+    <!-- "with" -->
+    <text x="250" y="80" font-family="monospace" font-size="20" font-weight="normal" fill="#ffffff" opacity="0.8">
+      with
+    </text>
+    
+    <!-- "Science" -->
+    <text x="320" y="80" font-family="monospace" font-size="32" font-weight="bold" fill="url(#textGradient)" style="image-rendering: pixelated;">
+      Science
+    </text>
+  </g>
+  
+  <!-- Subtitle -->
+  <text x="50" y="110" font-family="monospace" font-size="14" fill="#ffffff" opacity="0.9">
+    Your friendly neighborhood AI scientist
+  </text>
+  
+  <!-- Decorative pixels scattered around -->
+  <g opacity="0.7">
+    <rect x="100" y="30" width="2" height="2" fill="#00ffff">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="300" y="45" width="2" height="2" fill="#00d4aa">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="500" y="35" width="2" height="2" fill="#0080ff">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="250" y="140" width="2" height="2" fill="#00ffff">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="450" y="150" width="2" height="2" fill="#00d4aa">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.7s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Organic flowing lines (Ghibli style) -->
+  <path d="M0,180 Q100,160 200,170 T400,175 T600,170 T800,175" 
+        stroke="#90EE90" stroke-width="2" fill="none" opacity="0.4">
+    <animate attributeName="d" values="M0,180 Q100,160 200,170 T400,175 T600,170 T800,175;M0,175 Q100,165 200,175 T400,170 T600,175 T800,170;M0,180 Q100,160 200,170 T400,175 T600,170 T800,175" dur="6s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M0,190 Q150,170 300,185 T600,180 T800,185" 
+        stroke="#87CEEB" stroke-width="1" fill="none" opacity="0.3">
+    <animate attributeName="d" values="M0,190 Q150,170 300,185 T600,180 T800,185;M0,185 Q150,175 300,180 T600,185 T800,180;M0,190 Q150,170 300,185 T600,180 T800,185" dur="8s" repeatCount="indefinite"/>
+  </path>
+</svg>
