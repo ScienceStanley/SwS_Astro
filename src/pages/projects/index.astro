@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
-import PixelDivider from '@components/ui/PixelDivider.astro';
 // import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
 // import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
 
@@ -109,12 +107,12 @@ const sampleProjects = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section with Space Background -->
-  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style="background-image: url('/images/space.jpg'); background-size: cover; background-position: center;">
+  <!-- Hero Section with Full Height Space Background -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden" style="background-image: url('/images/space.jpg'); background-size: cover; background-position: center;">
     <!-- Dark overlay for readability -->
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     
-    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto py-20">
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
       <h1 class="text-6xl font-display font-bold mb-6 text-gradient">
         Projects Gallery
       </h1>
@@ -128,9 +126,6 @@ const sampleProjects = [
       </p>
     </div>
   </section>
-
-  <!-- Pixel Divider -->
-  <PixelDivider variant="zigzag" color="#00ffff" animated={true} />
 
   <!-- Projects Grid -->
   <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
