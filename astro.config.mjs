@@ -20,7 +20,7 @@ export default defineConfig({
     sitemap(),
     icon(),
   ],
-  output: 'server',
+  output: 'static',
   adapter: vercel({
     webAnalytics: {
       enabled: true,
