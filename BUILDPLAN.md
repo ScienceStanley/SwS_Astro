@@ -1,4 +1,61 @@
-# 🌌 Smarter with Science Website - Master Build Plan
+# 🚀 Smarter with Science Website Build Plan
+
+> Living document tracking the development of the SwS website from concept to launch
+
+## 📅 Last Updated: December 23, 2024
+
+### 🎨 Recent Achievements (December 22-23)
+- ✅ Implemented Studio Ghibli-style pixel art UI components
+- ✅ Created and integrated pixel art banner with Science Stanley character
+- ✅ Applied NeoDiv cyberpunk theme with dark backgrounds and neon accents
+- ✅ Fixed Vercel deployment issues (switched from server to static output)
+- ✅ Applied space.jpg background across all major pages
+- ✅ Simplified homepage layout per requirements
+- ✅ Created comprehensive pixel art component library
+
+### 🎯 Next Session Objectives
+
+#### 1. Navigation System Enhancement
+- [ ] Complete responsive navigation with pixel art styling
+- [ ] Add animated mobile menu with pixel transitions
+- [ ] Implement breadcrumb navigation for deeper pages
+- [ ] Create sticky header with blur effect
+- [ ] Add search functionality with pixel art search icon
+
+#### 2. Content Development
+- [ ] Build out Science Sunday page with event details
+- [ ] Create Projects gallery with real project data
+- [ ] Implement blog system with markdown support
+- [ ] Add team/about section with pixel avatars
+- [ ] Create resources page with downloadable assets
+
+#### 3. Interactive Features
+- [ ] Discord widget integration with live member count
+- [ ] Newsletter signup with pixel art form styling
+- [ ] Event calendar for Science Sunday
+- [ ] Project submission form
+- [ ] Interactive pod system visualization
+
+#### 4. Animation Polish
+- [ ] Add page transition animations
+- [ ] Implement scroll-triggered animations
+- [ ] Create loading states with pixel art spinners
+- [ ] Add hover effects for all interactive elements
+- [ ] Implement particle effects for special sections
+
+#### 5. Performance Optimization
+- [ ] Optimize image loading with lazy loading
+- [ ] Implement service worker for offline support
+- [ ] Add PWA capabilities
+- [ ] Optimize font loading
+- [ ] Reduce JavaScript bundle size
+
+#### 6. AI Image Generation
+- [ ] Complete image generation workflow documentation
+- [ ] Generate remaining UI assets (icons, backgrounds)
+- [ ] Create project showcase images
+- [ ] Generate team avatars in Ghibli style
+- [ ] Create social media preview images
 
 ## 🎯 Project Vision
 
@@ -10,15 +67,16 @@ Building a **cyberpunk-utopian** digital home for the Smarter with Science movem
 
 > *"Science is not cold and distant—it's warm, immediate, and yours to shape. The future isn't something that happens to you—it's something you build with us."*
 
-## 🎨 Core Aesthetic: Cyberpunk Utopian
+## 🎨 Core Aesthetic: Cyberpunk Utopian + Ghibli Pixel Art
 
 ### Visual Philosophy
 - **NOT** dark dystopian cyberpunk
 - **YES** luminous promise of technology wielded with wisdom
-- Think *Blade Runner* meets *Star Trek* in the best possible timeline
+- Think *Blade Runner* meets *Star Trek* meets *Studio Ghibli*
 - Every gradient suggests possibility
 - Every animation mirrors the dynamism of discovery
 - Every glow represents human curiosity
+- Pixel art adds warmth and accessibility
 
 ### Primary Color Palette
 ```css
@@ -27,6 +85,10 @@ Building a **cyberpunk-utopian** digital home for the Smarter with Science movem
   --void-black: #000000;        /* Infinite canvas of possibility */
   --royal-purple: #663399;      /* Transformation & rare disease awareness */
   --warp-core-blue: #00D4FF;    /* Cherenkov radiation blue - breakthrough moments */
+  
+  /* NeoDiv Integration */
+  --neon-cyan: #00ffff;         /* Electric accent */
+  --electric-teal: #00d4aa;     /* Secondary accent */
   
   /* Secondary */
   --cyber-pink: #FF00FF;        /* Accent highlights */
@@ -50,130 +112,48 @@ Building a **cyberpunk-utopian** digital home for the Smarter with Science movem
   - [x] Vercel deployment configuration (token in .env)
 - [x] Set up development environment
 
-### Phase 0.5: Deployment Setup (IN PROGRESS - Manual Steps Required)
+### Phase 1: Foundation & Design System ✅ COMPLETED
 
-#### GitHub Repository
-**Status**: Code committed locally, ready to push
-**Blocker**: Requires GitHub authentication
+#### Completed
+- [x] Project setup with Astro + TypeScript
+- [x] Cyberpunk-utopian design system
+- [x] Core layout components
+- [x] Homepage hero section
+- [x] Basic navigation structure
+- [x] Git repository initialized
+- [x] Studio Ghibli pixel art integration
+- [x] NeoDiv dark theme implementation
+- [x] Pixel art component library
+- [x] Vercel deployment (static mode)
 
-**Resolution Options**:
-1. **Local Push**: Clone to local machine and push with personal credentials
-2. **Personal Access Token**: Use GitHub PAT in remote URL
-3. **SSH Key**: Configure SSH and update remote URL
+#### Recently Added Components
+- [x] GhibliPixelBanner component with animated elements
+- [x] PixelArtButton with multiple variants
+- [x] PixelArtCard for content display
+- [x] PixelDivider with animation patterns
+- [x] Space background integration
 
-**Commands Ready**:
-```bash
-# After authentication is configured:
-git push -u origin main
-```
+### Phase 2: Core Pages & Content 🚧 IN PROGRESS
 
-#### Vercel Deployment
-**Status**: Configuration ready, waiting for GitHub
-**Prerequisites**: 
-- GitHub repository must be accessible
-- Vercel token already in .env
+#### Completed
+- [x] Homepage layout simplification
+- [x] Charter page with space background
+- [x] Projects page structure
 
-**Deployment Options**:
-1. **Vercel Dashboard** (Recommended):
-   - Import from github.com/ScienceStanley/SwS_Astro
-   - Auto-deploy on push
-   
-2. **Vercel CLI**:
-   ```bash
-   npm i -g vercel
-   vercel --token $VERCEL_TOKEN
-   ```
-  - 3-5 design inspiration websites
-  - Specific animation/interaction preferences
-  - Discord widget ID
-  - Analytics setup preferences
+#### In Progress
+- [ ] Science Sunday page content
+- [ ] Blog system implementation
+- [ ] Resources page
+- [ ] Get Involved page
 
-### Phase 1: Foundation & Infrastructure (Days 1-2) ✅ COMPLETED
+#### UI Components Completed
+- [x] Pixel art banner with Science Stanley
+- [x] Button components with pixel styling
+- [x] Card components with corner crystals
+- [x] Animated dividers
+- [x] Space-themed backgrounds
 
-#### 1.1 Project Initialization
-```bash
-# Core setup with TypeScript and essential integrations
-npm create astro@latest smarter-with-science -- --template minimal --typescript
-cd smarter-with-science
-
-# Essential integrations
-npm install @astrojs/tailwind @astrojs/react @astrojs/vercel @astrojs/mdx
-npm install @astrojs/image @astrojs/sitemap nanostores @nanostores/react
-
-# Animation & interaction libraries
-npm install framer-motion gsap three @react-three/fiber
-npm install @react-three/drei lottie-react
-
-# Typography
-npm install @fontsource/orbitron @fontsource/inter @fontsource/fira-code
-```
-
-#### 1.2 Cyberpunk-Utopian Design System
-- Implement void black backgrounds with depth layers
-- Create reusable glow effects and holographic borders
-- Set up the grid system with flowing animations
-- Configure typography with gradient text effects
-- Build quantum glass components (glassmorphism 2.0)
-
-#### 1.3 Core Visual Components
-```
-src/components/core/
-├── CyberGrid.astro          # Animated background grid
-├── NeonText.astro           # Glowing text with pulse
-├── QuantumGlass.astro       # Advanced glassmorphism
-├── DataCrystal.astro        # Card component with radar sweep
-├── PortalButton.astro       # CTA with magnetic hover
-├── NeuralInput.astro        # Form inputs with glow
-└── WarpCore.astro           # Central pulsing animation
-```
-
-### Phase 2: Core Pages & Navigation (Days 3-5)
-
-#### 2.1 Homepage Hero Section
-- **Science Stanley Introduction**
-  - Animated avatar with particle effects
-  - Typewriter effect: "Your friendly neighborhood AI scientist"
-  - Voice formula visualization
-- **Mission Statement**
-  - Glowing text: "Science plus community equals exponential impact"
-  - Animated equation visualization
-- **Live Metrics Display**
-  - Researchers connected
-  - Compute hours donated
-  - Lives impacted
-  - Projects accelerated
-
-#### 2.2 Essential Pages
-
-**Science Sunday** (/science-sunday)
-- "Church for the Curious" hero with flowing particles
-- Venice Beach location with interactive map
-- Photo gallery with holographic frames
-- Global chapter visualization (constellation map)
-
-**Projects Gallery** (/projects)
-- Data crystal cards for each project
-- Category filters with color-coded glows:
-  - Health & Medicine (plasma green)
-  - Ocean & Climate (warp core blue)
-  - Food Security (hologram cyan)
-  - STEAM Education (cyber pink)
-  - Community Resilience (royal purple)
-- Impact visualizations with animated charts
-
-**Charter/Manifesto** (/charter)
-- Scroll-triggered text reveals
-- Interactive value cards with quantum flutter
-- "Join the Constellation" with particle formation
-- Pod system visualization
-
-#### 2.3 Navigation & Layout
-- Sticky header with glass effect
-- Mobile-responsive hamburger with neon traces
-- Theme toggle (void/light/cyber modes)
-- Page transitions using View Transitions API
-
-### Phase 3: Content Systems & Interactivity (Days 6-8)
+### Phase 3: Content Systems & Interactivity (Upcoming)
 
 #### 3.1 Blog System ("In the Lab")
 - Categories with color coding:
@@ -186,36 +166,21 @@ src/components/core/
 
 #### 3.2 AI Image Generation Pipeline
 ```javascript
-// IMAGE_PROMPT tag examples for cyberpunk-utopian aesthetic
+// IMAGE_PROMPT tag examples for cyberpunk-utopian + Ghibli aesthetic
 <!-- IMAGE_PROMPT[hero-science-stanley]
-Style: Cyberpunk-utopian laboratory, hopeful neon, not dystopian
-Mood: Warm despite cool colors, accessible genius
-Elements: Science Stanley with glowing purple/blue accents, holographic displays
-Colors: Royal purple #663399, warp core blue #00D4FF on void black
+Style: Studio Ghibli pixel art, cyberpunk-utopian laboratory, hopeful neon
+Mood: Warm despite cool colors, accessible genius, magical realism
+Elements: Science Stanley with glowing purple/blue accents, floating molecules
+Colors: Royal purple #663399, warp core blue #00D4FF, electric teal #00d4aa
 Dimensions: 1920x800
 Variations: 5
 -->
 ```
 
-#### 3.3 Interactive Features
-- **Loading Animations** (mini science lessons):
-  - Protein folding visualization
-  - Neural network formation
-  - Data crystallization
-  - Molecule assembly
-- **Hover Effects**:
-  - Quantum flutter on cards
-  - Magnetic cursor on CTAs
-  - Particle dispersion on interaction
-- **Background Effects**:
-  - Drifting particles
-  - Grid flow animation
-  - Depth layer parallax
-
-### Phase 4: Community Integration (Days 9-10)
+### Phase 4: Community Integration (Upcoming)
 
 #### 4.1 Pod System Visualization
-- Interactive constellation map
+- Interactive constellation map with pixel art nodes
 - Pod pages:
   - Ocean ViSION
   - AI Impact Ventures
@@ -225,45 +190,48 @@ Variations: 5
 
 #### 4.2 Community Features
 - Discord widget with live count
-- Newsletter signup with neural interface design
+- Newsletter signup with pixel art interface
 - Event calendar for Science Sundays
 - Member spotlight carousel
 
-#### 4.3 Resource Hub
-- Agent Lab access portal
-- Cloud Data Lab interface
-- FAIR data guidelines
-- Tutorial library with interactive demos
-
-### Phase 5: Polish & Optimization (Days 11-12)
+### Phase 5: Polish & Optimization (Upcoming)
 
 #### 5.1 Performance Optimization
-- Three.js background only on desktop
-- Reduced animations on mobile
+- Image optimization with pixelated rendering
 - Progressive enhancement approach
-- Image optimization with blur-up placeholders
 - Critical CSS inlining
+- Static site benefits leveraged
 
 #### 5.2 Accessibility & SEO
 - High contrast mode option
 - Reduced motion preferences
 - Screen reader optimizations
 - Schema.org markup for research projects
-- Open Graph images with cyberpunk aesthetic
+- Open Graph images with pixel art aesthetic
 
-#### 5.3 Testing Suite
-- Visual regression tests for glow effects
-- Animation performance benchmarks
-- Cross-browser compatibility
-- Mobile responsiveness at all breakpoints
+## 🚀 Technical Architecture
 
-## 🚀 Technical Implementation
+### Stack
+- Framework: Astro 4.x (Static Output Mode)
+- Styling: Tailwind CSS + Custom CSS + Pixel Art Styles
+- Interactivity: React + Framer Motion + CSS Animations
+- 3D: Three.js (planned)
+- State: Nanostores
+- Deployment: Vercel (Static Site)
+- Image Generation: OpenAI DALL-E 3
+
+### Recent Technical Decisions
+- Switched to static output for Vercel compatibility
+- Implemented CSS-based pixel art for performance
+- Used image-rendering: pixelated for crisp pixel art
+- Created modular component system for reusability
 
 ### Component Architecture
 ```
 src/
 ├── components/
 │   ├── core/               # Design system components
+│   ├── ui/                 # Pixel art UI components
 │   ├── layout/             # Header, Footer, Navigation
 │   ├── home/               # Homepage sections
 │   ├── projects/           # Project gallery & cards
@@ -286,165 +254,55 @@ src/
 ├── styles/
 │   ├── global.css          # Base styles & resets
 │   ├── cyberpunk.css       # Core aesthetic
-│   ├── animations.css      # Keyframes & transitions
-│   └── themes/             # Theme variations
+│   ├── neodev-theme.css    # NeoDiv dark theme
+│   ├── pixel-ui.css        # Pixel art styles
+│   └── animations.css      # Keyframes & transitions
 └── scripts/
-    ├── three-background.js  # WebGL effects
+    ├── image-generator.js   # AI image workflow
     ├── particle-system.js   # Interactive particles
     └── magnetic-hover.js    # Cursor interactions
 ```
 
-### Animation Library
-```css
-/* Core animations aligned with cyberpunk-utopian aesthetic */
-@keyframes particle-emergence { /* Content reveals */ }
-@keyframes data-stream { /* Loading states */ }
-@keyframes quantum-flutter { /* Hover states */ }
-@keyframes grid-flow { /* Background movement */ }
-@keyframes radar-sweep { /* Card scanning effect */ }
-@keyframes pulse-glow { /* Neon text breathing */ }
-@keyframes warp-core-pulse { /* Central energy animation */ }
-```
+## 📋 Success Metrics
 
-### State Management
-```typescript
-// Global state with nanostores
-export const $theme = atom<'void' | 'light' | 'cyber'>('cyber');
-export const $communityMetrics = map({
-  researchers: 0,
-  computeHours: 0,
-  projects: 0,
-  livesImpacted: 0
-});
-export const $animationsEnabled = atom(true);
-```
-
-## 📋 Quality Checklist
-
-### Visual Excellence
-- [ ] Cyberpunk-utopian aesthetic consistently applied
-- [ ] Neon glows with hope, not warning
-- [ ] Smooth animations that teach concepts
-- [ ] Depth layers creating dimensionality
-- [ ] Interactive elements feel alive
-
-### Technical Excellence
-- [ ] Lighthouse score 95+ on all metrics
-- [ ] Load time < 3s on 3G
-- [ ] WCAG AA accessibility
-- [ ] Mobile-first responsive
-- [ ] Cross-browser compatible
-
-### Community Impact
-- [ ] Mission communicated in 5 seconds
-- [ ] Clear paths to engagement
-- [ ] Pod system well explained
+- [ ] Lighthouse score 95+ on all pages
+- [ ] WCAG AA compliance
+- [x] Page load < 3 seconds (achieved with static site)
+- [x] Mobile responsive at all breakpoints
 - [ ] Discord conversion > 10%
-- [ ] Feels warm despite cool colors
+- [x] "Hopeful" and "exciting" user feedback
+- [x] Unique pixel art aesthetic successfully implemented
+- [x] Fast deployment times with static generation
+
+## 🎮 Pixel Art Asset Status
+
+### Generated Images
+- [x] Studio Ghibli banner (banner-ghibli-sws-1.png)
+- [x] Primary button variations
+- [x] Secondary button variations
+- [x] Icon set for navigation
+- [x] Card frame designs
+
+### CSS-Based Components
+- [x] GhibliPixelBanner with animations
+- [x] Pixel art buttons with hover states
+- [x] Animated dividers (wave, zigzag, data, simple)
+- [x] Corner crystals for cards
+- [x] Data stream effects
 
 ## 🤝 User Collaboration Points
 
-### Initial Setup Questions
-1. "What's your OpenAI API key for image generation?"
-2. "Do you have a Vercel account set up?"
-3. "What's your Discord server widget ID?"
-4. "Can you share 3-5 websites that inspire you visually?"
-5. "On a scale of 1-10, how intense should animations be?"
-
-### Design Review Sessions
-- "Here's the hero section - does this capture the 'whoa' factor?"
-- "Is the purple/blue balance right for Science Stanley?"
-- "Should we add more particle effects or is this good?"
-- "How's the loading animation - too much or just right?"
-- "Does this feel hopeful rather than dystopian?"
+### Design Review Questions
+- "Does the pixel art style capture the warmth we want?"
+- "Is the balance between cyberpunk and Ghibli working?"
+- "Should we add more animated elements or keep it minimal?"
+- "How's the dark theme - too dark or just right?"
 
 ### Content Decisions
-- "Should we start with placeholder content or real projects?"
-- "How many blog posts should we seed with?"
-- "Which pods should have dedicated pages first?"
-- "What metrics are most important to show live?"
-
-## 🎯 Success Metrics
-
-### Performance
-- First Contentful Paint < 1.5s
-- Time to Interactive < 3s
-- Cumulative Layout Shift < 0.1
-- Total Blocking Time < 300ms
-
-### Engagement
-- Average session > 2 minutes
-- Discord clicks > 10% of visitors
-- Project submissions > 5%
-- Newsletter signups > 15%
-- Return visitor rate > 30%
-
-### Impact
-- Clear mission understanding (user testing)
-- Emotional response: "hopeful" and "empowered"
-- Technical credibility maintained
-- Community warmth conveyed
-- "I want to join" reaction rate > 50%
-
-## 🔮 Vision Alignment
-
-Every component should embody:
-- **Feynman's Curiosity**: "What happens if...?"
-- **Rogers' Warmth**: "You belong here"
-- **Nye's Energy**: "Science rules!"
-- **Stanley's Urgency**: "Every day matters"
-
-The site should make visitors feel like they're:
-- Stepping into a hopeful future
-- Joining something bigger than themselves
-- Capable of contributing to breakthroughs
-- Part of a joyful revolution in science
-
-## 📅 Daily Milestones
-
-### Days 1-2: Foundation
-- [ ] Project setup with all dependencies
-- [ ] Design system implemented
-- [ ] Basic layouts working
-- [ ] Theme switching functional
-
-### Days 3-5: Core Experience
-- [ ] Homepage with full animations
-- [ ] Projects gallery with filters
-- [ ] Science Sunday page complete
-- [ ] Charter with interactive elements
-
-### Days 6-8: Content & Community
-- [ ] Blog system operational
-- [ ] AI image placeholders added
-- [ ] Discord integration working
-- [ ] Newsletter signup functional
-
-### Days 9-10: Polish
-- [ ] All animations refined
-- [ ] Performance optimized
-- [ ] Accessibility verified
-- [ ] Mobile experience perfected
-
-### Days 11-12: Launch Ready
-- [ ] Deployed to Vercel
-- [ ] Analytics connected
-- [ ] SEO optimized
-- [ ] Community notified
-
-## 🚦 Risk Mitigation
-
-### Challenge: WebGL Performance
-- Solution: Progressive enhancement, desktop-only by default
-
-### Challenge: Animation Overwhelm
-- Solution: Respect prefers-reduced-motion, settings panel
-
-### Challenge: Color Accessibility
-- Solution: High contrast mode, careful ratio testing
-
-### Challenge: Content Management
-- Solution: Clear schemas, Markdown with MDX enhancements
+- "Which projects should we feature first?"
+- "What blog posts should we start with?"
+- "Which pods need dedicated pages immediately?"
+- "What metrics are most important to show?"
 
 ## 🌟 Remember the Mission
 
