@@ -5,19 +5,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Core Cyberpunk-Utopian Palette
-        'void-black': '#000000',
-        'royal-purple': '#663399',
-        'warp-core-blue': '#00D4FF',
-        'cyber-pink': '#FF00FF',
-        'plasma-green': '#00FF88',
-        'hologram-cyan': '#00FFFF',
+        // Using CSS variables for dynamic theming
+        'primary': 'var(--color-primary)',
+        'primary-hover': 'var(--color-primary-hover)',
+        'secondary': 'var(--color-secondary)',
+        'secondary-hover': 'var(--color-secondary-hover)',
+        'accent-pink': 'var(--color-accent-pink)',
+        'accent-green': 'var(--color-accent-green)',
+        'accent-cyan': 'var(--color-accent-cyan)',
+        'background': 'var(--color-background)',
+        'surface': 'var(--color-surface)',
+        'surface-elevated': 'var(--color-surface-elevated)',
+        'border': 'var(--color-border)',
+        'border-hover': 'var(--color-border-hover)',
+        'text': {
+          DEFAULT: 'var(--color-text)',
+          'secondary': 'var(--color-text-secondary)',
+          'tertiary': 'var(--color-text-tertiary)',
+        },
+        // Legacy mappings
+        'void-black': 'var(--color-background)',
+        'royal-purple': 'var(--color-primary)',
+        'warp-core-blue': 'var(--color-secondary)',
+        'cyber-pink': 'var(--color-accent-pink)',
+        'plasma-green': 'var(--color-accent-green)',
+        'hologram-cyan': 'var(--color-accent-cyan)',
       },
       fontFamily: {
-        'display': ['Orbitron', 'Exo 2', 'sans-serif'],
-        'body': ['Inter', 'Roboto', 'sans-serif'],
+        'display': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
+        'body': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
         'mono': ['Fira Code', 'JetBrains Mono', 'monospace'],
-        'accent': ['Audiowide', 'Syncopate', 'sans-serif'],
+        'accent': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'neural-gradient': 'linear-gradient(135deg, #663399 0%, #00D4FF 100%)',

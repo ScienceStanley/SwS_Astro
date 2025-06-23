@@ -32,17 +32,16 @@
     pointer-events: none;
   }
 
-  /* Animated Grid */
+  /* Subtle Grid */
   .grid-layer {
     position: absolute;
     inset: 0;
     background-image: 
-      linear-gradient(rgba(102, 51, 153, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(102, 51, 153, 0.1) 1px, transparent 1px),
-      linear-gradient(rgba(0, 212, 255, 0.05) 2px, transparent 2px),
-      linear-gradient(90deg, rgba(0, 212, 255, 0.05) 2px, transparent 2px);
-    background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
-    animation: grid-slide 40s linear infinite;
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.5;
+    animation: grid-slide 120s linear infinite;
   }
 
   @keyframes grid-slide {
@@ -66,29 +65,29 @@
   .orb-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle at center, rgba(102, 51, 153, 0.4) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(164, 118, 255, 0.05) 0%, transparent 70%);
     top: -200px;
     left: -200px;
-    animation: orb-float-1 30s ease-in-out infinite;
+    animation: orb-float-1 90s ease-in-out infinite;
   }
 
   .orb-2 {
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(169, 255, 91, 0.03) 0%, transparent 70%);
     bottom: -300px;
     right: -300px;
-    animation: orb-float-2 35s ease-in-out infinite;
+    animation: orb-float-2 100s ease-in-out infinite;
   }
 
   .orb-3 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle at center, rgba(255, 0, 255, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(164, 118, 255, 0.04) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: orb-float-3 25s ease-in-out infinite;
+    animation: orb-float-3 80s ease-in-out infinite;
   }
 
   @keyframes orb-float-1 {
@@ -128,15 +127,15 @@
   .particle-layer {
     position: absolute;
     inset: 0;
-    opacity: 0.7;
+    opacity: 0.3;
   }
 
   /* Noise Texture */
   .noise-layer {
     position: absolute;
     inset: 0;
-    opacity: 0.02;
-    mix-blend-mode: multiply;
+    opacity: 0.01;
+    mix-blend-mode: overlay;
   }
 
   .noise-layer::before {
@@ -223,11 +222,11 @@
         this.particles.push({
           x: Math.random() * this.canvas.width,
           y: Math.random() * this.canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1,
-          color: Math.random() > 0.5 ? '#663399' : '#00D4FF',
-          alpha: Math.random() * 0.5 + 0.2
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 1.5 + 0.5,
+          color: Math.random() > 0.5 ? '#a476ff' : '#A9FF5B',
+          alpha: Math.random() * 0.2 + 0.05
         });
       }
 
@@ -285,8 +284,8 @@
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           if (distance < 80) {
-            this.ctx.globalAlpha = (80 - distance) / 80 * 0.2;
-            this.ctx.strokeStyle = '#663399';
+            this.ctx.globalAlpha = (80 - distance) / 80 * 0.1;
+            this.ctx.strokeStyle = '#a476ff';
             this.ctx.lineWidth = 1;
             this.ctx.beginPath();
             this.ctx.moveTo(p1.x, p1.y);

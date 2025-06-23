@@ -1,0 +1,109 @@
+/* Refined Cyberpunk Theme - Professional & Subtle */
+
+:root {
+  /* Core Palette - More muted and professional */
+  --color-background: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-elevated: #1a1a1a;
+  --color-border: #262626;
+  --color-border-hover: #404040;
+  
+  /* Primary Colors - Subtle purple and blue */
+  --color-primary: #8b5cf6;        /* Softer purple */
+  --color-primary-hover: #7c3aed;
+  --color-primary-muted: rgba(139, 92, 246, 0.1);
+  
+  --color-secondary: #3b82f6;      /* Softer blue */
+  --color-secondary-hover: #2563eb;
+  --color-secondary-muted: rgba(59, 130, 246, 0.1);
+  
+  /* Accent Colors - Much more subtle */
+  --color-accent-pink: #ec4899;
+  --color-accent-green: #10b981;
+  --color-accent-cyan: #06b6d4;
+  
+  /* Text Hierarchy */
+  --color-text: #f3f4f6;
+  --color-text-secondary: #9ca3af;
+  --color-text-tertiary: #6b7280;
+  --color-text-inverse: #0a0a0a;
+  
+  /* Subtle Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  --gradient-surface: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-elevated) 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+  
+  /* Shadows - Subtle depth */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  
+  /* Glows - Much more subtle */
+  --glow-primary: 0 0 20px rgba(139, 92, 246, 0.2);
+  --glow-secondary: 0 0 20px rgba(59, 130, 246, 0.2);
+  --glow-subtle: 0 0 10px rgba(139, 92, 246, 0.1);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Z-index Scale */
+  --z-base: 0;
+  --z-elevated: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-surface-elevated: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  
+  --color-text: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-tertiary: #6b7280;
+  --color-text-inverse: #ffffff;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Refined cyber theme - subtle sci-fi feel */
+[data-theme="cyber"] {
+  --color-primary: #a78bfa;        /* Even softer purple */
+  --color-secondary: #60a5fa;      /* Even softer blue */
+  --color-surface: #0f0f0f;
+  --color-surface-elevated: #171717;
+  
+  /* Very subtle grid pattern */
+  --grid-pattern: 
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+}

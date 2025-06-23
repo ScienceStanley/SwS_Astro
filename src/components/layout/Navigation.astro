@@ -1,10 +1,10 @@
 ---
 const navItems = [
-  { label: 'Science Sunday', href: '/science-sunday', color: 'cyber-pink' },
-  { label: 'Projects', href: '/projects', color: 'warp-core-blue' },
-  { label: 'Charter', href: '/charter', color: 'royal-purple' },
-  { label: 'Blog', href: '/blog', color: 'plasma-green' },
-  { label: 'Get Involved', href: '/get-involved', color: 'hologram-cyan' },
+  { label: 'Science Sunday', href: '/science-sunday' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Charter', href: '/charter' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Get Involved', href: '/get-involved' },
 ];
 
 const { currentPath = '/' } = Astro.props;
@@ -26,8 +26,7 @@ const { currentPath = '/' } = Astro.props;
         <li>
           <a 
             href={item.href} 
-            class:list={['nav-link', `glow-${item.color}`, { active: currentPath === item.href }]}
-            data-color={item.color}
+            class:list={['nav-link', { active: currentPath === item.href }]}
           >
             <span class="link-text">{item.label}</span>
             <span class="link-underline"></span>
@@ -62,7 +61,6 @@ const { currentPath = '/' } = Astro.props;
           <a 
             href={item.href} 
             class:list={['mobile-nav-link', { active: currentPath === item.href }]}
-            data-color={item.color}
           >
             <span class="link-text">{item.label}</span>
             <div class="link-glow"></div>
@@ -85,27 +83,11 @@ const { currentPath = '/' } = Astro.props;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
-    backdrop-filter: blur(20px) saturate(200%);
-    border-bottom: 1px solid rgba(102, 51, 153, 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .navigation::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--neural-gradient);
-    opacity: 0.5;
-    animation: pulse-glow 4s ease-in-out infinite;
+    z-index: var(--z-sticky);
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all var(--transition-base);
   }
 
   .nav-container {
@@ -137,21 +119,16 @@ const { currentPath = '/' } = Astro.props;
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--singularity-gradient);
-    box-shadow: 
-      0 0 20px rgba(0, 212, 255, 0.5),
-      inset 0 0 20px rgba(102, 51, 153, 0.5);
-    animation: warp-core-pulse 2s ease-in-out infinite;
+    background: var(--color-primary);
+    box-shadow: var(--glow-subtle);
   }
 
   .logo-text {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 900;
-    background: var(--neural-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(102, 51, 153, 0.5));
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
   }
 
   /* Desktop Navigation */
@@ -201,15 +178,16 @@ const { currentPath = '/' } = Astro.props;
     transform: scaleX(1);
   }
 
-  /* Color-specific glows */
-  .glow-cyber-pink:hover { color: var(--cyber-pink); filter: drop-shadow(0 0 10px var(--cyber-pink)); }
-  .glow-warp-core-blue:hover { color: var(--warp-core-blue); filter: drop-shadow(0 0 10px var(--warp-core-blue)); }
-  .glow-royal-purple:hover { color: var(--royal-purple); filter: drop-shadow(0 0 10px var(--royal-purple)); }
-  .glow-plasma-green:hover { color: var(--plasma-green); filter: drop-shadow(0 0 10px var(--plasma-green)); }
-  .glow-hologram-cyan:hover { color: var(--hologram-cyan); filter: drop-shadow(0 0 10px var(--hologram-cyan)); }
+  /* Subtle hover effects */
+  .nav-link:hover { 
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(164, 118, 255, 0.5);
+  }
 
   .nav-link.active {
-    color: var(--warp-core-blue);
+    color: var(--color-primary);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(164, 118, 255, 0.3);
   }
 
   /* CTA Button */
@@ -251,9 +229,8 @@ const { currentPath = '/' } = Astro.props;
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--warp-core-blue);
+    background: var(--color-text-secondary);
     transition: all 0.3s var(--spring-bounce);
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
   }
 
   .toggle-lines span:nth-child(1) { top: 0; }
@@ -279,8 +256,8 @@ const { currentPath = '/' } = Astro.props;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.98);
-    backdrop-filter: blur(20px);
+    background: rgba(16, 16, 16, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
     transform: translateX(100%);
     transition: transform 0.3s var(--spring-bounce);
     overflow-y: auto;
@@ -313,13 +290,13 @@ const { currentPath = '/' } = Astro.props;
   }
 
   .mobile-nav-link.active {
-    color: var(--warp-core-blue);
+    color: var(--color-primary);
   }
 
   .link-glow {
     position: absolute;
     inset: 0;
-    background: var(--neural-gradient);
+    background: var(--gradient-subtle);
     opacity: 0;
     filter: blur(20px);
     transition: opacity 0.3s ease;
@@ -328,13 +305,14 @@ const { currentPath = '/' } = Astro.props;
 
   .mobile-nav-link:hover .link-glow,
   .mobile-discord-link:hover .link-glow {
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
   /* Scroll behavior */
   .navigation.scrolled {
-    background: rgba(0, 0, 0, 0.98);
-    box-shadow: 0 4px 30px rgba(102, 51, 153, 0.3);
+    background: rgba(16, 16, 16, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: var(--shadow-md);
   }
 </style>
 

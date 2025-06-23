@@ -1,0 +1,151 @@
+/* Gothsec-inspired Dark Theme - Elegant Technical Minimalism */
+
+:root {
+  /* Core Palette - Based on Gothsec Portfolio */
+  --color-background: #101010;
+  --color-surface: #141414;
+  --color-surface-elevated: #1a1a1a;
+  --color-component-bg: #1414149c;
+  --color-border: #ffffff10;
+  --color-border-hover: #ffffff20;
+  
+  /* Primary Colors - Purple accent with green highlight */
+  --color-primary: #a476ff;        /* Gothsec purple */
+  --color-primary-hover: #b590ff;
+  --color-primary-muted: rgba(164, 118, 255, 0.1);
+  
+  --color-secondary: #A9FF5B;      /* Bright green accent */
+  --color-secondary-hover: #b8ff7a;
+  --color-secondary-muted: rgba(169, 255, 91, 0.1);
+  
+  /* Text Hierarchy - Based on Gothsec */
+  --color-text: #dfdfdf;
+  --color-text-secondary: #f3f3f398;
+  --color-text-tertiary: #f3f3f360;
+  --color-text-icon: #f3f3f398;
+  --color-text-icon-transparent: #f3f3f310;
+  --color-text-inverse: #101010;
+  
+  /* Glassmorphism & Effects */
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --backdrop-blur: blur(10px);
+  
+  /* Gradients - Subtle and elegant */
+  --gradient-primary: linear-gradient(135deg, #a476ff 0%, #8856df 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(26, 26, 26, 0.6) 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(164, 118, 255, 0.05) 0%, rgba(169, 255, 91, 0.02) 100%);
+  --gradient-accent: linear-gradient(135deg, #a476ff 0%, #A9FF5B 100%);
+  
+  /* Shadows - Subtle with color tints */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(164, 118, 255, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(164, 118, 255, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(164, 118, 255, 0.15);
+  
+  /* Glows - More pronounced than before */
+  --glow-primary: 0 0 30px rgba(164, 118, 255, 0.4);
+  --glow-secondary: 0 0 30px rgba(169, 255, 91, 0.3);
+  --glow-subtle: 0 0 15px rgba(164, 118, 255, 0.2);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Z-index Scale */
+  --z-base: 0;
+  --z-elevated: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+}
+
+/* Glassmorphism utility classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-surface {
+  background: var(--component-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border);
+}
+
+/* Enhanced glow effects */
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--glow-secondary);
+}
+
+/* Text glow effects */
+.text-glow-primary {
+  text-shadow: 0 0 20px rgba(164, 118, 255, 0.5);
+}
+
+.text-glow-secondary {
+  text-shadow: 0 0 20px rgba(169, 255, 91, 0.5);
+}
+
+/* Hover states with glows */
+.hover-glow:hover {
+  box-shadow: var(--glow-primary);
+  transition: box-shadow var(--transition-base);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Selection styles */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
+  text-shadow: none;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
