@@ -58,6 +58,44 @@ const currentPath = Astro.url.pathname;
     <!-- View Transitions -->
     <ViewTransitions />
     
+    <!-- Page Transition Styles -->
+    <style>
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.3s;
+      }
+      
+      ::view-transition-old(root) {
+        animation-name: fade-and-scale-out;
+      }
+      
+      ::view-transition-new(root) {
+        animation-name: fade-and-scale-in;
+      }
+      
+      @keyframes fade-and-scale-out {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+      }
+      
+      @keyframes fade-and-scale-in {
+        from {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+    
     <!-- Critical CSS for immediate render -->
     <style is:inline>
       body {
@@ -66,44 +104,10 @@ const currentPath = Astro.url.pathname;
         color: white;
         font-family: system-ui, -apple-system, sans-serif;
       }
-      
-      .loading-screen {
-        position: fixed;
-        inset: 0;
-        background: #000000;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.5s ease-out;
-      }
-      
-      .loading-screen.fade-out {
-        opacity: 0;
-        pointer-events: none;
-      }
-      
-      .warp-core-loader {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: radial-gradient(circle at center, #00D4FF 0%, #663399 50%, transparent 70%);
-        animation: warp-core-pulse 2s ease-in-out infinite;
-      }
-      
-      @keyframes warp-core-pulse {
-        0%, 100% { transform: scale(1); opacity: 0.8; }
-        50% { transform: scale(1.2); opacity: 1; }
-      }
     </style>
   </head>
   
   <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-      <div class="warp-core-loader"></div>
-    </div>
-    
     <!-- Advanced Background System -->
     <AdvancedBackground />
     
@@ -124,20 +128,7 @@ const currentPath = Astro.url.pathname;
       const theme = localStorage.getItem('sws-theme') || 'cyber';
       document.documentElement.setAttribute('data-theme', theme);
       
-      // Remove loading screen
-      function removeLoadingScreen() {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-          loadingScreen.classList.add('fade-out');
-          setTimeout(() => loadingScreen.remove(), 500);
-        }
-      }
-      
-      // Remove on initial load
-      window.addEventListener('load', removeLoadingScreen);
-      
-      // Remove immediately on subsequent navigation
-      removeLoadingScreen();
+      // Page is ready - no loading screen needed with View Transitions
       
       // Listen for theme changes
       window.addEventListener('theme-change', (e) => {
