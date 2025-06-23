@@ -102,43 +102,9 @@ const sampleProjects = [
         every field of science.
       </p>
       
-      <div class="stats-row">
-        <div class="stat-item">
-          <div class="stat-value" data-count="42">0</div>
-          <div class="stat-label">Active Projects</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" data-count="128K">0</div>
-          <div class="stat-label">Compute Hours</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" data-count="3.2K">0</div>
-          <div class="stat-label">Collaborators</div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Filter Section -->
-  <section class="filter-section">
-    <div class="container">
-      <div class="filter-wrapper">
-        <div class="filter-label">Filter by Category:</div>
-        <div class="filter-buttons" data-filter-buttons>
-          {categories.map(cat => (
-            <button 
-              class={`filter-button ${cat.id === 'all' ? 'active' : ''}`}
-              data-category={cat.id}
-              data-color={cat.color}
-            >
-              <span class="button-text">{cat.label}</span>
-              <div class="button-glow"></div>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Projects Grid -->
   <section class="projects-section">
@@ -258,6 +224,7 @@ const sampleProjects = [
     position: relative;
     padding: 8rem 0 4rem;
     overflow: hidden;
+    background: var(--color-background);
   }
 
   .hero-bg {
@@ -273,8 +240,8 @@ const sampleProjects = [
       90deg,
       transparent,
       transparent 100px,
-      rgba(0, 212, 255, 0.03) 100px,
-      rgba(0, 212, 255, 0.03) 101px
+      rgba(164, 118, 255, 0.02) 100px,
+      rgba(164, 118, 255, 0.02) 101px
     );
     animation: data-stream 10s linear infinite;
   }
@@ -283,9 +250,9 @@ const sampleProjects = [
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 20% 80%, rgba(102, 51, 153, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(255, 0, 255, 0.2) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, rgba(164, 118, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(169, 255, 91, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(164, 118, 255, 0.05) 0%, transparent 50%);
   }
 
   .hero-content {
@@ -301,16 +268,15 @@ const sampleProjects = [
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 900;
     margin-bottom: 0.5rem;
-    background: var(--neural-gradient);
+    background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
-    animation: pulse-glow 4s ease-in-out infinite;
+    text-shadow: none;
   }
 
   .hero-subtitle {
     font-size: 1.5rem;
-    color: var(--warp-core-blue);
+    color: var(--color-primary);
     margin-bottom: 1rem;
     font-weight: 300;
     letter-spacing: 0.1em;
@@ -318,7 +284,7 @@ const sampleProjects = [
 
   .hero-description {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto 3rem;
     line-height: 1.6;
@@ -429,6 +395,8 @@ const sampleProjects = [
   /* Projects Grid */
   .projects-section {
     padding: 4rem 0;
+    background: var(--color-background);
+    min-height: 100vh;
   }
 
   .projects-grid {
@@ -439,20 +407,20 @@ const sampleProjects = [
 
   /* Project Card */
   .project-card {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(102, 51, 153, 0.3);
+    background: var(--component-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
   }
 
   .project-card:hover {
     transform: translateY(-4px);
-    border-color: var(--warp-core-blue);
-    box-shadow: 
-      0 20px 40px rgba(0, 212, 255, 0.2),
-      inset 0 0 30px rgba(102, 51, 153, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: var(--glow-subtle);
   }
 
   .card-header {
@@ -460,24 +428,23 @@ const sampleProjects = [
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid rgba(102, 51, 153, 0.2);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .status-indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: var(--plasma-green);
-    box-shadow: 0 0 10px currentColor;
-    animation: pulse-glow 2s ease-in-out infinite;
+    background: var(--color-secondary);
+    box-shadow: 0 0 8px currentColor;
   }
 
   .status-indicator[data-status="planning"] {
-    background: var(--hologram-cyan);
+    background: var(--color-text-tertiary);
   }
 
   .status-indicator[data-status="completed"] {
-    background: var(--royal-purple);
+    background: var(--color-primary);
   }
 
   .category-badge {
@@ -485,26 +452,27 @@ const sampleProjects = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.25rem 0.75rem;
-    background: rgba(102, 51, 153, 0.2);
+    background: rgba(164, 118, 255, 0.1);
     border-radius: 20px;
-    color: var(--warp-core-blue);
+    color: var(--color-primary);
+    font-weight: 600;
   }
 
   .category-badge[data-category="health"] { 
-    background: rgba(0, 255, 136, 0.2); 
-    color: var(--plasma-green);
+    background: rgba(169, 255, 91, 0.1); 
+    color: var(--color-secondary);
   }
   .category-badge[data-category="climate"] { 
-    background: rgba(0, 212, 255, 0.2); 
-    color: var(--warp-core-blue);
+    background: rgba(164, 118, 255, 0.1); 
+    color: var(--color-primary);
   }
   .category-badge[data-category="food"] { 
-    background: rgba(0, 255, 255, 0.2); 
-    color: var(--hologram-cyan);
+    background: rgba(169, 255, 91, 0.1); 
+    color: var(--color-secondary);
   }
   .category-badge[data-category="education"] { 
-    background: rgba(255, 0, 255, 0.2); 
-    color: var(--cyber-pink);
+    background: rgba(164, 118, 255, 0.1); 
+    color: var(--color-primary);
   }
 
   .card-image {
@@ -516,7 +484,7 @@ const sampleProjects = [
   .image-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(102, 51, 153, 0.2), rgba(0, 212, 255, 0.1));
+    background: linear-gradient(135deg, rgba(164, 118, 255, 0.05), rgba(169, 255, 91, 0.02));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -526,8 +494,8 @@ const sampleProjects = [
     width: 80%;
     height: 80%;
     background: 
-      radial-gradient(circle at 30% 30%, var(--warp-core-blue) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, var(--royal-purple) 0%, transparent 50%);
+      radial-gradient(circle at 30% 30%, var(--color-secondary) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, var(--color-primary) 0%, transparent 50%);
     filter: blur(20px);
     opacity: 0.5;
     animation: pulse-glow 4s ease-in-out infinite;
@@ -542,11 +510,11 @@ const sampleProjects = [
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: var(--color-text);
   }
 
   .project-description {
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: 1rem;
   }
@@ -556,8 +524,8 @@ const sampleProjects = [
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.3);
+    background: rgba(164, 118, 255, 0.1);
+    border: 1px solid var(--color-border);
     border-radius: 20px;
     margin-bottom: 1rem;
   }
@@ -568,7 +536,7 @@ const sampleProjects = [
 
   .impact-text {
     font-size: 0.875rem;
-    color: var(--warp-core-blue);
+    color: var(--color-primary);
     font-weight: 500;
   }
 
@@ -600,7 +568,7 @@ const sampleProjects = [
     display: flex;
     gap: 1rem;
     padding: 1.5rem;
-    border-top: 1px solid rgba(102, 51, 153, 0.2);
+    border-top: 1px solid var(--color-border);
   }
 
   .action-button {
@@ -609,7 +577,7 @@ const sampleProjects = [
     text-align: center;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     border: none;
     cursor: pointer;
     position: relative;
@@ -617,22 +585,34 @@ const sampleProjects = [
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    border-radius: var(--radius-md);
   }
 
   .action-button.primary {
-    background: var(--neural-gradient);
-    color: var(--text-primary);
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
   }
 
   .action-button.secondary {
     background: transparent;
-    color: var(--text-secondary);
-    border: 1px solid rgba(102, 51, 153, 0.5);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
   }
 
   .action-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+  }
+  
+  .action-button.primary:hover {
+    background: var(--color-primary);
+    color: var(--color-background);
+    box-shadow: var(--glow-subtle);
+  }
+  
+  .action-button.secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   .action-button .arrow {
@@ -660,17 +640,17 @@ const sampleProjects = [
   .empty-state h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
   }
 
   .empty-state p {
-    color: var(--text-tertiary);
+    color: var(--color-text-tertiary);
   }
 
   /* CTA Section */
   .cta-section {
     padding: 5rem 0;
-    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.1) 0%, transparent 70%);
+    background: var(--color-background);
   }
 
   .cta-card {
@@ -691,14 +671,13 @@ const sampleProjects = [
     font-family: var(--font-display);
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: var(--neural-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-primary);
+    text-shadow: 0 0 20px rgba(164, 118, 255, 0.3);
   }
 
   .cta-description {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     margin-bottom: 2rem;
     line-height: 1.6;
   }
@@ -723,8 +702,8 @@ const sampleProjects = [
 
   .warp-core-mini {
     border-radius: 50%;
-    background: var(--singularity-gradient);
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    background: var(--color-primary);
+    box-shadow: var(--glow-subtle);
     animation: warp-core-pulse 2s ease-in-out infinite;
   }
 
@@ -740,15 +719,15 @@ const sampleProjects = [
     background: conic-gradient(
       from 0deg,
       transparent,
-      var(--warp-core-blue),
+      var(--color-secondary),
       transparent,
-      var(--royal-purple),
+      var(--color-primary),
       transparent
     );
     border-radius: 50%;
     animation: rotate-slow 20s linear infinite;
     filter: blur(10px);
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   @keyframes rotate-slow {
@@ -783,79 +762,6 @@ const sampleProjects = [
 </style>
 
 <script>
-  // Animated counter
-  function animateCounter(element: HTMLElement, target: string) {
-    const duration = 2000;
-    const start = 0;
-    const end = target.includes('K') ? parseFloat(target) * 1000 : parseInt(target);
-    const isK = target.includes('K');
-    const startTime = performance.now();
-    
-    function update(currentTime: number) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const current = Math.floor(start + (end - start) * progress);
-      
-      if (isK) {
-        element.textContent = (current / 1000).toFixed(1) + 'K';
-      } else {
-        element.textContent = current.toString();
-      }
-      
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      }
-    }
-    
-    requestAnimationFrame(update);
-  }
-  
-  // Animate counters on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('[data-count]');
-    counters.forEach(counter => {
-      const target = counter.getAttribute('data-count') || '0';
-      animateCounter(counter as HTMLElement, target);
-    });
-  });
-  
-  // Project filtering
-  const filterButtons = document.querySelectorAll('[data-filter-buttons] button');
-  const projectCards = document.querySelectorAll('[data-projects-grid] .project-card');
-  const emptyState = document.querySelector('[data-empty-state]') as HTMLElement;
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active state
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      // Get selected category
-      const category = button.getAttribute('data-category');
-      
-      // Filter projects
-      let visibleCount = 0;
-      projectCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        
-        if (category === 'all' || cardCategory === category) {
-          card.classList.remove('hidden');
-          // Add stagger animation
-          setTimeout(() => {
-            card.style.animation = 'particle-emergence 0.5s ease-out';
-          }, visibleCount * 50);
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-      
-      // Show/hide empty state
-      if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-      }
-    });
-  });
   
   // Parallax effect on project cards
   const projectsGrid = document.querySelector('[data-projects-grid]');
