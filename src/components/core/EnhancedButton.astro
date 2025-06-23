@@ -1,0 +1,307 @@
+---
+export interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'glow';
+  size?: 'small' | 'medium' | 'large';
+  icon?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  size = 'medium', 
+  icon = false,
+  disabled = false,
+  class: className = ''
+} = Astro.props;
+
+const Component = href ? 'a' : 'button';
+---
+
+<Component 
+  href={href}
+  class:list={[
+    'enhanced-button',
+    `variant-${variant}`,
+    `size-${size}`,
+    { 'with-icon': icon, 'disabled': disabled },
+    className
+  ]}
+  disabled={disabled}
+  data-magnetic
+>
+  <span class="button-bg"></span>
+  <span class="button-content">
+    <slot />
+  </span>
+  <span class="button-glow"></span>
+  <span class="button-shine"></span>
+</Component>
+
+<style>
+  .enhanced-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Disabled state */
+  .enhanced-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Sizes */
+  .size-small {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .size-medium {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .size-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+  }
+
+  /* Background layer */
+  .button-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* Content layer */
+  .button-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Glow effect */
+  .button-glow {
+    position: absolute;
+    inset: -2px;
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: blur(12px);
+  }
+
+  /* Shine effect */
+  .button-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    z-index: 2;
+    transition: left 0.5s ease;
+  }
+
+  /* Primary variant */
+  .variant-primary .button-bg {
+    background: var(--neural-gradient);
+  }
+
+  .variant-primary {
+    color: white;
+  }
+
+  .variant-primary .button-glow {
+    background: var(--neural-gradient);
+  }
+
+  .variant-primary:hover {
+    transform: translateY(-2px) rotateX(-10deg);
+    box-shadow: 
+      0 10px 30px rgba(102, 51, 153, 0.4),
+      0 20px 60px rgba(0, 212, 255, 0.2);
+  }
+
+  .variant-primary:hover .button-glow {
+    opacity: 0.6;
+  }
+
+  .variant-primary:hover .button-shine {
+    left: 100%;
+  }
+
+  .variant-primary:active {
+    transform: translateY(0) rotateX(0);
+  }
+
+  /* Secondary variant */
+  .variant-secondary {
+    color: var(--warp-core-blue);
+    background: transparent;
+    border: 2px solid currentColor;
+  }
+
+  .variant-secondary .button-bg {
+    background: transparent;
+    border: 2px solid var(--warp-core-blue);
+  }
+
+  .variant-secondary .button-glow {
+    background: var(--warp-core-blue);
+  }
+
+  .variant-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--warp-core-blue);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .variant-secondary:hover {
+    color: var(--void-black);
+    transform: translateY(-2px);
+    border-color: transparent;
+  }
+
+  .variant-secondary:hover::before {
+    transform: scaleX(1);
+  }
+
+  .variant-secondary:hover .button-glow {
+    opacity: 0.4;
+  }
+
+  /* Ghost variant */
+  .variant-ghost {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .variant-ghost .button-bg {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .variant-ghost:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Glow variant */
+  .variant-glow {
+    color: var(--text-primary);
+    background: rgba(102, 51, 153, 0.2);
+    border: 1px solid var(--royal-purple);
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .variant-glow .button-bg {
+    background: linear-gradient(
+      45deg,
+      rgba(102, 51, 153, 0.3),
+      rgba(0, 212, 255, 0.3)
+    );
+  }
+
+  .variant-glow .button-glow {
+    background: var(--neural-gradient);
+    opacity: 0.5;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(102, 51, 153, 0.5),
+        inset 0 0 20px rgba(0, 212, 255, 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 0 40px rgba(102, 51, 153, 0.8),
+        inset 0 0 30px rgba(0, 212, 255, 0.2);
+    }
+  }
+
+  .variant-glow:hover {
+    animation-duration: 0.5s;
+    transform: scale(1.05);
+  }
+
+  .variant-glow:hover .button-glow {
+    opacity: 0.8;
+  }
+
+  /* With icon adjustment */
+  .with-icon .button-content {
+    padding-right: 0.25rem;
+  }
+
+  /* Magnetic effect (handled by JS) */
+  .enhanced-button[data-magnetic] {
+    transition: transform 0.2s ease-out;
+  }
+
+  /* Focus styles */
+  .enhanced-button:focus-visible {
+    outline: 2px solid var(--warp-core-blue);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  // Magnetic hover effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const magneticButtons = document.querySelectorAll('[data-magnetic]');
+    
+    magneticButtons.forEach(button => {
+      button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const distance = Math.sqrt(x * x + y * y);
+        const maxDistance = Math.max(rect.width, rect.height) / 2;
+        const force = Math.min(distance / maxDistance, 1);
+        
+        button.style.transform = `
+          translate(${x * 0.2 * force}px, ${y * 0.2 * force}px)
+          rotateX(${-y * 0.3 * force}deg)
+          rotateY(${x * 0.3 * force}deg)
+        `;
+      });
+
+      button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translate(0, 0) rotateX(0) rotateY(0)';
+      });
+    });
+  });
+</script>

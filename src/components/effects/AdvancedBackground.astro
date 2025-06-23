@@ -1,0 +1,310 @@
+---
+// Advanced background with multiple animated layers
+---
+
+<div class="advanced-background" aria-hidden="true">
+  <!-- Layer 1: Animated Grid -->
+  <div class="grid-layer"></div>
+  
+  <!-- Layer 2: Gradient Orbs -->
+  <div class="orb-layer">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  
+  <!-- Layer 3: Floating Particles -->
+  <canvas id="particle-canvas" class="particle-layer"></canvas>
+  
+  <!-- Layer 4: Noise Texture -->
+  <div class="noise-layer"></div>
+  
+  <!-- Layer 5: Scan Lines -->
+  <div class="scanlines"></div>
+</div>
+
+<style>
+  .advanced-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Animated Grid */
+  .grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(102, 51, 153, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(102, 51, 153, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(0, 212, 255, 0.05) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.05) 2px, transparent 2px);
+    background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
+    animation: grid-slide 40s linear infinite;
+  }
+
+  @keyframes grid-slide {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+
+  /* Gradient Orbs */
+  .orb-layer {
+    position: absolute;
+    inset: 0;
+    filter: blur(40px);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle at center, rgba(102, 51, 153, 0.4) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    animation: orb-float-1 30s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+    bottom: -300px;
+    right: -300px;
+    animation: orb-float-2 35s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at center, rgba(255, 0, 255, 0.3) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orb-float-3 25s ease-in-out infinite;
+  }
+
+  @keyframes orb-float-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(100px, 50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-50px, 100px) scale(0.9);
+    }
+  }
+
+  @keyframes orb-float-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(-100px, -100px) scale(0.9);
+    }
+    66% {
+      transform: translate(50px, -50px) scale(1.1);
+    }
+  }
+
+  @keyframes orb-float-3 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+    }
+  }
+
+  /* Particle Canvas */
+  .particle-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0.7;
+  }
+
+  /* Noise Texture */
+  .noise-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    mix-blend-mode: multiply;
+  }
+
+  .noise-layer::before {
+    content: '';
+    position: absolute;
+    inset: -100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: noise-shift 8s steps(10) infinite;
+  }
+
+  @keyframes noise-shift {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+    100% { transform: translate(5%, 0); }
+  }
+
+  /* Scan Lines */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.01) 2px,
+      rgba(255, 255, 255, 0.01) 4px
+    );
+    animation: scanline-move 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scanline-move {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .orb-1 { width: 400px; height: 400px; }
+    .orb-2 { width: 500px; height: 500px; }
+    .orb-3 { width: 300px; height: 300px; }
+  }
+
+  /* Performance mode */
+  @media (prefers-reduced-motion: reduce) {
+    .grid-layer,
+    .orb,
+    .noise-layer::before,
+    .scanlines {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Interactive particle system
+  class ParticleSystem {
+    constructor(canvas) {
+      this.canvas = canvas;
+      this.ctx = canvas.getContext('2d');
+      this.particles = [];
+      this.mouse = { x: 0, y: 0 };
+      this.init();
+    }
+
+    init() {
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+      window.addEventListener('mousemove', (e) => {
+        this.mouse.x = e.clientX;
+        this.mouse.y = e.clientY;
+      });
+
+      // Create particles
+      for (let i = 0; i < 100; i++) {
+        this.particles.push({
+          x: Math.random() * this.canvas.width,
+          y: Math.random() * this.canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1,
+          color: Math.random() > 0.5 ? '#663399' : '#00D4FF',
+          alpha: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      this.animate();
+    }
+
+    resize() {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+    }
+
+    animate() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      this.particles.forEach(particle => {
+        // Mouse interaction
+        const dx = this.mouse.x - particle.x;
+        const dy = this.mouse.y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 100) {
+          const force = (100 - distance) / 100;
+          particle.vx -= (dx / distance) * force * 0.02;
+          particle.vy -= (dy / distance) * force * 0.02;
+        }
+
+        // Update position
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        // Damping
+        particle.vx *= 0.99;
+        particle.vy *= 0.99;
+
+        // Boundaries
+        if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+
+        // Draw particle
+        this.ctx.globalAlpha = particle.alpha;
+        this.ctx.fillStyle = particle.color;
+        this.ctx.shadowBlur = 10;
+        this.ctx.shadowColor = particle.color;
+        this.ctx.beginPath();
+        this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.shadowBlur = 0;
+      });
+
+      // Draw connections
+      this.particles.forEach((p1, i) => {
+        this.particles.slice(i + 1).forEach(p2 => {
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 80) {
+            this.ctx.globalAlpha = (80 - distance) / 80 * 0.2;
+            this.ctx.strokeStyle = '#663399';
+            this.ctx.lineWidth = 1;
+            this.ctx.beginPath();
+            this.ctx.moveTo(p1.x, p1.y);
+            this.ctx.lineTo(p2.x, p2.y);
+            this.ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // Initialize particle system
+  document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('particle-canvas');
+    if (canvas && window.innerWidth > 768) {
+      new ParticleSystem(canvas);
+    }
+  });
+</script>

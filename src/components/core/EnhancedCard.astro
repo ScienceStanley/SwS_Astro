@@ -1,0 +1,349 @@
+---
+export interface Props {
+  variant?: 'default' | 'glass' | 'neon' | 'hologram';
+  hover?: 'lift' | 'glow' | 'tilt' | 'morph';
+  gradient?: boolean;
+  interactive?: boolean;
+  class?: string;
+}
+
+const { 
+  variant = 'default',
+  hover = 'lift',
+  gradient = false,
+  interactive = false,
+  class: className = ''
+} = Astro.props;
+---
+
+<div 
+  class:list={[
+    'enhanced-card',
+    `variant-${variant}`,
+    `hover-${hover}`,
+    { 'with-gradient': gradient, 'interactive': interactive },
+    className
+  ]}
+  data-tilt={hover === 'tilt' ? 'true' : undefined}
+>
+  <div class="card-bg"></div>
+  <div class="card-border"></div>
+  <div class="card-content">
+    <slot />
+  </div>
+  <div class="card-shine"></div>
+  {variant === 'hologram' && (
+    <div class="hologram-lines"></div>
+  )}
+</div>
+
+<style>
+  .enhanced-card {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  /* Background layer */
+  .card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Border layer */
+  .card-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(102, 51, 153, 0.5),
+      rgba(0, 212, 255, 0.5)
+    );
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+
+  /* Content layer */
+  .card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+  }
+
+  /* Shine effect */
+  .card-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg) translate(-100%, -100%);
+    transition: transform 0.6s ease;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  /* Gradient background */
+  .with-gradient .card-bg {
+    background: linear-gradient(
+      135deg,
+      rgba(102, 51, 153, 0.1),
+      rgba(0, 212, 255, 0.05)
+    );
+  }
+
+  /* Variants */
+  
+  /* Glass variant */
+  .variant-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .variant-glass .card-bg {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+  }
+
+  .variant-glass .card-border {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.1)
+    );
+  }
+
+  /* Neon variant */
+  .variant-neon {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 
+      inset 0 0 30px rgba(102, 51, 153, 0.2),
+      0 0 40px rgba(0, 212, 255, 0.1);
+  }
+
+  .variant-neon .card-border {
+    background: var(--neural-gradient);
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+
+  .variant-neon::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--neural-gradient);
+    border-radius: 12px;
+    opacity: 0;
+    filter: blur(15px);
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  /* Hologram variant */
+  .variant-hologram {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 212, 255, 0.1),
+      rgba(102, 51, 153, 0.1)
+    );
+    border: 1px solid rgba(0, 212, 255, 0.3);
+  }
+
+  .hologram-lines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 212, 255, 0.03) 2px,
+      rgba(0, 212, 255, 0.03) 4px
+    );
+    animation: hologram-scan 4s linear infinite;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  @keyframes hologram-scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+  }
+
+  .variant-hologram::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 212, 255, 0.8),
+      transparent
+    );
+    animation: scan-line 3s linear infinite;
+    z-index: 4;
+  }
+
+  @keyframes scan-line {
+    0% { 
+      left: -100%;
+      top: 0%;
+    }
+    50% {
+      left: 100%;
+      top: 100%;
+    }
+    100% {
+      left: 100%;
+      top: 100%;
+    }
+  }
+
+  /* Hover effects */
+  
+  /* Lift hover */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 40px 80px rgba(102, 51, 153, 0.2);
+  }
+
+  .hover-lift:hover .card-border {
+    opacity: 1;
+  }
+
+  .hover-lift:hover .card-shine {
+    transform: rotate(45deg) translate(100%, 100%);
+  }
+
+  /* Glow hover */
+  .hover-glow:hover {
+    transform: translateY(-4px);
+  }
+
+  .hover-glow:hover::before {
+    opacity: 0.6;
+  }
+
+  .hover-glow:hover .card-border {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  .variant-neon.hover-glow:hover {
+    box-shadow: 
+      inset 0 0 50px rgba(102, 51, 153, 0.3),
+      0 0 80px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Tilt hover (handled by JS) */
+  .hover-tilt {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Morph hover */
+  .hover-morph {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-morph:hover {
+    border-radius: 24px;
+    transform: scale(1.02);
+  }
+
+  .hover-morph:hover .card-bg {
+    transform: rotate(1deg) scale(1.1);
+  }
+
+  .hover-morph:hover .card-border {
+    opacity: 1;
+    transform: rotate(-1deg);
+  }
+
+  /* Interactive state */
+  .interactive {
+    cursor: pointer;
+  }
+
+  .interactive:active {
+    transform: scale(0.98);
+  }
+
+  /* Focus styles */
+  .interactive:focus-visible {
+    outline: 2px solid var(--warp-core-blue);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  // Tilt effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const tiltCards = document.querySelectorAll('[data-tilt]');
+    
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+        
+        card.style.transform = `
+          perspective(1000px)
+          rotateX(${-deltaY * 10}deg)
+          rotateY(${deltaX * 10}deg)
+          translateZ(20px)
+        `;
+        
+        // Move shine based on mouse position
+        const shine = card.querySelector('.card-shine');
+        if (shine) {
+          shine.style.transform = `
+            rotate(45deg)
+            translate(${deltaX * 100}%, ${deltaY * 100}%)
+          `;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        const shine = card.querySelector('.card-shine');
+        if (shine) {
+          shine.style.transform = 'rotate(45deg) translate(-100%, -100%)';
+        }
+      });
+    });
+  });
+</script>

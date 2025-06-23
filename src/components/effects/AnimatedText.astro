@@ -1,0 +1,155 @@
+---
+export interface Props {
+  text: string;
+  variant?: 'typewriter' | 'scramble' | 'fade' | 'glitch';
+  delay?: number;
+  duration?: number;
+  class?: string;
+}
+
+const { 
+  text, 
+  variant = 'typewriter',
+  delay = 0,
+  duration = 2000,
+  class: className = ''
+} = Astro.props;
+---
+
+<span 
+  class:list={[
+    'animated-text',
+    `variant-${variant}`,
+    className
+  ]}
+  data-text={text}
+  data-delay={delay}
+  data-duration={duration}
+>
+  {variant === 'glitch' ? (
+    <span class="glitch-text" data-text={text}>{text}</span>
+  ) : (
+    <span class="text-content">{text}</span>
+  )}
+</span>
+
+<style>
+  .animated-text {
+    display: inline-block;
+    position: relative;
+  }
+
+  .text-content {
+    display: inline-block;
+  }
+
+  /* Typewriter variant */
+  .variant-typewriter .text-content {
+    opacity: 0;
+    animation: typewriter-reveal var(--duration, 2s) steps(30, end) var(--delay, 0s) forwards;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--warp-core-blue);
+    animation: 
+      typewriter-reveal var(--duration, 2s) steps(30, end) var(--delay, 0s) forwards,
+      typewriter-cursor 0.8s step-end infinite;
+  }
+
+  @keyframes typewriter-reveal {
+    from { 
+      opacity: 1;
+      width: 0; 
+    }
+    to { 
+      opacity: 1;
+      width: 100%; 
+    }
+  }
+
+  @keyframes typewriter-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--warp-core-blue); }
+  }
+
+  /* Scramble variant */
+  .variant-scramble .text-content {
+    opacity: 0;
+  }
+
+  /* Fade variant */
+  .variant-fade .text-content {
+    opacity: 0;
+    animation: fade-in-up var(--duration, 1s) ease-out var(--delay, 0s) forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Scramble text effect
+  class ScrambleText {
+    constructor(element) {
+      this.element = element;
+      this.originalText = element.dataset.text;
+      this.delay = parseInt(element.dataset.delay) || 0;
+      this.duration = parseInt(element.dataset.duration) || 2000;
+      this.chars = '!<>-_\\/[]{}—=+*^?#________';
+      
+      if (element.classList.contains('variant-scramble')) {
+        setTimeout(() => this.scramble(), this.delay);
+      }
+    }
+
+    scramble() {
+      const textElement = this.element.querySelector('.text-content');
+      let iteration = 0;
+      const interval = this.duration / (this.originalText.length * 3);
+      
+      textElement.style.opacity = '1';
+      
+      const intervalId = setInterval(() => {
+        textElement.textContent = this.originalText
+          .split('')
+          .map((letter, index) => {
+            if (index < iteration) {
+              return this.originalText[index];
+            }
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+          })
+          .join('');
+        
+        if (iteration >= this.originalText.length) {
+          clearInterval(intervalId);
+        }
+        
+        iteration += 1/3;
+      }, interval);
+    }
+  }
+
+  // Initialize all animated text elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedTexts = document.querySelectorAll('.animated-text');
+    animatedTexts.forEach(element => new ScrambleText(element));
+  });
+
+  // CSS custom properties for animation timing
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedTexts = document.querySelectorAll('.animated-text');
+    animatedTexts.forEach(element => {
+      const delay = element.dataset.delay + 'ms';
+      const duration = element.dataset.duration + 'ms';
+      element.style.setProperty('--delay', delay);
+      element.style.setProperty('--duration', duration);
+    });
+  });
+</script>
