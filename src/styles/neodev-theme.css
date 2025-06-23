@@ -1,22 +1,34 @@
 /* 🚀 NeoDiv-inspired Cyberpunk Theme for Smarter with Science */
 
 :root {
-  /* NeoDiv Color Palette */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
+  /* Core NeoDiv Colors - Matching Reference */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #1a1a1a;
+  --bg-quaternary: #2a2a2a;
   
+  /* Electric Neon Accents - True NeoDiv Style */
+  --neon-cyan: #00ffff;
+  --neon-blue: #007acc;
+  --electric-teal: #00d4aa;
+  --neon-green: #39ff14;
+  --electric-blue: #0080ff;
+  
+  /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-tertiary: #666666;
+  --text-secondary: #cccccc;
+  --text-tertiary: #888888;
+  --text-muted: #555555;
   
-  --accent-blue: #00d4ff;
-  --accent-purple: #8b5cf6;
-  --accent-green: #00ff88;
+  /* Legacy Support */
+  --accent-blue: #00ffff;
+  --accent-purple: #007acc;
+  --accent-green: #00d4aa;
   --accent-pink: #ff0080;
   
-  --border-primary: #333333;
-  --border-accent: #444444;
+  /* Borders */
+  --border-primary: rgba(0, 255, 255, 0.2);
+  --border-accent: rgba(0, 212, 170, 0.3);
   
   /* Studio Ghibli Nature Accents */
   --ghibli-green: #7fb069;
@@ -25,7 +37,7 @@
   --ghibli-moss: #8fbc8f;
   
   /* Gradients */
-  --gradient-tech: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  --gradient-tech: linear-gradient(135deg, var(--neon-cyan) 0%, var(--electric-teal) 100%);
   --gradient-nature: linear-gradient(135deg, var(--ghibli-green) 0%, var(--ghibli-blue) 100%);
   --gradient-hero: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
   

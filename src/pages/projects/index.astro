@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
+import PixelDivider from '@components/ui/PixelDivider.astro';
 // import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
-// import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
 // import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
 
 const pageTitle = 'Projects - Accelerating Discovery Through Community';
@@ -108,9 +109,9 @@ const sampleProjects = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden neodev-hero">
-    <div class="hero-content text-center">
+  <!-- Hero Section with Pixel Banner -->
+  <GhibliPixelBanner variant="hero" height="80vh">
+    <div class="text-center">
       <h1 class="text-6xl font-display font-bold mb-6 text-gradient">
         Projects Gallery
       </h1>
@@ -123,10 +124,10 @@ const sampleProjects = [
         every field of science.
       </p>
     </div>
-  </section>
+  </GhibliPixelBanner>
 
-  <!-- Section Divider -->
-  <div class="pixel-divider animated"></div>
+  <!-- Pixel Divider -->
+  <PixelDivider variant="zigzag" color="#00ffff" animated={true} />
 
   <!-- Projects Grid -->
   <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">

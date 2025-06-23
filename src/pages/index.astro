@@ -1,72 +1,21 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PixelButton from '@components/ui/PixelButton.astro';
-// import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
+import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
+import PixelDivider from '@components/ui/PixelDivider.astro';
 // import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
 // import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
 ---
 
 <BaseLayout>
   <main class="min-h-screen relative">
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden neodev-hero">
-      <!-- IMAGE_PROMPT[hero-banner-main]
-      Style: Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements
-      Mood: Sophisticated, hopeful, scientific breakthrough moment
-      Elements: Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections
-      Colors: Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors
-      Dimensions: 1920x1080
-      Variations: 5
-      -->
-      
-      <!-- IMAGE_PROMPT[hero-banner-science-stanley]
-      Style: Minimalist representation of an AI scientist character, elegant and approachable
-      Mood: Friendly, intelligent, trustworthy guide
-      Elements: Abstract humanoid silhouette made of flowing data streams and particles, holding a glowing molecule structure, purple gradient outline, transparent/glass-like body with visible neural pathways
-      Colors: Purple #a476ff primary, subtle green #A9FF5B accents, mostly transparent with dark background
-      Dimensions: 800x800
-      Variations: 4
-      -->
-      
-      <!-- IMAGE_PROMPT[hero-banner-community]
-      Style: Abstract visualization of global scientific collaboration
-      Mood: Connected, collaborative, unified in purpose
-      Elements: Interconnected nodes forming a constellation pattern, each node representing a researcher or project, flowing data streams between connections, Earth globe in the center with connection points glowing
-      Colors: Dark background #101010, purple #a476ff connection lines, green #A9FF5B node highlights
-      Dimensions: 1920x600
-      Variations: 3
-      -->
-      
-      <!-- IMAGE_PROMPT[hero-banner-data-flow]
-      Style: Living data visualization, organic flow of information
-      Mood: Alive, breathing, constantly evolving
-      Elements: Flowing ribbons of data that morph between DNA helixes and binary code, particle systems that form and dissolve into molecular structures, wave patterns suggesting both ocean waves and brain waves
-      Colors: Gradient flows from purple #a476ff to green #A9FF5B, dark background #101010, subtle white highlights for data particles
-      Dimensions: 1920x1080
-      Variations: 4
-      -->
-      
-      <!-- IMAGE_PROMPT[hero-banner-breakthrough]
-      Style: The moment of scientific discovery, elegant and minimal
-      Mood: Eureka moment, enlightenment, breakthrough
-      Elements: Single point of light expanding into fractal patterns, suggesting both Big Bang and neural firing, crystalline structures growing from the center, subtle equations and formulas appearing in the background
-      Colors: Central bright point in white, expanding into purple #a476ff fractals with green #A9FF5B edges, deep dark background
-      Dimensions: 1920x1080
-      Variations: 3
-      -->
-      
-      <!-- Background Effects -->
-      <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-radial from-secondary/5 via-transparent to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent" style="transform: translate(30%, 30%)"></div>
-      </div>
-      
-      <!-- Hero Content -->
-      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <!-- Hero Section with Pixel Art Banner -->
+    <GhibliPixelBanner variant="hero" height="100vh">
+      <div class="text-center px-6 max-w-5xl mx-auto">
         <!-- Science Stanley Introduction -->
         <div class="mb-8 animate-particle-emergence">
           <h1 class="text-5xl md:text-7xl font-display font-black mb-4">
-            <span class="gradient-text">Smarter with Science</span>
+            <span class="text-gradient">Smarter with Science</span>
           </h1>
           <p class="text-xl md:text-2xl text-text-secondary font-light">
             Your friendly neighborhood AI scientist here
@@ -96,20 +45,20 @@ import PixelButton from '@components/ui/PixelButton.astro';
         
         <!-- Live Metrics Preview -->
         <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-particle-emergence animation-delay-600">
-          <div class="glass p-4 rounded-lg hover-glow transition-all">
-            <div class="text-3xl font-display font-bold text-primary">1,247</div>
+          <div class="neodev-card p-4 rounded-lg">
+            <div class="text-3xl font-display font-bold text-neon-cyan">1,247</div>
             <div class="text-sm text-text-secondary">Active Researchers</div>
           </div>
-          <div class="glass p-4 rounded-lg hover-glow transition-all">
-            <div class="text-3xl font-display font-bold text-secondary">2.4M</div>
+          <div class="neodev-card p-4 rounded-lg">
+            <div class="text-3xl font-display font-bold text-electric-teal">2.4M</div>
             <div class="text-sm text-text-secondary">GPU Hours Donated</div>
           </div>
-          <div class="glass p-4 rounded-lg hover-glow transition-all">
-            <div class="text-3xl font-display font-bold text-primary">89</div>
+          <div class="neodev-card p-4 rounded-lg">
+            <div class="text-3xl font-display font-bold text-neon-cyan">89</div>
             <div class="text-sm text-text-secondary">Active Projects</div>
           </div>
-          <div class="glass p-4 rounded-lg hover-glow transition-all">
-            <div class="text-3xl font-display font-bold text-secondary">47K</div>
+          <div class="neodev-card p-4 rounded-lg">
+            <div class="text-3xl font-display font-bold text-electric-teal">47K</div>
             <div class="text-sm text-text-secondary">Lives Impacted</div>
           </div>
         </div>
@@ -117,28 +66,44 @@ import PixelButton from '@components/ui/PixelButton.astro';
       
       <!-- Scroll Indicator -->
       <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg width="30" height="50" viewBox="0 0 30 50" class="text-primary opacity-40">
+        <svg width="30" height="50" viewBox="0 0 30 50" class="text-neon-cyan opacity-40">
           <rect x="10" y="10" width="10" height="20" rx="5" stroke="currentColor" stroke-width="1" fill="none"/>
           <circle cx="15" cy="20" r="2" fill="currentColor" class="animate-data-stream"/>
         </svg>
       </div>
-    </section>
+    </GhibliPixelBanner>
+    
+    <!-- Pixel Divider -->
+    <PixelDivider variant="data" color="#00ffff" animated={true} />
     
     <!-- Code Demo Section -->
-    <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
+    <section class="py-20 px-6" style="background: linear-gradient(to bottom, #000000, #0a0a0a);">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-display text-center mb-12 text-gradient">
           How Science Gets Smarter
         </h2>
         <div class="neodev-card p-8">
-          <h3 class="text-2xl font-mono mb-4">Discovery Engine</h3>
-          <p class="text-text-secondary">Interactive code coming soon...</p>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-mono text-neon-cyan">Discovery Engine</h3>
+            <div class="flex gap-2">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+          </div>
+          <div class="bg-black p-4 rounded border border-border-primary font-mono text-sm">
+            <div class="text-text-muted">// Breakthrough discovery pipeline</div>
+            <div class="text-code-keyword">function</div> <div class="text-code-function inline">accelerateDiscovery</div><span class="text-white">(</span><span class="text-code-variable">community, resources</span><span class="text-white">) {</span>
+            <div class="ml-4 text-code-keyword">const</div> <div class="text-code-variable inline">impact</div> = <div class="text-code-string inline">"exponential"</div><span class="text-white">;</span>
+            <div class="ml-4 text-code-keyword">return</div> <div class="text-code-variable inline">breakthrough</div><span class="text-white">;</span>
+            <span class="text-white">}</span>
+          </div>
         </div>
       </div>
     </section>
     
-    <!-- Section Divider -->
-    <div class="pixel-divider animated"></div>
+    <!-- Pixel Divider -->
+    <PixelDivider variant="wave" color="#00d4aa" animated={true} />
     
     <!-- Quick Navigation -->
     <section class="py-20 px-6">
