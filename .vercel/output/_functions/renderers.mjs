@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom/server';
-import { j as renderJSX, k as createVNode, l as AstroJSX, n as AstroUserError } from './chunks/astro/server_DSpow1EJ.mjs';
+import { i as renderJSX, j as createVNode, k as AstroJSX, l as AstroUserError } from './chunks/astro/server_CfrG6S94.mjs';
 import 'kleur/colors';
 import 'clsx';
 

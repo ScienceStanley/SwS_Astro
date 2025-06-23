@@ -1,9 +1,9 @@
-import { c as createAstro, a as createComponent, m as maybeRenderHead, f as addAttribute, b as renderTemplate, d as renderSlot, r as renderComponent } from '../chunks/astro/server_DSpow1EJ.mjs';
+import { c as createAstro, a as createComponent, m as maybeRenderHead, f as addAttribute, b as renderTemplate, d as renderSlot, r as renderComponent } from '../chunks/astro/server_CfrG6S94.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_qwI1wpVh.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_B4i83Daw.mjs';
 import 'clsx';
 /* empty css                                         */
-import { $ as $$PixelButton } from '../chunks/PixelButton_ClwXKW3-.mjs';
+import { $ as $$PixelButton } from '../chunks/PixelButton_C98IQSCr.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$2 = createAstro("https://smarterwithscience.org");

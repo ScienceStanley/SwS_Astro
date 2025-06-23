@@ -1,15 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PixelButton from '@components/ui/PixelButton.astro';
-import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
-import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
-import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
+// import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
+// import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
+// import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
 ---
 
 <BaseLayout>
   <main class="min-h-screen relative">
     <!-- Hero Section -->
-    <GhibliPixelBanner variant="hero" className="neodev-hero">
+    <section class="relative h-screen flex items-center justify-center overflow-hidden neodev-hero">
       <!-- IMAGE_PROMPT[hero-banner-main]
       Style: Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements
       Mood: Sophisticated, hopeful, scientific breakthrough moment
@@ -122,24 +122,23 @@ import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
           <circle cx="15" cy="20" r="2" fill="currentColor" class="animate-data-stream"/>
         </svg>
       </div>
-    </GhibliPixelBanner>
+    </section>
     
     <!-- Code Demo Section -->
-    <section class="py-20 px-6 bg-gradient-to-b from-bg-primary to-bg-secondary">
+    <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-4xl font-display text-center mb-12 text-gradient">
           How Science Gets Smarter
         </h2>
-        <NeoDevCodeBlock 
-          title="discovery_engine.js"
-          language="javascript"
-          animated={true}
-        />
+        <div class="neodev-card p-8">
+          <h3 class="text-2xl font-mono mb-4">Discovery Engine</h3>
+          <p class="text-text-secondary">Interactive code coming soon...</p>
+        </div>
       </div>
     </section>
     
     <!-- Section Divider -->
-    <GhibliPixelBanner variant="divider" height="80px" />
+    <div class="pixel-divider animated"></div>
     
     <!-- Quick Navigation -->
     <section class="py-20 px-6">
@@ -158,39 +157,24 @@ import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
         </h2>
         
         <div class="neodev-grid neodev-grid-3">
-          <!-- Featured Projects -->
-          <GhibliProjectCard
-            title="Ocean ViSION"
-            description="AI-powered marine ecosystem monitoring to track climate change impacts in real-time"
-            category="ocean"
-            impact="50,000+ marine species tracked"
-            status="active"
-            collaborators={23}
-            computeHours={2400}
-            href="/projects/ocean-vision"
-          />
+          <!-- Featured Projects - Simplified for now -->
+          <div class="neodev-card">
+            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Ocean ViSION</h3>
+            <p class="text-text-secondary mb-4">AI-powered marine ecosystem monitoring to track climate change impacts in real-time</p>
+            <div class="text-sm text-primary">50,000+ marine species tracked</div>
+          </div>
           
-          <GhibliProjectCard
-            title="Rare Disease AI"
-            description="Machine learning models trained on community data to identify rare genetic conditions"
-            category="medical"
-            impact="127 conditions identified faster"
-            status="active"
-            collaborators={156}
-            computeHours={8900}
-            href="/projects/rare-disease-ai"
-          />
+          <div class="neodev-card">
+            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Rare Disease AI</h3>
+            <p class="text-text-secondary mb-4">Machine learning models trained on community data to identify rare genetic conditions</p>
+            <div class="text-sm text-primary">127 conditions identified faster</div>
+          </div>
           
-          <GhibliProjectCard
-            title="Quantum Biology Lab"
-            description="Exploring quantum effects in photosynthesis to develop efficient solar panels"
-            category="quantum"
-            impact="3x efficiency improvement"
-            status="active"
-            collaborators={34}
-            computeHours={1200}
-            href="/projects/quantum-bio"
-          />
+          <div class="neodev-card">
+            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Quantum Biology Lab</h3>
+            <p class="text-text-secondary mb-4">Exploring quantum effects in photosynthesis to develop efficient solar panels</p>
+            <div class="text-sm text-primary">3x efficiency improvement</div>
+          </div>
           
           <!-- Navigation Cards -->
           <a href="/science-sunday" class="neodev-card ghibli-accent">

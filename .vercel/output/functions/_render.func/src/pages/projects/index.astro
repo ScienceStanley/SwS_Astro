@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
-import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
-import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
+// import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
+// import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
+// import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
 
 const pageTitle = 'Projects - Accelerating Discovery Through Community';
 const pageDescription = 'Explore groundbreaking research projects powered by the Smarter with Science community. From ocean conservation to quantum biology, see how collective action drives scientific breakthroughs.';
@@ -16,6 +16,15 @@ const projectImageMapping = {
   'steam-vr': '/ui-elements/project-steam-vr-pixel.png',
   'algae-protein': '/ui-elements/project-algae-protein-pixel.png'
 };
+
+// Category mapping for GhibliProjectCard
+const categoryMapping = {
+  'climate': 'ocean',
+  'health': 'medical', 
+  'food': 'algae',
+  'resilience': 'mesh',
+  'education': 'vr'
+} as const;
 
 // Project categories with colors
 const categories = [
@@ -100,7 +109,7 @@ const sampleProjects = [
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Hero Section -->
-  <GhibliPixelBanner variant="hero" className="neodev-hero">
+  <section class="relative h-screen flex items-center justify-center overflow-hidden neodev-hero">
     <div class="hero-content text-center">
       <h1 class="text-6xl font-display font-bold mb-6 text-gradient">
         Projects Gallery
@@ -114,26 +123,24 @@ const sampleProjects = [
         every field of science.
       </p>
     </div>
-  </GhibliPixelBanner>
+  </section>
 
   <!-- Section Divider -->
-  <GhibliPixelBanner variant="divider" height="80px" />
+  <div class="pixel-divider animated"></div>
 
   <!-- Projects Grid -->
-  <section class="py-20 px-6 bg-gradient-to-b from-bg-primary to-bg-secondary">
+  <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
     <div class="max-w-7xl mx-auto">
       <div class="neodev-grid neodev-grid-3">
         {sampleProjects.map(project => (
-          <GhibliProjectCard
-            title={project.title}
-            description={project.description}
-            category={project.image.replace('-', '') as any}
-            impact={project.impact}
-            status={project.status}
-            collaborators={project.collaborators}
-            computeHours={project.computeHours}
-            href={`/projects/${project.id}`}
-          />
+          <div class="neodev-card">
+            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">{project.title}</h3>
+            <p class="text-text-secondary mb-4">{project.description}</p>
+            <div class="text-sm text-primary mb-2">{project.impact}</div>
+            <div class="text-xs text-text-tertiary">
+              {project.collaborators} collaborators • {project.computeHours.toLocaleString()} GPU hours
+            </div>
+          </div>
         ))}
       </div>
     </div>
