@@ -1,0 +1,273 @@
+---
+export interface Props {
+  code?: string;
+  language?: string;
+  title?: string;
+  animated?: boolean;
+  className?: string;
+}
+
+const { 
+  code = '',
+  language = 'javascript',
+  title = 'science_discovery.js',
+  animated = true,
+  className = ''
+} = Astro.props;
+
+const defaultCode = `// 🧬 Smarter with Science - Discovery Engine
+import { DNA, Community, Impact } from '@sws/core';
+
+const discovery = async () => {
+  const researchers = await Community.connect();
+  const problems = await researchers.identifyProblems();
+  
+  for (const problem of problems) {
+    const solution = await DNA.sequence(problem);
+    const impact = await solution.deploy();
+    
+    console.log(\`💡 Breakthrough: \${impact.livesChanged} lives improved\`);
+  }
+  
+  return "Science + Community = Exponential Impact";
+};
+
+discovery().then(result => {
+  console.log(\`✨ \${result}\`);
+});`;
+
+const displayCode = code || defaultCode;
+---
+
+<div class={`neodev-code-block ${className}`}>
+  {title && (
+    <div class="code-header">
+      <div class="window-controls">
+        <span class="control close"></span>
+        <span class="control minimize"></span>
+        <span class="control maximize"></span>
+      </div>
+      <span class="file-name">{title}</span>
+      <span class="language-badge">{language}</span>
+    </div>
+  )}
+  
+  <div class="code-content">
+    <div class="line-numbers">
+      {displayCode.split('\n').map((_, index) => (
+        <span class="line-number">{index + 1}</span>
+      ))}
+    </div>
+    
+    <pre class="code-text"><code set:html={displayCode}></code></pre>
+    
+    {animated && (
+      <div class="typing-cursor animate-code-cursor">|</div>
+    )}
+  </div>
+  
+  <div class="code-stats">
+    <span class="stat">
+      <span class="stat-icon">🧬</span>
+      <span class="stat-text">DNA Sequences: 1,247</span>
+    </span>
+    <span class="stat">
+      <span class="stat-icon">⚡</span>
+      <span class="stat-text">GPU Hours: 24.7K</span>
+    </span>
+    <span class="stat">
+      <span class="stat-icon">🌍</span>
+      <span class="stat-text">Lives Impacted: 47K</span>
+    </span>
+  </div>
+</div>
+
+<style>
+  .neodev-code-block {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    font-family: var(--font-mono);
+    position: relative;
+    max-width: 100%;
+  }
+
+  .code-header {
+    background: var(--bg-tertiary);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .window-controls {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .control.close {
+    background: #ff5f57;
+  }
+
+  .control.minimize {
+    background: #ffbd2e;
+  }
+
+  .control.maximize {
+    background: #28ca42;
+  }
+
+  .file-name {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  .language-badge {
+    background: var(--accent-blue);
+    color: var(--bg-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .code-content {
+    display: flex;
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  .line-numbers {
+    background: var(--bg-tertiary);
+    padding: var(--space-md) var(--space-sm);
+    border-right: 1px solid var(--border-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    user-select: none;
+    min-width: 3rem;
+  }
+
+  .line-number {
+    line-height: 1.5;
+    display: block;
+  }
+
+  .code-text {
+    flex: 1;
+    padding: var(--space-md);
+    margin: 0;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow: visible;
+  }
+
+  .code-text code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .typing-cursor {
+    position: absolute;
+    right: var(--space-md);
+    bottom: var(--space-md);
+    color: var(--accent-green);
+    font-weight: bold;
+  }
+
+  .code-stats {
+    background: var(--bg-tertiary);
+    padding: var(--space-sm) var(--space-md);
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    gap: var(--space-lg);
+    font-size: 0.75rem;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-secondary);
+  }
+
+  .stat-icon {
+    font-size: 1rem;
+  }
+
+  .stat-text {
+    font-family: var(--font-mono);
+  }
+
+  /* Syntax Highlighting */
+  .code-text :global(.keyword) {
+    color: var(--accent-purple);
+    font-weight: 500;
+  }
+
+  .code-text :global(.string) {
+    color: var(--accent-green);
+  }
+
+  .code-text :global(.comment) {
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  .code-text :global(.function) {
+    color: var(--accent-blue);
+  }
+
+  .code-text :global(.number) {
+    color: var(--accent-pink);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .code-header {
+      padding: var(--space-xs) var(--space-sm);
+    }
+
+    .file-name {
+      display: none;
+    }
+
+    .code-stats {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .code-content {
+      max-height: 300px;
+    }
+
+    .line-numbers {
+      min-width: 2.5rem;
+      padding: var(--space-sm) var(--space-xs);
+    }
+
+    .code-text {
+      padding: var(--space-sm);
+      font-size: 0.8rem;
+    }
+  }
+</style>

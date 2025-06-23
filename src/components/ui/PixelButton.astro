@@ -1,0 +1,49 @@
+---
+export interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary';
+  className?: string;
+  onclick?: string;
+  disabled?: boolean;
+}
+
+const { 
+  href,
+  type = 'button',
+  variant = 'primary',
+  className = '',
+  onclick,
+  disabled = false
+} = Astro.props;
+
+const buttonClass = `pixel-button pixel-button-${variant} ${className}`;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  {...(href ? { href } : { type })}
+  class={buttonClass}
+  {...(onclick ? { onclick } : {})}
+  {...(disabled ? { disabled: true } : {})}
+  {...(href && href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  <slot />
+</Tag>
+
+<style>
+  a, button {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  button:disabled:hover {
+    filter: none;
+    transform: none;
+  }
+</style>

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "banner-ghibli-sws",
+    "file": "homepage/ghibli-banner",
+    "line": 1,
+    "Style": "Studio Ghibli inspired pixel art, organic technology, nature and science harmony",
+    "Mood": "Hopeful, magical realism, environmental harmony, scientific wonder",
+    "Elements": "Floating islands with laboratories, wind-powered research stations, bioluminescent plants growing around computers, scientists in flowing robes studying nature, DNA helixes made of vines and light, crystal formations housing data streams",
+    "Colors": "Purple #a476ff technology, green #A9FF5B nature, blue #00D4FF energy, warm earth tones, magical glowing accents",
+    "Dimensions": "1920x600",
+    "Variations": "4"
+  },
+  {
+    "id": "science-sunday-ghibli",
+    "file": "pages/science-sunday",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, community gathering in magical library",
+    "Mood": "Warm community, knowledge sharing, magical learning environment",
+    "Elements": "Tree-library with glowing books, people sitting in circles under floating crystals, Venice Beach reimagined as mystical coastal town, books and scrolls floating in the air, comfortable reading nooks in organic architecture",
+    "Colors": "Warm purples #a476ff, soft greens #A9FF5B, golden light, ocean blues #00D4FF",
+    "Dimensions": "1920x500",
+    "Variations": "3"
+  },
+  {
+    "id": "projects-gallery-ghibli",
+    "file": "pages/projects",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, magical research laboratory garden",
+    "Mood": "Innovation in harmony with nature, collaborative research",
+    "Elements": "Garden laboratories with glass domes, researchers tending to glowing plants, floating data crystals among flowers, organic computer interfaces grown from trees, bridges connecting different research areas",
+    "Colors": "Natural greens #A9FF5B, purple #a476ff tech elements, blue #00D4FF water features",
+    "Dimensions": "1920x500",
+    "Variations": "3"
+  },
+  {
+    "id": "charter-ghibli",
+    "file": "pages/charter",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, ancient tree of knowledge with constellation map",
+    "Mood": "Wisdom, timeless values, connection between all things",
+    "Elements": "Massive ancient tree with glowing runes in bark, constellation map in the canopy, scrolls and books growing as fruit, scientists and community members gathered around the base, roots extending to connect distant research stations",
+    "Colors": "Deep purples #a476ff in the night sky, golden runes, green #A9FF5B tree life, blue #00D4FF starlight",
+    "Dimensions": "1920x500",
+    "Variations": "3"
+  },
+  {
+    "id": "project-ocean-ghibli",
+    "file": "projects/ocean-vision",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, underwater crystal city with sea life",
+    "Mood": "Ocean conservation, harmonious technology, marine wonder",
+    "Elements": "Crystalline underwater research stations, whales swimming past with data streams, coral reefs integrated with monitoring equipment, merfolk-like scientists studying marine life, bioluminescent sea creatures providing natural lighting",
+    "Colors": "Ocean blues #00D4FF, purple #a476ff crystals, green #A9FF5B coral, silver-white technology",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "project-medical-ghibli",
+    "file": "projects/rare-disease",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, healing garden with magical medical research",
+    "Mood": "Hope, healing, gentle medical care, life-giving research",
+    "Elements": "Greenhouse laboratory with medicinal plants, DNA helixes made of flowering vines, gentle spirits representing different conditions, researchers with healing auras, crystalline medical equipment that glows with life energy",
+    "Colors": "Healing greens #A9FF5B, soft purples #a476ff, warm white healing light, blue #00D4FF life energy",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "project-quantum-ghibli",
+    "file": "projects/quantum-biology",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, mystical forest where quantum particles dance",
+    "Mood": "Scientific mystery, quantum wonder, nature's hidden secrets",
+    "Elements": "Ancient forest with quantum particles as fireflies, trees with molecule-shaped leaves, scientists observing particle dances, quantum tunnels as hollow logs, photosynthesis visualized as streams of light",
+    "Colors": "Mystical purples #a476ff, quantum blue #00D4FF particles, natural greens #A9FF5B, golden light streams",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "project-mesh-ghibli",
+    "file": "projects/mesh-networks",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, village connected by glowing pathways",
+    "Mood": "Community resilience, connection, mutual aid, technological harmony",
+    "Elements": "Cozy village houses connected by streams of light, message birds carrying data, community gardens with communication flowers, bridges made of woven light, central tower distributing signals like seeds",
+    "Colors": "Warm village colors, purple #a476ff connections, green #A9FF5B gardens, blue #00D4FF data streams",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "project-education-ghibli",
+    "file": "projects/steam-vr",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, magical school where knowledge floats freely",
+    "Mood": "Wonder-filled learning, educational magic, youthful discovery",
+    "Elements": "Students wearing magical viewing crystals instead of VR headsets, holographic creatures teaching lessons, floating books and scrolls, laboratory-classroom in a tree house, young learners conducting experiments with glowing materials",
+    "Colors": "Educational purples #a476ff, discovery greens #A9FF5B, wonder blues #00D4FF, warm learning environments",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "project-algae-ghibli",
+    "file": "projects/algae-protein",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, sustainable farm in floating gardens",
+    "Mood": "Sustainable abundance, environmental harmony, nourishing technology",
+    "Elements": "Floating algae gardens in the sky, farmers tending to glowing protein pools, windmills generating power for cultivation, harvest spirits helping with the work, food distribution via flying delivery creatures",
+    "Colors": "Growth greens #A9FF5B, sky blues #00D4FF, purple #a476ff technology, golden harvest light",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "footer-ghibli-landscape",
+    "file": "layout/footer",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, panoramic view of connected research communities",
+    "Mood": "Unity, global connection, hopeful future, scientific collaboration",
+    "Elements": "Panoramic landscape showing connected research stations, floating islands, underground labs, ocean facilities, all connected by streams of light, aircraft carrying knowledge between stations, a sunset/sunrise sky suggesting endless possibility",
+    "Colors": "Sunset purples #a476ff, golden hour lighting, green #A9FF5B landscapes, blue #00D4FF connections",
+    "Dimensions": "1920x200",
+    "Variations": "2"
+  },
+  {
+    "id": "navigation-ghibli-badge",
+    "file": "navigation/header",
+    "line": 1,
+    "Style": "Studio Ghibli pixel art, compact emblem combining DNA and nature",
+    "Mood": "Professional but magical, trustworthy, organic technology",
+    "Elements": "DNA double helix growing as a vine with small leaves, contained within a crystalline badge, SwS letters integrated naturally, subtle glow effect",
+    "Colors": "Purple #a476ff structure, green #A9FF5B organic elements, blue #00D4FF glow, transparent background",
+    "Dimensions": "96x96",
+    "Variations": "4"
+  }
+]

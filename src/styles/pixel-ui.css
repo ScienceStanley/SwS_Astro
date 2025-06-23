@@ -1,0 +1,346 @@
+/* 🎮 Pixel Art UI Components for Cyberpunk-Utopian Theme */
+
+/* Base pixel rendering for crisp edges */
+.pixel-perfect {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Pixel art button system */
+.pixel-button {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.pixel-button-primary {
+  width: 200px;
+  height: 48px;
+  background-image: url('/ui-elements/button-primary-pixelart.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: white;
+  line-height: 48px;
+  font-size: 0.875rem;
+}
+
+.pixel-button-secondary {
+  width: 200px;
+  height: 48px;
+  background-image: url('/ui-elements/button-secondary-pixelart.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  line-height: 48px;
+  font-size: 0.875rem;
+}
+
+.pixel-button:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px var(--color-primary));
+  transform: translateY(-1px);
+}
+
+.pixel-button:active {
+  transform: translateY(0);
+  filter: brightness(0.9);
+}
+
+/* Pixel logo styling */
+.pixel-logo {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  transition: all 0.3s ease;
+}
+
+.pixel-logo:hover {
+  filter: drop-shadow(0 0 12px var(--color-primary));
+  transform: scale(1.1);
+}
+
+/* Pixel icons */
+.pixel-icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  transition: all 0.2s ease;
+}
+
+.pixel-icon:hover {
+  filter: brightness(1.3) drop-shadow(0 0 6px currentColor);
+}
+
+.pixel-icon-small {
+  width: 16px;
+  height: 16px;
+}
+
+.pixel-icon-large {
+  width: 64px;
+  height: 64px;
+}
+
+/* Pixel card frames */
+.pixel-card {
+  position: relative;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+}
+
+.pixel-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/ui-elements/card-frame-pixelart.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  z-index: -1;
+  transition: filter 0.3s ease;
+}
+
+.pixel-card:hover::before {
+  filter: brightness(1.1) drop-shadow(0 0 16px var(--color-primary));
+}
+
+/* Section dividers */
+.pixel-divider {
+  width: 100%;
+  height: 32px;
+  background-image: url('/ui-elements/section-divider-dna.png');
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: center;
+  image-rendering: pixelated;
+  margin: 2rem 0;
+  opacity: 0.7;
+}
+
+.pixel-divider.animated {
+  animation: dna-flow 8s linear infinite;
+}
+
+@keyframes dna-flow {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 200px; }
+}
+
+/* Loading spinner */
+.pixel-spinner {
+  width: 64px;
+  height: 64px;
+  background-image: url('/ui-elements/loading-spinner-pixelart.png');
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+  animation: pixel-spin 2s linear infinite;
+}
+
+@keyframes pixel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress bar */
+.pixel-progress {
+  width: 300px;
+  height: 24px;
+  position: relative;
+  background-image: url('/ui-elements/progress-bar-pixelart.png');
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+}
+
+.pixel-progress::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  image-rendering: pixelated;
+  transition: width 0.3s ease;
+}
+
+/* Background grid */
+.pixel-background {
+  position: relative;
+}
+
+.pixel-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/ui-elements/background-grid-pixelart.png');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  opacity: 0.1;
+  image-rendering: pixelated;
+  z-index: -1;
+}
+
+/* Hero banner integration */
+.pixel-hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background-image: url('/ui-elements/hero-banner-pixelart.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* Project placeholder styles */
+.pixel-project-card {
+  aspect-ratio: 400/250;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pixel-project-ocean {
+  background-image: url('/ui-elements/project-ocean-vision-pixel.png');
+}
+
+.pixel-project-medical {
+  background-image: url('/ui-elements/project-rare-disease-pixel.png');
+}
+
+.pixel-project-quantum {
+  background-image: url('/ui-elements/project-quantum-biology-pixel.png');
+}
+
+.pixel-project-mesh {
+  background-image: url('/ui-elements/project-mesh-networks-pixel.png');
+}
+
+.pixel-project-vr {
+  background-image: url('/ui-elements/project-steam-vr-pixel.png');
+}
+
+.pixel-project-algae {
+  background-image: url('/ui-elements/project-algae-protein-pixel.png');
+}
+
+/* Pixel card overlay for content */
+.pixel-project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.pixel-project-card .card-content {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .pixel-button-primary,
+  .pixel-button-secondary {
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.75rem;
+  }
+  
+  .pixel-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pixel-progress {
+    width: 250px;
+    height: 20px;
+  }
+  
+  .pixel-divider {
+    height: 24px;
+  }
+}
+
+/* Animation utilities */
+.pixel-hover-glow:hover {
+  filter: drop-shadow(0 0 16px var(--color-primary));
+}
+
+.pixel-animate-in {
+  animation: pixel-emerge 0.6s ease-out;
+}
+
+@keyframes pixel-emerge {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .pixel-spinner,
+  .pixel-divider.animated,
+  .pixel-animate-in {
+    animation: none;
+  }
+  
+  .pixel-button,
+  .pixel-logo,
+  .pixel-icon {
+    transition: none;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .pixel-button:hover {
+    filter: brightness(1.5) contrast(1.2);
+  }
+  
+  .pixel-background::before {
+    opacity: 0.2;
+  }
+}

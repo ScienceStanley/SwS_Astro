@@ -1,0 +1,667 @@
+[
+  {
+    "promptId": "hero-banner-main",
+    "variation": 1,
+    "filename": "hero-banner-main-1.png",
+    "path": "/generated-images/hero-banner-main-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-main",
+      "file": "src/pages/index.astro",
+      "line": 9,
+      "Style": "Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements",
+      "Mood": "Sophisticated, hopeful, scientific breakthrough moment",
+      "Elements": "Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections",
+      "Colors": "Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors",
+      "Dimensions": "1920x1080",
+      "Variations": "5"
+    }
+  },
+  {
+    "promptId": "hero-banner-main",
+    "variation": 2,
+    "filename": "hero-banner-main-2.png",
+    "path": "/generated-images/hero-banner-main-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-main",
+      "file": "src/pages/index.astro",
+      "line": 9,
+      "Style": "Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements",
+      "Mood": "Sophisticated, hopeful, scientific breakthrough moment",
+      "Elements": "Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections",
+      "Colors": "Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors",
+      "Dimensions": "1920x1080",
+      "Variations": "5"
+    }
+  },
+  {
+    "promptId": "hero-banner-main",
+    "variation": 3,
+    "filename": "hero-banner-main-3.png",
+    "path": "/generated-images/hero-banner-main-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-main",
+      "file": "src/pages/index.astro",
+      "line": 9,
+      "Style": "Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements",
+      "Mood": "Sophisticated, hopeful, scientific breakthrough moment",
+      "Elements": "Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections",
+      "Colors": "Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors",
+      "Dimensions": "1920x1080",
+      "Variations": "5"
+    }
+  },
+  {
+    "promptId": "hero-banner-main",
+    "variation": 4,
+    "filename": "hero-banner-main-4.png",
+    "path": "/generated-images/hero-banner-main-4.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-main",
+      "file": "src/pages/index.astro",
+      "line": 9,
+      "Style": "Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements",
+      "Mood": "Sophisticated, hopeful, scientific breakthrough moment",
+      "Elements": "Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections",
+      "Colors": "Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors",
+      "Dimensions": "1920x1080",
+      "Variations": "5"
+    }
+  },
+  {
+    "promptId": "hero-banner-main",
+    "variation": 5,
+    "filename": "hero-banner-main-5.png",
+    "path": "/generated-images/hero-banner-main-5.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-main",
+      "file": "src/pages/index.astro",
+      "line": 9,
+      "Style": "Elegant technical minimalism, dark cyberpunk-utopian laboratory with subtle glowing elements",
+      "Mood": "Sophisticated, hopeful, scientific breakthrough moment",
+      "Elements": "Abstract neural network connections forming DNA helix shape, holographic data visualizations floating in space, subtle purple (#a476ff) and green (#A9FF5B) accent lights, deep dark background (#101010), glass-like transparent surfaces with subtle reflections",
+      "Colors": "Primary purple #a476ff, secondary green #A9FF5B, dark background #101010, minimal use of bright colors",
+      "Dimensions": "1920x1080",
+      "Variations": "5"
+    }
+  },
+  {
+    "promptId": "hero-banner-science-stanley",
+    "variation": 1,
+    "filename": "hero-banner-science-stanley-1.png",
+    "path": "/generated-images/hero-banner-science-stanley-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-science-stanley",
+      "file": "src/pages/index.astro",
+      "line": 18,
+      "Style": "Minimalist representation of an AI scientist character, elegant and approachable",
+      "Mood": "Friendly, intelligent, trustworthy guide",
+      "Elements": "Abstract humanoid silhouette made of flowing data streams and particles, holding a glowing molecule structure, purple gradient outline, transparent/glass-like body with visible neural pathways",
+      "Colors": "Purple #a476ff primary, subtle green #A9FF5B accents, mostly transparent with dark background",
+      "Dimensions": "800x800",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-science-stanley",
+    "variation": 2,
+    "filename": "hero-banner-science-stanley-2.png",
+    "path": "/generated-images/hero-banner-science-stanley-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-science-stanley",
+      "file": "src/pages/index.astro",
+      "line": 18,
+      "Style": "Minimalist representation of an AI scientist character, elegant and approachable",
+      "Mood": "Friendly, intelligent, trustworthy guide",
+      "Elements": "Abstract humanoid silhouette made of flowing data streams and particles, holding a glowing molecule structure, purple gradient outline, transparent/glass-like body with visible neural pathways",
+      "Colors": "Purple #a476ff primary, subtle green #A9FF5B accents, mostly transparent with dark background",
+      "Dimensions": "800x800",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-science-stanley",
+    "variation": 3,
+    "filename": "hero-banner-science-stanley-3.png",
+    "path": "/generated-images/hero-banner-science-stanley-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-science-stanley",
+      "file": "src/pages/index.astro",
+      "line": 18,
+      "Style": "Minimalist representation of an AI scientist character, elegant and approachable",
+      "Mood": "Friendly, intelligent, trustworthy guide",
+      "Elements": "Abstract humanoid silhouette made of flowing data streams and particles, holding a glowing molecule structure, purple gradient outline, transparent/glass-like body with visible neural pathways",
+      "Colors": "Purple #a476ff primary, subtle green #A9FF5B accents, mostly transparent with dark background",
+      "Dimensions": "800x800",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-science-stanley",
+    "variation": 4,
+    "filename": "hero-banner-science-stanley-4.png",
+    "path": "/generated-images/hero-banner-science-stanley-4.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-science-stanley",
+      "file": "src/pages/index.astro",
+      "line": 18,
+      "Style": "Minimalist representation of an AI scientist character, elegant and approachable",
+      "Mood": "Friendly, intelligent, trustworthy guide",
+      "Elements": "Abstract humanoid silhouette made of flowing data streams and particles, holding a glowing molecule structure, purple gradient outline, transparent/glass-like body with visible neural pathways",
+      "Colors": "Purple #a476ff primary, subtle green #A9FF5B accents, mostly transparent with dark background",
+      "Dimensions": "800x800",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-community",
+    "variation": 1,
+    "filename": "hero-banner-community-1.png",
+    "path": "/generated-images/hero-banner-community-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-community",
+      "file": "src/pages/index.astro",
+      "line": 27,
+      "Style": "Abstract visualization of global scientific collaboration",
+      "Mood": "Connected, collaborative, unified in purpose",
+      "Elements": "Interconnected nodes forming a constellation pattern, each node representing a researcher or project, flowing data streams between connections, Earth globe in the center with connection points glowing",
+      "Colors": "Dark background #101010, purple #a476ff connection lines, green #A9FF5B node highlights",
+      "Dimensions": "1920x600",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "hero-banner-community",
+    "variation": 2,
+    "filename": "hero-banner-community-2.png",
+    "path": "/generated-images/hero-banner-community-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-community",
+      "file": "src/pages/index.astro",
+      "line": 27,
+      "Style": "Abstract visualization of global scientific collaboration",
+      "Mood": "Connected, collaborative, unified in purpose",
+      "Elements": "Interconnected nodes forming a constellation pattern, each node representing a researcher or project, flowing data streams between connections, Earth globe in the center with connection points glowing",
+      "Colors": "Dark background #101010, purple #a476ff connection lines, green #A9FF5B node highlights",
+      "Dimensions": "1920x600",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "hero-banner-community",
+    "variation": 3,
+    "filename": "hero-banner-community-3.png",
+    "path": "/generated-images/hero-banner-community-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-community",
+      "file": "src/pages/index.astro",
+      "line": 27,
+      "Style": "Abstract visualization of global scientific collaboration",
+      "Mood": "Connected, collaborative, unified in purpose",
+      "Elements": "Interconnected nodes forming a constellation pattern, each node representing a researcher or project, flowing data streams between connections, Earth globe in the center with connection points glowing",
+      "Colors": "Dark background #101010, purple #a476ff connection lines, green #A9FF5B node highlights",
+      "Dimensions": "1920x600",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "hero-banner-data-flow",
+    "variation": 1,
+    "filename": "hero-banner-data-flow-1.png",
+    "path": "/generated-images/hero-banner-data-flow-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-data-flow",
+      "file": "src/pages/index.astro",
+      "line": 36,
+      "Style": "Living data visualization, organic flow of information",
+      "Mood": "Alive, breathing, constantly evolving",
+      "Elements": "Flowing ribbons of data that morph between DNA helixes and binary code, particle systems that form and dissolve into molecular structures, wave patterns suggesting both ocean waves and brain waves",
+      "Colors": "Gradient flows from purple #a476ff to green #A9FF5B, dark background #101010, subtle white highlights for data particles",
+      "Dimensions": "1920x1080",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-data-flow",
+    "variation": 2,
+    "filename": "hero-banner-data-flow-2.png",
+    "path": "/generated-images/hero-banner-data-flow-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-data-flow",
+      "file": "src/pages/index.astro",
+      "line": 36,
+      "Style": "Living data visualization, organic flow of information",
+      "Mood": "Alive, breathing, constantly evolving",
+      "Elements": "Flowing ribbons of data that morph between DNA helixes and binary code, particle systems that form and dissolve into molecular structures, wave patterns suggesting both ocean waves and brain waves",
+      "Colors": "Gradient flows from purple #a476ff to green #A9FF5B, dark background #101010, subtle white highlights for data particles",
+      "Dimensions": "1920x1080",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-data-flow",
+    "variation": 3,
+    "filename": "hero-banner-data-flow-3.png",
+    "path": "/generated-images/hero-banner-data-flow-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-data-flow",
+      "file": "src/pages/index.astro",
+      "line": 36,
+      "Style": "Living data visualization, organic flow of information",
+      "Mood": "Alive, breathing, constantly evolving",
+      "Elements": "Flowing ribbons of data that morph between DNA helixes and binary code, particle systems that form and dissolve into molecular structures, wave patterns suggesting both ocean waves and brain waves",
+      "Colors": "Gradient flows from purple #a476ff to green #A9FF5B, dark background #101010, subtle white highlights for data particles",
+      "Dimensions": "1920x1080",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-data-flow",
+    "variation": 4,
+    "filename": "hero-banner-data-flow-4.png",
+    "path": "/generated-images/hero-banner-data-flow-4.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-data-flow",
+      "file": "src/pages/index.astro",
+      "line": 36,
+      "Style": "Living data visualization, organic flow of information",
+      "Mood": "Alive, breathing, constantly evolving",
+      "Elements": "Flowing ribbons of data that morph between DNA helixes and binary code, particle systems that form and dissolve into molecular structures, wave patterns suggesting both ocean waves and brain waves",
+      "Colors": "Gradient flows from purple #a476ff to green #A9FF5B, dark background #101010, subtle white highlights for data particles",
+      "Dimensions": "1920x1080",
+      "Variations": "4"
+    }
+  },
+  {
+    "promptId": "hero-banner-breakthrough",
+    "variation": 1,
+    "filename": "hero-banner-breakthrough-1.png",
+    "path": "/generated-images/hero-banner-breakthrough-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-breakthrough",
+      "file": "src/pages/index.astro",
+      "line": 45,
+      "Style": "The moment of scientific discovery, elegant and minimal",
+      "Mood": "Eureka moment, enlightenment, breakthrough",
+      "Elements": "Single point of light expanding into fractal patterns, suggesting both Big Bang and neural firing, crystalline structures growing from the center, subtle equations and formulas appearing in the background",
+      "Colors": "Central bright point in white, expanding into purple #a476ff fractals with green #A9FF5B edges, deep dark background",
+      "Dimensions": "1920x1080",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "hero-banner-breakthrough",
+    "variation": 2,
+    "filename": "hero-banner-breakthrough-2.png",
+    "path": "/generated-images/hero-banner-breakthrough-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-breakthrough",
+      "file": "src/pages/index.astro",
+      "line": 45,
+      "Style": "The moment of scientific discovery, elegant and minimal",
+      "Mood": "Eureka moment, enlightenment, breakthrough",
+      "Elements": "Single point of light expanding into fractal patterns, suggesting both Big Bang and neural firing, crystalline structures growing from the center, subtle equations and formulas appearing in the background",
+      "Colors": "Central bright point in white, expanding into purple #a476ff fractals with green #A9FF5B edges, deep dark background",
+      "Dimensions": "1920x1080",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "hero-banner-breakthrough",
+    "variation": 3,
+    "filename": "hero-banner-breakthrough-3.png",
+    "path": "/generated-images/hero-banner-breakthrough-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "hero-banner-breakthrough",
+      "file": "src/pages/index.astro",
+      "line": 45,
+      "Style": "The moment of scientific discovery, elegant and minimal",
+      "Mood": "Eureka moment, enlightenment, breakthrough",
+      "Elements": "Single point of light expanding into fractal patterns, suggesting both Big Bang and neural firing, crystalline structures growing from the center, subtle equations and formulas appearing in the background",
+      "Colors": "Central bright point in white, expanding into purple #a476ff fractals with green #A9FF5B edges, deep dark background",
+      "Dimensions": "1920x1080",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "navigation-section-bg",
+    "variation": 1,
+    "filename": "navigation-section-bg-1.png",
+    "path": "/generated-images/navigation-section-bg-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "navigation-section-bg",
+      "file": "src/pages/index.astro",
+      "line": 125,
+      "Style": "Subtle abstract constellation pattern, very dark and minimal",
+      "Mood": "Mysterious, expansive, guiding",
+      "Elements": "Faint constellation lines connecting distant stars, subtle purple glow at connection points, mostly dark space",
+      "Colors": "Background #101010, very faint purple #a476ff lines (10% opacity), tiny green #A9FF5B star points",
+      "Dimensions": "1920x800",
+      "Variations": "2"
+    }
+  },
+  {
+    "promptId": "navigation-section-bg",
+    "variation": 2,
+    "filename": "navigation-section-bg-2.png",
+    "path": "/generated-images/navigation-section-bg-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "navigation-section-bg",
+      "file": "src/pages/index.astro",
+      "line": 125,
+      "Style": "Subtle abstract constellation pattern, very dark and minimal",
+      "Mood": "Mysterious, expansive, guiding",
+      "Elements": "Faint constellation lines connecting distant stars, subtle purple glow at connection points, mostly dark space",
+      "Colors": "Background #101010, very faint purple #a476ff lines (10% opacity), tiny green #A9FF5B star points",
+      "Dimensions": "1920x800",
+      "Variations": "2"
+    }
+  },
+  {
+    "promptId": "card-science-sunday",
+    "variation": 1,
+    "filename": "card-science-sunday-1.png",
+    "path": "/generated-images/card-science-sunday-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-science-sunday",
+      "file": "src/pages/index.astro",
+      "line": 142,
+      "Style": "Abstract visualization of community gathering and learning",
+      "Mood": "Warm, inviting, educational",
+      "Elements": "Circular arrangement of small light points representing people, central glowing knowledge core, flowing lines suggesting knowledge transfer",
+      "Colors": "Warm purple #a476ff center, soft green #A9FF5B outer glow, dark background",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-science-sunday",
+    "variation": 2,
+    "filename": "card-science-sunday-2.png",
+    "path": "/generated-images/card-science-sunday-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-science-sunday",
+      "file": "src/pages/index.astro",
+      "line": 142,
+      "Style": "Abstract visualization of community gathering and learning",
+      "Mood": "Warm, inviting, educational",
+      "Elements": "Circular arrangement of small light points representing people, central glowing knowledge core, flowing lines suggesting knowledge transfer",
+      "Colors": "Warm purple #a476ff center, soft green #A9FF5B outer glow, dark background",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-science-sunday",
+    "variation": 3,
+    "filename": "card-science-sunday-3.png",
+    "path": "/generated-images/card-science-sunday-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-science-sunday",
+      "file": "src/pages/index.astro",
+      "line": 142,
+      "Style": "Abstract visualization of community gathering and learning",
+      "Mood": "Warm, inviting, educational",
+      "Elements": "Circular arrangement of small light points representing people, central glowing knowledge core, flowing lines suggesting knowledge transfer",
+      "Colors": "Warm purple #a476ff center, soft green #A9FF5B outer glow, dark background",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-projects",
+    "variation": 1,
+    "filename": "card-projects-1.png",
+    "path": "/generated-images/card-projects-1.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-projects",
+      "file": "src/pages/index.astro",
+      "line": 163,
+      "Style": "Abstract representation of multiple scientific disciplines converging",
+      "Mood": "Dynamic, progressive, innovative",
+      "Elements": "Intersecting geometric shapes representing different research areas, flowing data streams between them, crystalline structures",
+      "Colors": "Primary purple #a476ff geometric shapes, green #A9FF5B data flows, glass-like transparency",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-projects",
+    "variation": 2,
+    "filename": "card-projects-2.png",
+    "path": "/generated-images/card-projects-2.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-projects",
+      "file": "src/pages/index.astro",
+      "line": 163,
+      "Style": "Abstract representation of multiple scientific disciplines converging",
+      "Mood": "Dynamic, progressive, innovative",
+      "Elements": "Intersecting geometric shapes representing different research areas, flowing data streams between them, crystalline structures",
+      "Colors": "Primary purple #a476ff geometric shapes, green #A9FF5B data flows, glass-like transparency",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-projects",
+    "variation": 3,
+    "filename": "card-projects-3.png",
+    "path": "/generated-images/card-projects-3.png",
+    "url": "existing",
+    "prompt": "skipped - already exists",
+    "metadata": {
+      "id": "card-projects",
+      "file": "src/pages/index.astro",
+      "line": 163,
+      "Style": "Abstract representation of multiple scientific disciplines converging",
+      "Mood": "Dynamic, progressive, innovative",
+      "Elements": "Intersecting geometric shapes representing different research areas, flowing data streams between them, crystalline structures",
+      "Colors": "Primary purple #a476ff geometric shapes, green #A9FF5B data flows, glass-like transparency",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-charter",
+    "variation": 1,
+    "filename": "card-charter-1.png",
+    "path": "/generated-images/card-charter-1.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-uqHFnGyc3qL2DrJCuXMrphOn.png?st=2025-06-23T02%3A57%3A05Z&se=2025-06-23T04%3A57%3A05Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T18%3A23%3A00Z&ske=2025-06-23T18%3A23%3A00Z&sks=b&skv=2024-08-04&sig=Tg9CTzirQkpuT5oJFA2mHs4X9ap2xlx%2BNjEwLOMTWa8%3D",
+    "prompt": "Style: Abstract visualization of unified vision and values. Mood: Foundational, solid, trustworthy. Elements: Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose. Colors: Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "card-charter",
+      "file": "src/pages/index.astro",
+      "line": 184,
+      "Style": "Abstract visualization of unified vision and values",
+      "Mood": "Foundational, solid, trustworthy",
+      "Elements": "Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose",
+      "Colors": "Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-charter",
+    "variation": 2,
+    "filename": "card-charter-2.png",
+    "path": "/generated-images/card-charter-2.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-7yIlZRPdF0pHiJuMWSkI7AsH.png?st=2025-06-23T02%3A57%3A26Z&se=2025-06-23T04%3A57%3A26Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T15%3A11%3A55Z&ske=2025-06-23T15%3A11%3A55Z&sks=b&skv=2024-08-04&sig=twmRVFN27MJQFFNeziUlBQ03P8Aj3vknhmc0NGYD02I%3D",
+    "prompt": "Style: Abstract visualization of unified vision and values. Mood: Foundational, solid, trustworthy. Elements: Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose. Colors: Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "card-charter",
+      "file": "src/pages/index.astro",
+      "line": 184,
+      "Style": "Abstract visualization of unified vision and values",
+      "Mood": "Foundational, solid, trustworthy",
+      "Elements": "Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose",
+      "Colors": "Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "card-charter",
+    "variation": 3,
+    "filename": "card-charter-3.png",
+    "path": "/generated-images/card-charter-3.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-fk1wp3y2SBgVcte8CXhd6fXk.png?st=2025-06-23T02%3A57%3A49Z&se=2025-06-23T04%3A57%3A49Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T07%3A51%3A56Z&ske=2025-06-23T07%3A51%3A56Z&sks=b&skv=2024-08-04&sig=1gApn4pckbRsva8j0xUbESiSPG3RRfhSAIzUGfnuUkI%3D",
+    "prompt": "Style: Abstract visualization of unified vision and values. Mood: Foundational, solid, trustworthy. Elements: Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose. Colors: Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "card-charter",
+      "file": "src/pages/index.astro",
+      "line": 184,
+      "Style": "Abstract visualization of unified vision and values",
+      "Mood": "Foundational, solid, trustworthy",
+      "Elements": "Crystalline structure forming from multiple light beams converging, suggesting unity and shared purpose",
+      "Colors": "Deep purple #a476ff core, subtle green #A9FF5B highlights at convergence points, dark glass effect",
+      "Dimensions": "400x250",
+      "Variations": "3"
+    }
+  },
+  {
+    "promptId": "project-{project.image}",
+    "variation": 1,
+    "filename": "project-{project.image}.png",
+    "path": "/generated-images/project-{project.image}.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-Cyzeydo2djYraeIM6Ga5XkJc.png?st=2025-06-23T02%3A58%3A04Z&se=2025-06-23T04%3A58%3A04Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T04%3A05%3A23Z&ske=2025-06-23T04%3A05%3A23Z&sks=b&skv=2024-08-04&sig=9e0uk0fgq4lbBPzlxJ1KgjsjCZFCvdiJsU2JdNcV5Sg%3D",
+    "prompt": "Style: Cyberpunk-utopian scientific visualization. Mood: Hopeful, breakthrough moment, technological progress. Elements: Abstract representation of {project.title},. Colors: Based on category color theme. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "project-{project.image}",
+      "file": "src/pages/projects/index.astro",
+      "line": 127,
+      "Style": "Cyberpunk-utopian scientific visualization",
+      "Mood": "Hopeful, breakthrough moment, technological progress",
+      "Elements": "Abstract representation of {project.title},",
+      "Colors": "Based on category color theme",
+      "Dimensions": "400x250",
+      "Variations": "1"
+    }
+  },
+  {
+    "promptId": "map-venice-beach",
+    "variation": 1,
+    "filename": "map-venice-beach.png",
+    "path": "/generated-images/map-venice-beach.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-Lxrg9hYpxYyO3LgvxK9bmZjM.png?st=2025-06-23T02%3A58%3A23Z&se=2025-06-23T04%3A58%3A23Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T13%3A36%3A58Z&ske=2025-06-23T13%3A36%3A58Z&sks=b&skv=2024-08-04&sig=dI/4ju3vz1kbDZM49F%2B6nH91mPwMmuCeLF83QmdiPyw%3D",
+    "prompt": "Style: Cyberpunk-utopian map visualization, neon grid overlay. Mood: Inviting, technological, warm community beacon. Elements: Venice Beach area map with KINN location highlighted,. Colors: Royal purple #663399, warp core blue #00D4FF, void black. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "map-venice-beach",
+      "file": "src/pages/science-sunday.astro",
+      "line": 146,
+      "Style": "Cyberpunk-utopian map visualization, neon grid overlay",
+      "Mood": "Inviting, technological, warm community beacon",
+      "Elements": "Venice Beach area map with KINN location highlighted,",
+      "Colors": "Royal purple #663399, warp core blue #00D4FF, void black",
+      "Dimensions": "600x400",
+      "Variations": "1"
+    }
+  },
+  {
+    "promptId": "sunday-conversation-1",
+    "variation": 1,
+    "filename": "sunday-conversation-1.png",
+    "path": "/generated-images/sunday-conversation-1.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-YpGinmTojXOjRZQlY9y8A4rc.png?st=2025-06-23T02%3A58%3A57Z&se=2025-06-23T04%3A58%3A57Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T20%3A18%3A39Z&ske=2025-06-23T20%3A18%3A39Z&sks=b&skv=2024-08-04&sig=W4WsFaGq5gw33%2Bz8YLw/wpnrIFkrBmFzhYc5DBJ1GSs%3D",
+    "prompt": "Style: Cyberpunk-utopian documentary, warm candid moment. Mood: Engaged conversation, intellectual energy, community warmth. Elements: People in animated discussion at KINN, natural lighting. Colors: Natural with purple/blue highlights. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "sunday-conversation-1",
+      "file": "src/pages/science-sunday.astro",
+      "line": 183,
+      "Style": "Cyberpunk-utopian documentary, warm candid moment",
+      "Mood": "Engaged conversation, intellectual energy, community warmth",
+      "Elements": "People in animated discussion at KINN, natural lighting",
+      "Colors": "Natural with purple/blue highlights",
+      "Dimensions": "400x300",
+      "Variations": "1"
+    }
+  },
+  {
+    "promptId": "sunday-stanley-speaking",
+    "variation": 1,
+    "filename": "sunday-stanley-speaking.png",
+    "path": "/generated-images/sunday-stanley-speaking.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-GkM0vXbPTDYPRwJGS9C0xCvO.png?st=2025-06-23T02%3A59%3A13Z&se=2025-06-23T04%3A59%3A13Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T11%3A01%3A08Z&ske=2025-06-23T11%3A01%3A08Z&sks=b&skv=2024-08-04&sig=EG28HrL1c%2B2xTkidqo/J/SPKh39Dsa5wo536bePPrB8%3D",
+    "prompt": "Style: Cyberpunk-utopian portrait, charismatic speaker. Mood: Inspiring, approachable genius, warm energy. Elements: Science Stanley mid-story, engaged audience,. Colors: Natural with purple/blue accents. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "sunday-stanley-speaking",
+      "file": "src/pages/science-sunday.astro",
+      "line": 195,
+      "Style": "Cyberpunk-utopian portrait, charismatic speaker",
+      "Mood": "Inspiring, approachable genius, warm energy",
+      "Elements": "Science Stanley mid-story, engaged audience,",
+      "Colors": "Natural with purple/blue accents",
+      "Dimensions": "400x300",
+      "Variations": "1"
+    }
+  },
+  {
+    "promptId": "sunday-collaboration",
+    "variation": 1,
+    "filename": "sunday-collaboration.png",
+    "path": "/generated-images/sunday-collaboration.png",
+    "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-07BiNaHjJt3OGQ9NMraO2e3X/user-BxkGkN3KDZnHgEzepBIkVrER/img-ADAu5Q0cxYR8ElsJaf4goDhi.png?st=2025-06-23T02%3A59%3A28Z&se=2025-06-23T04%3A59%3A28Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T06%3A58%3A59Z&ske=2025-06-23T06%3A58%3A59Z&sks=b&skv=2024-08-04&sig=2gKKsErpGHjvs/Nd%2BjD4NMqcjBXe56FyEWdRYe7O8hA%3D",
+    "prompt": "Style: Cyberpunk-utopian workspace, creative energy. Mood: Collaborative breakthrough moment. Elements: People sketching ideas, laptops with visualizations,. Colors: Natural with tech glow accents. High quality, professional, no text or watermarks",
+    "metadata": {
+      "id": "sunday-collaboration",
+      "file": "src/pages/science-sunday.astro",
+      "line": 207,
+      "Style": "Cyberpunk-utopian workspace, creative energy",
+      "Mood": "Collaborative breakthrough moment",
+      "Elements": "People sketching ideas, laptops with visualizations,",
+      "Colors": "Natural with tech glow accents",
+      "Dimensions": "400x300",
+      "Variations": "1"
+    }
+  }
+]

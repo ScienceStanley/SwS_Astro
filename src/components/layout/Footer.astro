@@ -52,10 +52,10 @@ const footerLinks = {
           </p>
           <div class="social-links">
             <a href="https://discord.com/invite/smarter" class="social-link" aria-label="Discord">
-              <div class="social-icon discord"></div>
+              <img src="/ui-elements/icon-discord-pixelart.png" alt="Discord" class="social-icon-pixel" />
             </a>
             <a href="https://github.com/SmarterWithScience" class="social-link" aria-label="GitHub">
-              <div class="social-icon github"></div>
+              <img src="/ui-elements/icon-github-pixelart.png" alt="GitHub" class="social-icon-pixel" />
             </a>
             <a href="https://twitter.com/ScienceStanley" class="social-link" aria-label="Twitter">
               <div class="social-icon twitter"></div>
@@ -327,6 +327,20 @@ const footerLinks = {
 
   .social-link:hover .social-icon {
     background: var(--color-primary);
+  }
+
+  /* Pixel art social icons */
+  .social-icon-pixel {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(164, 118, 255, 0.3));
+  }
+
+  .social-link:hover .social-icon-pixel {
+    filter: brightness(1.2) drop-shadow(0 0 8px var(--color-primary));
+    transform: translateY(-2px);
   }
 
   /* Link Sections */

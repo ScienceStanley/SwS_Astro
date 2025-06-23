@@ -1,0 +1,421 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  category: 'ocean' | 'medical' | 'quantum' | 'mesh' | 'vr' | 'algae';
+  impact: string;
+  status: 'active' | 'planning' | 'completed';
+  collaborators: number;
+  computeHours: number;
+  href?: string;
+  className?: string;
+}
+
+const { 
+  title,
+  description,
+  category,
+  impact,
+  status,
+  collaborators,
+  computeHours,
+  href = '#',
+  className = ''
+} = Astro.props;
+
+const categoryColors = {
+  ocean: { primary: '#1E90FF', secondary: '#20B2AA', accent: '#87CEEB' },
+  medical: { primary: '#90EE90', secondary: '#98FB98', accent: '#F0F8FF' },
+  quantum: { primary: '#9370DB', secondary: '#8A2BE2', accent: '#DDA0DD' },
+  mesh: { primary: '#FF6347', secondary: '#FF7F50', accent: '#FFA07A' },
+  vr: { primary: '#FFD700', secondary: '#FFA500', accent: '#FFFFE0' },
+  algae: { primary: '#32CD32', secondary: '#90EE90', accent: '#F0FFF0' }
+};
+
+const categoryElements = {
+  ocean: { icon: '🌊', spirits: '🐟', particles: '💧' },
+  medical: { icon: '🧬', spirits: '⚕️', particles: '✨' },
+  quantum: { icon: '⚛️', spirits: '🔬', particles: '⚡' },
+  mesh: { icon: '🌐', spirits: '📡', particles: '📶' },
+  vr: { icon: '🥽', spirits: '🎮', particles: '🌌' },
+  algae: { icon: '🌱', spirits: '🧪', particles: '💚' }
+};
+---
+
+<a href={href} class={`ghibli-project-card ghibli-${category} ${className}`}>
+  <div class="card-background">
+    <div class="pixel-environment">
+      <div class="floating-particles">
+        <span class="particle particle-1">{categoryElements[category].particles}</span>
+        <span class="particle particle-2">{categoryElements[category].particles}</span>
+        <span class="particle particle-3">{categoryElements[category].particles}</span>
+      </div>
+      <div class="ghibli-spirits">
+        <span class="spirit spirit-1">{categoryElements[category].spirits}</span>
+        <span class="spirit spirit-2">{categoryElements[category].spirits}</span>
+      </div>
+      <div class="data-crystals">
+        <div class="crystal crystal-1"></div>
+        <div class="crystal crystal-2"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-header">
+    <div class="project-icon">{categoryElements[category].icon}</div>
+    <div class="status-indicator" data-status={status}></div>
+  </div>
+  
+  <div class="card-content">
+    <h3 class="project-title">{title}</h3>
+    <p class="project-description">{description}</p>
+    
+    <div class="impact-badge">
+      <span class="impact-icon">📈</span>
+      <span class="impact-text">{impact}</span>
+    </div>
+    
+    <div class="project-stats">
+      <div class="stat">
+        <div class="stat-value">{collaborators}</div>
+        <div class="stat-label">Researchers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">{computeHours.toLocaleString()}</div>
+        <div class="stat-label">GPU Hours</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-footer">
+    <div class="progress-bar">
+      <div class="progress-fill" style={`width: ${status === 'completed' ? 100 : status === 'active' ? 70 : 30}%`}></div>
+    </div>
+    <span class="learn-more">Explore Project →</span>
+  </div>
+</a>
+
+<style define:vars={{
+  primaryColor: categoryColors[category].primary,
+  secondaryColor: categoryColors[category].secondary,
+  accentColor: categoryColors[category].accent
+}}>
+  .ghibli-project-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ghibli-project-card:hover {
+    border-color: var(--primaryColor);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .card-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.1;
+  }
+
+  .pixel-environment {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+  }
+
+  .particle {
+    position: absolute;
+    font-size: 1rem;
+    animation: float-particle 4s ease-in-out infinite;
+    opacity: 0.3;
+  }
+
+  .particle-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  .particle-2 {
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+  }
+
+  .particle-3 {
+    bottom: 30%;
+    left: 70%;
+    animation-delay: 4s;
+  }
+
+  @keyframes float-particle {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: translateY(-20px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+
+  .ghibli-spirits {
+    position: absolute;
+    inset: 0;
+  }
+
+  .spirit {
+    position: absolute;
+    font-size: 0.875rem;
+    animation: spirit-wander 6s ease-in-out infinite;
+    opacity: 0.4;
+  }
+
+  .spirit-1 {
+    top: 40%;
+    left: 30%;
+    animation-delay: 1s;
+  }
+
+  .spirit-2 {
+    bottom: 40%;
+    right: 30%;
+    animation-delay: 3s;
+  }
+
+  @keyframes spirit-wander {
+    0%, 100% { 
+      transform: translate(0, 0) scale(1);
+      opacity: 0.4;
+    }
+    25% { 
+      transform: translate(15px, -10px) scale(1.1);
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translate(-10px, -15px) scale(0.9);
+      opacity: 0.3;
+    }
+    75% { 
+      transform: translate(-5px, 5px) scale(1.05);
+      opacity: 0.5;
+    }
+  }
+
+  .data-crystals {
+    position: absolute;
+    inset: 0;
+  }
+
+  .crystal {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primaryColor);
+    border-radius: 1px;
+    animation: crystal-pulse 3s ease-in-out infinite;
+    box-shadow: 0 0 4px var(--primaryColor);
+  }
+
+  .crystal-1 {
+    top: 25%;
+    left: 80%;
+    animation-delay: 0s;
+  }
+
+  .crystal-2 {
+    bottom: 25%;
+    left: 10%;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes crystal-pulse {
+    0%, 100% { 
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-primary);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 4px var(--primaryColor));
+  }
+
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--secondaryColor);
+    box-shadow: 0 0 8px currentColor;
+  }
+
+  .status-indicator[data-status="planning"] {
+    background: var(--text-tertiary);
+  }
+
+  .status-indicator[data-status="completed"] {
+    background: var(--accent-green);
+  }
+
+  .card-content {
+    padding: var(--space-md);
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+  }
+
+  .impact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--primaryColor);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    margin-bottom: var(--space-md);
+    color: var(--primaryColor);
+  }
+
+  .impact-icon {
+    font-size: 0.875rem;
+  }
+
+  .project-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primaryColor);
+    text-shadow: 0 0 4px var(--primaryColor);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-footer {
+    padding: var(--space-md);
+    border-top: 1px solid var(--border-primary);
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-bar {
+    background: var(--bg-tertiary);
+    height: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: var(--space-sm);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primaryColor), var(--secondaryColor));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  .learn-more {
+    font-size: 0.875rem;
+    color: var(--primaryColor);
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .ghibli-project-card:hover .learn-more {
+    transform: translateX(4px);
+  }
+
+  /* Category-specific hover effects */
+  .ghibli-ocean:hover .card-background {
+    background: radial-gradient(circle, rgba(30, 144, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .ghibli-medical:hover .card-background {
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.1) 0%, transparent 70%);
+  }
+
+  .ghibli-quantum:hover .card-background {
+    background: radial-gradient(circle, rgba(147, 112, 219, 0.1) 0%, transparent 70%);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .project-stats {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .card-content {
+      padding: var(--space-sm);
+    }
+
+    .particle,
+    .spirit {
+      font-size: 0.75rem;
+    }
+  }
+</style>

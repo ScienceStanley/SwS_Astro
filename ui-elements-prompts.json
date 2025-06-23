@@ -1,0 +1,211 @@
+[
+  {
+    "id": "nav-logo-pixelart",
+    "file": "navigation/header",
+    "line": 1,
+    "Style": "16-bit pixel art, cyberpunk-utopian aesthetic, clean and minimal",
+    "Mood": "Professional, futuristic, trustworthy",
+    "Elements": "Abstract DNA helix or molecule structure forming 'SwS' letters, glowing pixels, subtle animation frames, transparent background",
+    "Colors": "Primary purple #a476ff, warp core blue #00D4FF, white highlights, transparent background",
+    "Dimensions": "64x64",
+    "Variations": "4"
+  },
+  {
+    "id": "hero-banner-pixelart",
+    "file": "homepage/hero",
+    "line": 1,
+    "Style": "Pixel art banner, cyberpunk-utopian cityscape, hopeful atmosphere",
+    "Mood": "Inspiring, technological optimism, community-focused",
+    "Elements": "Stylized laboratory with glowing screens, DNA helixes floating, small pixel characters collaborating, data streams flowing upward",
+    "Colors": "Purple #a476ff gradients, blue #00D4FF accents, green #A9FF5B highlights, dark background with bright pixels",
+    "Dimensions": "1920x400",
+    "Variations": "3"
+  },
+  {
+    "id": "section-divider-dna",
+    "file": "layout/sections",
+    "line": 1,
+    "Style": "Pixel art horizontal divider, animated DNA helix pattern",
+    "Mood": "Connecting, flowing, scientific",
+    "Elements": "Double helix pattern stretching horizontally, glowing connection points, small data particles",
+    "Colors": "Purple #a476ff helix, blue #00D4FF connection points, subtle animation frames",
+    "Dimensions": "1920x32",
+    "Variations": "2"
+  },
+  {
+    "id": "button-primary-pixelart",
+    "file": "ui/buttons",
+    "line": 1,
+    "Style": "Pixel art button design, cyberpunk UI element with glow effect",
+    "Mood": "Interactive, inviting, futuristic",
+    "Elements": "Rounded rectangle with pixel border, inner glow, small arrow or chevron, hover state frames",
+    "Colors": "Purple #a476ff background, white text area, blue #00D4FF border glow",
+    "Dimensions": "200x48",
+    "Variations": "3"
+  },
+  {
+    "id": "button-secondary-pixelart",
+    "file": "ui/buttons",
+    "line": 2,
+    "Style": "Pixel art secondary button, outline style with subtle fill",
+    "Mood": "Professional, secondary action, accessible",
+    "Elements": "Outlined rectangle with dashed or dotted pixel border, transparent center, small icon space",
+    "Colors": "Blue #00D4FF outline, transparent center, subtle purple #a476ff fill on hover",
+    "Dimensions": "200x48",
+    "Variations": "3"
+  },
+  {
+    "id": "card-frame-pixelart",
+    "file": "ui/cards",
+    "line": 1,
+    "Style": "Pixel art card frame, data crystal aesthetic with holographic edges",
+    "Mood": "Professional, contained, futuristic data display",
+    "Elements": "Rectangular frame with glowing corners, subtle grid pattern, holographic edge effects",
+    "Colors": "Purple #a476ff corner glows, blue #00D4FF edge highlights, transparent center",
+    "Dimensions": "400x300",
+    "Variations": "3"
+  },
+  {
+    "id": "progress-bar-pixelart",
+    "file": "ui/progress",
+    "line": 1,
+    "Style": "Pixel art progress indicator, DNA loading animation",
+    "Mood": "Progress, scientific computation, dynamic",
+    "Elements": "Horizontal bar with DNA helix filling pattern, animated particles moving along the bar",
+    "Colors": "Purple #a476ff fill, blue #00D4FF particles, dark background",
+    "Dimensions": "300x24",
+    "Variations": "2"
+  },
+  {
+    "id": "icon-discord-pixelart",
+    "file": "ui/icons",
+    "line": 1,
+    "Style": "16-bit pixel art Discord icon, cyberpunk aesthetic",
+    "Mood": "Community, accessible, recognizable",
+    "Elements": "Discord logo rendered in pixel art style with subtle glow effect",
+    "Colors": "Discord brand colors adapted to purple #a476ff and blue #00D4FF theme",
+    "Dimensions": "32x32",
+    "Variations": "2"
+  },
+  {
+    "id": "icon-github-pixelart",
+    "file": "ui/icons",
+    "line": 2,
+    "Style": "16-bit pixel art GitHub icon, cyberpunk aesthetic",
+    "Mood": "Open source, collaborative, technical",
+    "Elements": "GitHub octocat rendered in pixel art with glowing outline",
+    "Colors": "White/light pixels with purple #a476ff glow outline",
+    "Dimensions": "32x32",
+    "Variations": "2"
+  },
+  {
+    "id": "icon-science-pixelart",
+    "file": "ui/icons",
+    "line": 3,
+    "Style": "16-bit pixel art science icons set, molecular and lab themed",
+    "Mood": "Scientific, precise, accessible",
+    "Elements": "DNA helix, molecule, beaker, microscope - each as separate 16x16 pixel icons",
+    "Colors": "Purple #a476ff, blue #00D4FF, green #A9FF5B for different elements",
+    "Dimensions": "64x64",
+    "Variations": "3"
+  },
+  {
+    "id": "background-grid-pixelart",
+    "file": "layout/background",
+    "line": 1,
+    "Style": "Subtle pixel art grid pattern, cyberpunk data visualization",
+    "Mood": "Technical, structured, non-intrusive",
+    "Elements": "Fine grid lines with occasional glowing intersection points, very subtle pattern",
+    "Colors": "Very dark purple #a476ff at 5% opacity, occasional blue #00D4FF dots at intersections",
+    "Dimensions": "400x400",
+    "Variations": "2"
+  },
+  {
+    "id": "project-ocean-vision-pixel",
+    "file": "projects/placeholders",
+    "line": 1,
+    "Style": "Pixel art project thumbnail, ocean and AI monitoring theme",
+    "Mood": "Marine conservation, technological hope, environmental focus",
+    "Elements": "Stylized ocean waves with floating AI sensors, data visualization overlays, marine life silhouettes",
+    "Colors": "Ocean blues #00D4FF, purple #a476ff sensors, green #A9FF5B data points",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "project-rare-disease-pixel",
+    "file": "projects/placeholders",
+    "line": 2,
+    "Style": "Pixel art project thumbnail, medical AI and diagnostics theme",
+    "Mood": "Medical hope, precision, life-saving technology",
+    "Elements": "DNA sequences, medical scanning imagery, AI neural networks analyzing genetic data",
+    "Colors": "Medical green #A9FF5B, purple #a476ff for AI elements, blue #00D4FF data streams",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "project-quantum-biology-pixel",
+    "file": "projects/placeholders",
+    "line": 3,
+    "Style": "Pixel art project thumbnail, quantum physics meets biology",
+    "Mood": "Cutting-edge science, fundamental discovery, quantum mystery",
+    "Elements": "Quantum particle effects, molecular structures, wave-particle duality visualization",
+    "Colors": "Quantum purple #a476ff, energy blue #00D4FF, molecular green #A9FF5B",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "project-mesh-networks-pixel",
+    "file": "projects/placeholders",
+    "line": 4,
+    "Style": "Pixel art project thumbnail, community mesh networking theme",
+    "Mood": "Community resilience, connection, decentralized technology",
+    "Elements": "Interconnected nodes forming a network, small houses/buildings connected by data streams",
+    "Colors": "Purple #a476ff network lines, blue #00D4FF connection nodes, green #A9FF5B community points",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "project-steam-vr-pixel",
+    "file": "projects/placeholders",
+    "line": 5,
+    "Style": "Pixel art project thumbnail, VR education and STEAM learning",
+    "Mood": "Educational excitement, immersive learning, youth empowerment",
+    "Elements": "VR headset, floating educational holograms, students interacting with 3D molecular models",
+    "Colors": "Education purple #a476ff, VR blue #00D4FF, learning green #A9FF5B highlights",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "project-algae-protein-pixel",
+    "file": "projects/placeholders",
+    "line": 6,
+    "Style": "Pixel art project thumbnail, algae cultivation and protein production",
+    "Mood": "Sustainable future, food security, biotechnology optimism",
+    "Elements": "Algae cultivation tanks, protein molecule structures, sustainable farming imagery",
+    "Colors": "Algae green #A9FF5B, biotech purple #a476ff, water blue #00D4FF",
+    "Dimensions": "400x250",
+    "Variations": "3"
+  },
+  {
+    "id": "loading-spinner-pixelart",
+    "file": "ui/loading",
+    "line": 1,
+    "Style": "Pixel art loading animation, DNA helix rotation",
+    "Mood": "Processing, scientific computation, patience with purpose",
+    "Elements": "Rotating DNA double helix with particle effects, frame-by-frame animation sequence",
+    "Colors": "Purple #a476ff helix, blue #00D4FF particles, smooth rotation frames",
+    "Dimensions": "64x64",
+    "Variations": "2"
+  },
+  {
+    "id": "footer-decoration-pixelart",
+    "file": "layout/footer",
+    "line": 1,
+    "Style": "Pixel art footer decoration, constellation pattern with connections",
+    "Mood": "Connected community, scientific discovery, infinite possibilities",
+    "Elements": "Small constellation of stars connected by thin lines, representing the SwS network",
+    "Colors": "Purple #a476ff stars, blue #00D4FF connection lines, subtle sparkle effects",
+    "Dimensions": "1920x100",
+    "Variations": "2"
+  }
+]

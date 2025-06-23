@@ -1,0 +1,52 @@
+---
+export interface Props {
+  project?: 'ocean' | 'medical' | 'quantum' | 'mesh' | 'vr' | 'algae';
+  className?: string;
+  hover?: boolean;
+}
+
+const { 
+  project,
+  className = '',
+  hover = true
+} = Astro.props;
+
+const cardClasses = [
+  'pixel-card',
+  project && `pixel-project-card pixel-project-${project}`,
+  hover && 'pixel-hover-glow',
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={cardClasses}>
+  <div class="card-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .pixel-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .card-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    height: 100%;
+  }
+  
+  /* Default card styling when no project specified */
+  .pixel-card:not([class*="pixel-project-"]) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+  
+  .pixel-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

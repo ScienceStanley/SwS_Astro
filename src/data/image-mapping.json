@@ -1,0 +1,16 @@
+{
+  "hero-banner-main": "/images/hero-banner-main.png",
+  "hero-banner-science-stanley": "/images/hero-banner-science-stanley.png",
+  "hero-banner-community": "/images/hero-banner-community.png",
+  "hero-banner-data-flow": "/images/hero-banner-data-flow.png",
+  "hero-banner-breakthrough": "/images/hero-banner-breakthrough.png",
+  "navigation-section-bg": "/images/navigation-section-bg.png",
+  "card-science-sunday": "/images/card-science-sunday.png",
+  "card-projects": "/images/card-projects.png",
+  "card-charter": "/images/card-charter.png",
+  "project-{project.image}": "/images/project-{project.image}.png",
+  "map-venice-beach": "/images/map-venice-beach.png",
+  "sunday-conversation-1": "/images/sunday-conversation-1.png",
+  "sunday-stanley-speaking": "/images/sunday-stanley-speaking.png",
+  "sunday-collaboration": "/images/sunday-collaboration.png"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "promptId": "hero-banner-main",
+    "selected": "hero-banner-main-1.png",
+    "finalPath": "/images/hero-banner-main.png"
+  },
+  {
+    "promptId": "hero-banner-science-stanley",
+    "selected": "hero-banner-science-stanley-1.png",
+    "finalPath": "/images/hero-banner-science-stanley.png"
+  },
+  {
+    "promptId": "hero-banner-community",
+    "selected": "hero-banner-community-1.png",
+    "finalPath": "/images/hero-banner-community.png"
+  },
+  {
+    "promptId": "hero-banner-data-flow",
+    "selected": "hero-banner-data-flow-1.png",
+    "finalPath": "/images/hero-banner-data-flow.png"
+  },
+  {
+    "promptId": "hero-banner-breakthrough",
+    "selected": "hero-banner-breakthrough-1.png",
+    "finalPath": "/images/hero-banner-breakthrough.png"
+  },
+  {
+    "promptId": "navigation-section-bg",
+    "selected": "navigation-section-bg-1.png",
+    "finalPath": "/images/navigation-section-bg.png"
+  },
+  {
+    "promptId": "card-science-sunday",
+    "selected": "card-science-sunday-1.png",
+    "finalPath": "/images/card-science-sunday.png"
+  },
+  {
+    "promptId": "card-projects",
+    "selected": "card-projects-1.png",
+    "finalPath": "/images/card-projects.png"
+  },
+  {
+    "promptId": "card-charter",
+    "selected": "card-charter-1.png",
+    "finalPath": "/images/card-charter.png"
+  },
+  {
+    "promptId": "project-{project.image}",
+    "selected": "project-{project.image}.png",
+    "finalPath": "/images/project-{project.image}.png"
+  },
+  {
+    "promptId": "map-venice-beach",
+    "selected": "map-venice-beach.png",
+    "finalPath": "/images/map-venice-beach.png"
+  },
+  {
+    "promptId": "sunday-conversation-1",
+    "selected": "sunday-conversation-1.png",
+    "finalPath": "/images/sunday-conversation-1.png"
+  },
+  {
+    "promptId": "sunday-stanley-speaking",
+    "selected": "sunday-stanley-speaking.png",
+    "finalPath": "/images/sunday-stanley-speaking.png"
+  },
+  {
+    "promptId": "sunday-collaboration",
+    "selected": "sunday-collaboration.png",
+    "finalPath": "/images/sunday-collaboration.png"
+  }
+]

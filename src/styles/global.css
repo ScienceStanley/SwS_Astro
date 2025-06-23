@@ -8,11 +8,14 @@
 @import '@fontsource/inter/500.css';
 @import '@fontsource/fira-code/400.css';
 
+@import 'neodev-theme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import 'theme-gothsec.css';
+@import 'pixel-ui.css';
 
 @layer base {
   /* Legacy color mappings for compatibility */

@@ -15,8 +15,13 @@ const { currentPath = '/' } = Astro.props;
     <!-- Logo/Home Link -->
     <a href="/" class="nav-logo magnetic" aria-label="Smarter with Science Home">
       <div class="logo-wrapper">
-        <div class="warp-core"></div>
-        <span class="logo-text">SwS</span>
+        <img 
+          src="/ui-elements/nav-logo-pixelart.png" 
+          alt="Smarter with Science Logo" 
+          class="logo-image"
+          width="120" 
+          height="32"
+        />
       </div>
     </a>
 
@@ -112,23 +117,18 @@ const { currentPath = '/' } = Astro.props;
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
   }
 
-  .warp-core {
-    width: 32px;
+  .logo-image {
     height: 32px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: var(--glow-subtle);
+    width: auto;
+    transition: all 0.3s var(--spring-bounce);
+    filter: drop-shadow(0 0 8px rgba(164, 118, 255, 0.3));
   }
 
-  .logo-text {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--color-primary);
-    letter-spacing: -0.02em;
+  .nav-logo:hover .logo-image {
+    filter: drop-shadow(0 0 12px rgba(164, 118, 255, 0.5));
+    transform: scale(1.05);
   }
 
   /* Desktop Navigation */

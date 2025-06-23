@@ -1,0 +1,47 @@
+---
+export interface Props {
+  element: string;
+  alt?: string;
+  className?: string;
+  size?: 'small' | 'medium' | 'large' | 'custom';
+  hover?: boolean;
+  animate?: boolean;
+}
+
+const { 
+  element, 
+  alt = '', 
+  className = '',
+  size = 'medium',
+  hover = false,
+  animate = false
+} = Astro.props;
+
+const sizeClass = {
+  small: 'pixel-icon-small',
+  medium: 'pixel-icon',
+  large: 'pixel-icon-large',
+  custom: ''
+}[size];
+
+const classes = [
+  'pixel-perfect',
+  sizeClass,
+  hover && 'pixel-hover-glow',
+  animate && 'pixel-animate-in',
+  className
+].filter(Boolean).join(' ');
+---
+
+<img 
+  src={`/ui-elements/${element}.png`} 
+  alt={alt}
+  class={classes}
+  loading="lazy"
+/>
+
+<style>
+  img {
+    display: block;
+  }
+</style>
