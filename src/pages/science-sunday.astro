@@ -1,0 +1,954 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const pageTitle = 'Science Sunday - Church for the Curious';
+const pageDescription = 'Join us every Sunday in Venice Beach for an electrifying convergence of minds, where curiosity becomes community and wonder becomes wisdom.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <div class="particle-field"></div>
+      <div class="gradient-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title" data-text="Science Sunday">
+        <span class="title-line">Science</span>
+        <span class="title-line">Sunday</span>
+      </h1>
+      <p class="hero-subtitle">Church for the Curious</p>
+      <p class="hero-description">
+        Every Sunday, 1-5pm at KINN Venice Beach. Where breakthrough ideas collide with 
+        breakthrough conversations.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#rsvp" class="portal-button magnetic">
+          <span>RSVP for Next Sunday</span>
+          <div class="button-glow"></div>
+        </a>
+        <a href="#location" class="secondary-button">
+          <span>Find Us</span>
+        </a>
+      </div>
+      
+      <div class="next-event-timer" data-next-sunday>
+        <div class="timer-label">Next gathering in:</div>
+        <div class="timer-display">
+          <div class="timer-unit">
+            <span class="timer-value" data-days>0</span>
+            <span class="timer-label">days</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-value" data-hours>0</span>
+            <span class="timer-label">hours</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-value" data-minutes>0</span>
+            <span class="timer-label">minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect Section -->
+  <section class="expect-section">
+    <div class="container">
+      <h2 class="section-title">What Happens at Science Sunday?</h2>
+      
+      <div class="expect-grid">
+        <div class="expect-card data-crystal">
+          <div class="card-number">01</div>
+          <h3>Mind-Melding Conversations</h3>
+          <p>
+            Engage with researchers, entrepreneurs, and curious minds from every field. 
+            No PowerPoints, no pitches—just pure intellectual jazz.
+          </p>
+        </div>
+        
+        <div class="expect-card data-crystal">
+          <div class="card-number">02</div>
+          <h3>Serendipitous Connections</h3>
+          <p>
+            That person sipping coffee next to you? They might be working on the cure 
+            for aging or building the next quantum computer. Strike up a conversation.
+          </p>
+        </div>
+        
+        <div class="expect-card data-crystal">
+          <div class="card-number">03</div>
+          <h3>Science Stanley's Stories</h3>
+          <p>
+            Our founder shares tales from the frontlines of discovery, weaving together 
+            personal narratives with cutting-edge research in his signature style.
+          </p>
+        </div>
+        
+        <div class="expect-card data-crystal">
+          <div class="card-number">04</div>
+          <h3>Collaborative Problem-Solving</h3>
+          <p>
+            Bring your biggest questions. Leave with new perspectives, potential 
+            collaborators, and maybe even the spark of your next breakthrough.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="location-section">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info">
+          <h2 class="section-title">Find Your Tribe</h2>
+          <div class="location-details">
+            <div class="detail-item">
+              <div class="detail-icon warp-core-small"></div>
+              <div>
+                <h4>KINN Venice</h4>
+                <p>518 Rose Ave, Venice, CA 90291</p>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <div class="detail-icon warp-core-small"></div>
+              <div>
+                <h4>Every Sunday</h4>
+                <p>1:00 PM - 5:00 PM PST</p>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <div class="detail-icon warp-core-small"></div>
+              <div>
+                <h4>Free & Open</h4>
+                <p>No tickets, no barriers—just bring your curiosity</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="venue-description">
+            <p>
+              KINN is more than a venue—it's a nexus for innovation. With its open layout 
+              and Venice Beach energy, it's the perfect quantum field for ideas to collide 
+              and combine.
+            </p>
+          </div>
+        </div>
+        
+        <div class="location-map">
+          <div class="map-container data-crystal">
+            <div class="map-placeholder">
+              <!-- IMAGE_PROMPT[map-venice-beach]
+              Style: Cyberpunk-utopian map visualization, neon grid overlay
+              Mood: Inviting, technological, warm community beacon
+              Elements: Venice Beach area map with KINN location highlighted, 
+                       purple/blue color scheme, data visualization style
+              Colors: Royal purple #663399, warp core blue #00D4FF, void black
+              Dimensions: 600x400
+              Variations: 1
+              -->
+              <div class="map-overlay">
+                <div class="location-pin"></div>
+                <div class="pulse-ring"></div>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=518+Rose+Ave+Venice+CA+90291" 
+               target="_blank" 
+               rel="noopener" 
+               class="map-link">
+              Open in Maps →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">Moments of Discovery</h2>
+      <p class="section-subtitle">
+        Every Sunday brings new connections, insights, and "aha!" moments.
+      </p>
+      
+      <div class="gallery-grid">
+        <!-- Placeholder for future images -->
+        <div class="gallery-item data-crystal">
+          <!-- IMAGE_PROMPT[sunday-conversation-1]
+          Style: Cyberpunk-utopian documentary, warm candid moment
+          Mood: Engaged conversation, intellectual energy, community warmth
+          Elements: People in animated discussion at KINN, natural lighting 
+                   with subtle neon accents
+          Colors: Natural with purple/blue highlights
+          Dimensions: 400x300
+          Variations: 1
+          -->
+        </div>
+        
+        <div class="gallery-item data-crystal">
+          <!-- IMAGE_PROMPT[sunday-stanley-speaking]
+          Style: Cyberpunk-utopian portrait, charismatic speaker
+          Mood: Inspiring, approachable genius, warm energy
+          Elements: Science Stanley mid-story, engaged audience, 
+                   holographic visualization hints
+          Colors: Natural with purple/blue accents
+          Dimensions: 400x300
+          Variations: 1
+          -->
+        </div>
+        
+        <div class="gallery-item data-crystal">
+          <!-- IMAGE_PROMPT[sunday-collaboration]
+          Style: Cyberpunk-utopian workspace, creative energy
+          Mood: Collaborative breakthrough moment
+          Elements: People sketching ideas, laptops with visualizations,
+                   coffee cups, excited gestures
+          Colors: Natural with tech glow accents
+          Dimensions: 400x300
+          Variations: 1
+          -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Chapters -->
+  <section class="chapters-section">
+    <div class="container">
+      <h2 class="section-title">Science Sunday Goes Global</h2>
+      <p class="section-subtitle">
+        The curiosity is contagious. Science Sunday chapters are sprouting up worldwide.
+      </p>
+      
+      <div class="chapters-grid">
+        <div class="chapter-card active data-crystal">
+          <div class="chapter-location">Venice Beach, CA</div>
+          <div class="chapter-status">Original Chapter</div>
+          <div class="chapter-time">Sundays 1-5pm PST</div>
+        </div>
+        
+        <div class="chapter-card data-crystal">
+          <div class="chapter-location">Coming Soon</div>
+          <div class="chapter-status">New York City</div>
+          <div class="chapter-action">
+            <a href="/start-chapter" class="link-glow">Start a Chapter →</a>
+          </div>
+        </div>
+        
+        <div class="chapter-card data-crystal">
+          <div class="chapter-location">Coming Soon</div>
+          <div class="chapter-status">London</div>
+          <div class="chapter-action">
+            <a href="/start-chapter" class="link-glow">Start a Chapter →</a>
+          </div>
+        </div>
+        
+        <div class="chapter-card data-crystal">
+          <div class="chapter-location">Your City?</div>
+          <div class="chapter-status">Be a Pioneer</div>
+          <div class="chapter-action">
+            <a href="/start-chapter" class="link-glow">Start a Chapter →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="rsvp-section">
+    <div class="container">
+      <div class="rsvp-card quantum-glass">
+        <h2 class="rsvp-title">Reserve Your Spot in the Future</h2>
+        <p class="rsvp-description">
+          While Science Sunday is always free and open, RSVPing helps us prepare 
+          and lets us send you reminders about special guests or topics.
+        </p>
+        
+        <form class="rsvp-form" data-rsvp-form>
+          <div class="form-grid">
+            <div class="form-group">
+              <input 
+                type="text" 
+                name="name" 
+                class="neural-input" 
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <input 
+                type="email" 
+                name="email" 
+                class="neural-input" 
+                placeholder="your.email@example.com"
+                required
+              />
+            </div>
+            
+            <div class="form-group full-width">
+              <textarea 
+                name="interests" 
+                class="neural-input" 
+                placeholder="What are you curious about? (Optional)"
+                rows="3"
+              ></textarea>
+            </div>
+            
+            <div class="form-group full-width">
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter" />
+                <span>Keep me updated about Science Sunday and SwS initiatives</span>
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" class="portal-button magnetic">
+            <span>RSVP for Next Sunday</span>
+            <div class="button-glow"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Your Sunday Ritual Awaits</h2>
+        <p class="cta-description">
+          Replace doom-scrolling with mind-expanding. Trade isolation for inspiration. 
+          Make Sunday the day you connect with the future-builders.
+        </p>
+        <div class="cta-actions">
+          <a href="https://discord.smarterwithscience.org" class="portal-button magnetic">
+            <span>Join Our Discord</span>
+            <div class="button-glow"></div>
+          </a>
+          <a href="/get-involved" class="secondary-button">
+            <span>Other Ways to Engage</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .particle-field {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(102, 51, 153, 0.3) 0%, transparent 50%);
+    animation: particle-drift 20s ease-in-out infinite;
+  }
+
+  @keyframes particle-drift {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+    animation: particle-emergence 1s ease-out;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .title-line {
+    display: block;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(102, 51, 153, 0.5));
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .title-line:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--cyber-pink);
+    margin-bottom: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .secondary-button {
+    padding: 1rem 2rem;
+    border: 2px solid var(--warp-core-blue);
+    color: var(--warp-core-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .secondary-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--warp-core-blue);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+
+  .secondary-button:hover {
+    color: var(--void-black);
+  }
+
+  .secondary-button:hover::before {
+    transform: translateX(0);
+  }
+
+  /* Timer */
+  .next-event-timer {
+    background: rgba(102, 51, 153, 0.1);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .timer-display {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .timer-unit {
+    text-align: center;
+  }
+
+  .timer-value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--warp-core-blue);
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .timer-label {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Sections */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 5rem 0;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(102, 51, 153, 0.5));
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Expect Grid */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .expect-card {
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .card-number {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0, 212, 255, 0.2);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .expect-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--warp-core-blue);
+  }
+
+  .expect-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Location Section */
+  .location-section {
+    background: linear-gradient(180deg, transparent, rgba(102, 51, 153, 0.05), transparent);
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .location-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-icon {
+    flex-shrink: 0;
+  }
+
+  .warp-core-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--singularity-gradient);
+    box-shadow: 
+      0 0 20px rgba(0, 212, 255, 0.5),
+      inset 0 0 20px rgba(102, 51, 153, 0.5);
+    animation: warp-core-pulse 2s ease-in-out infinite;
+  }
+
+  .detail-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+
+  .detail-item p {
+    color: var(--text-secondary);
+  }
+
+  .venue-description {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(102, 51, 153, 0.3);
+  }
+
+  .venue-description p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Map */
+  .map-container {
+    position: relative;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, rgba(102, 51, 153, 0.1) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(0, 212, 255, 0.1) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(102, 51, 153, 0.1) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(0, 212, 255, 0.1) 75%);
+    background-size: 30px 30px;
+    background-position: 0 0, 0 15px, 15px 15px, 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-overlay {
+    position: relative;
+  }
+
+  .location-pin {
+    width: 40px;
+    height: 40px;
+    background: var(--warp-core-blue);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 30px currentColor;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    inset: -20px;
+    border: 2px solid var(--warp-core-blue);
+    border-radius: 50%;
+    animation: pulse-expand 2s ease-out infinite;
+  }
+
+  @keyframes pulse-expand {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .map-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--warp-core-blue);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border: 1px solid currentColor;
+    transition: all 0.3s ease;
+  }
+
+  .map-link:hover {
+    background: var(--warp-core-blue);
+    color: var(--void-black);
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: rgba(102, 51, 153, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(102, 51, 153, 0.3);
+  }
+
+  /* Chapters */
+  .chapters-section {
+    background: linear-gradient(180deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .chapter-card {
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .chapter-card.active {
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  }
+
+  .chapter-location {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .chapter-status {
+    color: var(--warp-core-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .chapter-time {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .chapter-action {
+    margin-top: 1rem;
+  }
+
+  .link-glow {
+    color: var(--cyber-pink);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .link-glow:hover {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  /* RSVP Section */
+  .rsvp-section {
+    padding: 5rem 0;
+  }
+
+  .rsvp-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .rsvp-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rsvp-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .checkbox-label input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--warp-core-blue);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.2) 0%, transparent 70%);
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cta-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: clamp(3rem, 10vw, 5rem);
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .timer-display {
+      gap: 1rem;
+    }
+    
+    .timer-value {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Countdown Timer
+  function updateCountdown() {
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const daysUntilSunday = dayOfWeek === 0 ? 7 : 7 - dayOfWeek;
+    
+    let nextSunday = new Date(now);
+    nextSunday.setDate(now.getDate() + daysUntilSunday);
+    nextSunday.setHours(13, 0, 0, 0); // 1 PM PST
+    
+    // If it's Sunday and past 1 PM, target next Sunday
+    if (dayOfWeek === 0 && now.getHours() >= 13) {
+      nextSunday.setDate(nextSunday.getDate() + 7);
+    }
+    
+    const timeDiff = nextSunday.getTime() - now.getTime();
+    
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    const daysEl = document.querySelector('[data-days]');
+    const hoursEl = document.querySelector('[data-hours]');
+    const minutesEl = document.querySelector('[data-minutes]');
+    
+    if (daysEl) daysEl.textContent = days.toString();
+    if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+  }
+  
+  // Update immediately and then every minute
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+  
+  // RSVP Form
+  const rsvpForm = document.querySelector('[data-rsvp-form]') as HTMLFormElement;
+  
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(rsvpForm);
+      const button = rsvpForm.querySelector('button');
+      
+      if (button) {
+        button.textContent = 'Confirming...';
+        button.setAttribute('disabled', 'true');
+      }
+      
+      // Simulate API call
+      setTimeout(() => {
+        rsvpForm.reset();
+        if (button) {
+          button.textContent = 'See you Sunday!';
+          button.style.background = 'var(--plasma-green)';
+          
+          setTimeout(() => {
+            button.textContent = 'RSVP for Next Sunday';
+            button.removeAttribute('disabled');
+            button.style.background = '';
+          }, 3000);
+        }
+      }, 1500);
+    });
+  }
+</script>
