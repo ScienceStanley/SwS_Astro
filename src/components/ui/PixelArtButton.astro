@@ -1,0 +1,349 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'small' | 'medium' | 'large';
+  href?: string;
+  onClick?: string;
+  disabled?: boolean;
+  className?: string;
+  icon?: 'discord' | 'github' | 'science' | 'arrow-right' | 'arrow-left';
+  iconPosition?: 'left' | 'right';
+}
+
+const { 
+  variant = 'primary',
+  size = 'medium',
+  href,
+  onClick,
+  disabled = false,
+  className = '',
+  icon,
+  iconPosition = 'left'
+} = Astro.props;
+
+const isLink = !!href;
+const Component = isLink ? 'a' : 'button';
+
+const sizeClasses = {
+  small: 'px-4 py-2 text-sm',
+  medium: 'px-6 py-3 text-base',
+  large: 'px-8 py-4 text-lg'
+};
+
+const buttonImages = {
+  primary: [
+    '/ui-elements/button-primary-pixelart.png',
+    '/generated-images/button-primary-pixelart-1.png',
+    '/generated-images/button-primary-pixelart-2.png',
+    '/generated-images/button-primary-pixelart-3.png'
+  ],
+  secondary: [
+    '/ui-elements/button-secondary-pixelart.png',
+    '/generated-images/button-secondary-pixelart-1.png',
+    '/generated-images/button-secondary-pixelart-2.png',
+    '/generated-images/button-secondary-pixelart-3.png'
+  ]
+};
+
+const iconImages = {
+  discord: '/ui-elements/icon-discord-pixelart.png',
+  github: '/ui-elements/icon-github-pixelart.png',
+  science: '/ui-elements/icon-science-pixelart.png'
+};
+
+// Select a random button image for variety
+const selectedButtonImage = variant === 'ghost' 
+  ? null 
+  : buttonImages[variant][Math.floor(Math.random() * buttonImages[variant].length)];
+---
+
+<Component
+  class={`pixel-art-button pixel-button-${variant} pixel-button-${size} ${className} ${disabled ? 'disabled' : ''}`}
+  href={href}
+  onClick={onClick}
+  disabled={disabled}
+  style={variant !== 'ghost' && selectedButtonImage ? `--button-image: url('${selectedButtonImage}')` : ''}
+>
+  <span class="button-content">
+    {icon && iconPosition === 'left' && iconImages[icon] && (
+      <img 
+        src={iconImages[icon]} 
+        alt={icon} 
+        class="button-icon icon-left"
+        width="20"
+        height="20"
+      />
+    )}
+    <span class="button-text">
+      <slot />
+    </span>
+    {icon && iconPosition === 'right' && iconImages[icon] && (
+      <img 
+        src={iconImages[icon]} 
+        alt={icon} 
+        class="button-icon icon-right"
+        width="20"
+        height="20"
+      />
+    )}
+    {icon && !iconImages[icon] && (
+      <span class={`button-arrow ${iconPosition === 'right' ? 'ml-2' : 'mr-2'}`}>
+        {icon === 'arrow-right' ? '→' : icon === 'arrow-left' ? '←' : ''}
+      </span>
+    )}
+  </span>
+  
+  <!-- Hover effects -->
+  <div class="button-glow"></div>
+  <div class="button-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+</Component>
+
+<style>
+  .pixel-art-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono, monospace);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    border: none;
+    background: transparent;
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Primary variant with pixel art background */
+  .pixel-button-primary {
+    background-image: var(--button-image);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    padding: 12px 24px;
+    min-height: 48px;
+  }
+  
+  .pixel-button-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(0, 255, 255, 0.3) 0%, 
+      rgba(0, 212, 170, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .pixel-button-primary:hover::before {
+    opacity: 1;
+  }
+  
+  /* Secondary variant with pixel art background */
+  .pixel-button-secondary {
+    background-image: var(--button-image);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #00ffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    padding: 12px 24px;
+    min-height: 48px;
+  }
+  
+  /* Ghost variant */
+  .pixel-button-ghost {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 10px 22px;
+    clip-path: polygon(
+      8px 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%,
+      0 8px
+    );
+  }
+  
+  .pixel-button-ghost:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.5),
+      inset 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+  
+  /* Size variants */
+  .pixel-button-small {
+    font-size: 0.875rem;
+    min-height: 36px;
+  }
+  
+  .pixel-button-medium {
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .pixel-button-large {
+    font-size: 1.125rem;
+    min-height: 56px;
+  }
+  
+  /* Icon styling */
+  .button-icon {
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+  }
+  
+  .icon-left {
+    margin-right: 0.25rem;
+  }
+  
+  .icon-right {
+    margin-left: 0.25rem;
+  }
+  
+  /* Arrow styling */
+  .button-arrow {
+    font-size: 1.25em;
+    transition: transform 0.3s ease;
+  }
+  
+  .pixel-art-button:hover .button-arrow {
+    transform: translateX(3px);
+  }
+  
+  /* Glow effect */
+  .button-glow {
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .pixel-art-button:hover .button-glow {
+    opacity: 1;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  
+  /* Particle effects */
+  .button-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #00ffff;
+    opacity: 0;
+  }
+  
+  .pixel-art-button:hover .particle {
+    animation: particle-float 1s ease-out forwards;
+  }
+  
+  .particle:nth-child(1) {
+    left: 20%;
+    bottom: 0;
+    animation-delay: 0s;
+  }
+  
+  .particle:nth-child(2) {
+    left: 50%;
+    bottom: 0;
+    animation-delay: 0.2s;
+  }
+  
+  .particle:nth-child(3) {
+    left: 80%;
+    bottom: 0;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes particle-float {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-20px) scale(1);
+    }
+    100% {
+      transform: translateY(-40px) scale(0);
+      opacity: 0;
+    }
+  }
+  
+  /* Hover animations */
+  .pixel-art-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .pixel-art-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Disabled state */
+  .pixel-art-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+  }
+  
+  .pixel-art-button.disabled:hover {
+    transform: none;
+  }
+  
+  .pixel-art-button.disabled .button-glow,
+  .pixel-art-button.disabled .particle {
+    display: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .pixel-button-large {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+    
+    .pixel-button-medium {
+      font-size: 0.875rem;
+      padding: 8px 16px;
+    }
+    
+    .pixel-button-small {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+    }
+  }
+</style>

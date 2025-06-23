@@ -1,0 +1,288 @@
+---
+export interface Props {
+  variant?: 'default' | 'project' | 'charter' | 'science-sunday';
+  glowColor?: string;
+  href?: string;
+  className?: string;
+  animated?: boolean;
+}
+
+const { 
+  variant = 'default',
+  glowColor = '#00ffff',
+  href,
+  className = '',
+  animated = true
+} = Astro.props;
+
+const Component = href ? 'a' : 'div';
+
+const cardFrames = {
+  default: [
+    '/ui-elements/card-frame-pixelart.png',
+    '/generated-images/card-frame-pixelart-1.png',
+    '/generated-images/card-frame-pixelart-2.png',
+    '/generated-images/card-frame-pixelart-3.png'
+  ],
+  charter: [
+    '/generated-images/card-charter-1.png',
+    '/generated-images/card-charter-2.png',
+    '/generated-images/card-charter-3.png'
+  ],
+  project: [
+    '/generated-images/card-projects-1.png',
+    '/generated-images/card-projects-2.png',
+    '/generated-images/card-projects-3.png'
+  ],
+  'science-sunday': [
+    '/generated-images/card-science-sunday-1.png',
+    '/generated-images/card-science-sunday-2.png',
+    '/generated-images/card-science-sunday-3.png'
+  ]
+};
+
+// Select a random frame for variety
+const frames = cardFrames[variant] || cardFrames.default;
+const selectedFrame = frames[Math.floor(Math.random() * frames.length)];
+---
+
+<Component 
+  class={`pixel-art-card pixel-card-${variant} ${animated ? 'animated' : ''} ${className}`}
+  href={href}
+  style={`--card-frame: url('${selectedFrame}'); --glow-color: ${glowColor};`}
+>
+  <!-- Card background frame -->
+  <div class="card-frame"></div>
+  
+  <!-- Content area -->
+  <div class="card-content">
+    <slot />
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="card-decorations">
+    <div class="corner-crystal top-left"></div>
+    <div class="corner-crystal top-right"></div>
+    <div class="corner-crystal bottom-left"></div>
+    <div class="corner-crystal bottom-right"></div>
+  </div>
+  
+  <!-- Hover effects -->
+  <div class="card-glow"></div>
+  <div class="card-scanline"></div>
+</Component>
+
+<style>
+  .pixel-art-card {
+    position: relative;
+    display: block;
+    min-height: 200px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Card frame background */
+  .card-frame {
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-frame);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Content area with padding for frame */
+  .card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 12px;
+    backdrop-filter: blur(4px);
+    clip-path: polygon(
+      16px 0,
+      100% 0,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      0 100%,
+      0 16px
+    );
+  }
+  
+  /* Corner crystals */
+  .card-decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .corner-crystal {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--glow-color);
+    transform: rotate(45deg);
+    opacity: 0.8;
+    box-shadow: 0 0 8px var(--glow-color);
+  }
+  
+  .top-left {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .top-right {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .bottom-right {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .animated .corner-crystal {
+    animation: crystal-pulse 3s ease-in-out infinite;
+  }
+  
+  .animated .corner-crystal:nth-child(2) {
+    animation-delay: 0.75s;
+  }
+  
+  .animated .corner-crystal:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+  
+  .animated .corner-crystal:nth-child(4) {
+    animation-delay: 2.25s;
+  }
+  
+  @keyframes crystal-pulse {
+    0%, 100% {
+      opacity: 0.4;
+      transform: rotate(45deg) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(45deg) scale(1.2);
+    }
+  }
+  
+  /* Glow effect */
+  .card-glow {
+    position: absolute;
+    inset: -4px;
+    background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .pixel-art-card:hover .card-glow {
+    opacity: 0.3;
+  }
+  
+  /* Scanline effect */
+  .card-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      var(--glow-color) 50%, 
+      transparent 100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+  }
+  
+  .pixel-art-card:hover .card-scanline {
+    opacity: 0.8;
+    animation: scanline-sweep 2s linear infinite;
+  }
+  
+  @keyframes scanline-sweep {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(200px);
+    }
+  }
+  
+  /* Hover effects */
+  .pixel-art-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .pixel-art-card:hover .card-frame {
+    filter: brightness(1.1);
+  }
+  
+  .pixel-art-card:hover .corner-crystal {
+    box-shadow: 0 0 12px var(--glow-color);
+  }
+  
+  /* Variant specific styles */
+  .pixel-card-charter .card-content {
+    background: rgba(102, 51, 153, 0.1);
+  }
+  
+  .pixel-card-project .card-content {
+    background: rgba(0, 212, 170, 0.1);
+  }
+  
+  .pixel-card-science-sunday .card-content {
+    background: rgba(0, 255, 255, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .corner-crystal {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .top-left,
+    .top-right {
+      top: 16px;
+    }
+    
+    .bottom-left,
+    .bottom-right {
+      bottom: 16px;
+    }
+    
+    .top-left,
+    .bottom-left {
+      left: 16px;
+    }
+    
+    .top-right,
+    .bottom-right {
+      right: 16px;
+    }
+  }
+</style>

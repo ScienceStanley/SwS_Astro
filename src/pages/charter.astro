@@ -70,7 +70,10 @@ const pods = [
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section" style="background-image: url('/images/space.jpg'); background-size: cover; background-position: center;">
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    
     <div class="hero-bg">
       <div class="constellation-bg"></div>
       <div class="gradient-overlay"></div>

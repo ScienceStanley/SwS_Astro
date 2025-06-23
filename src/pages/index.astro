@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PixelButton from '@components/ui/PixelButton.astro';
+import PixelArtButton from '@components/ui/PixelArtButton.astro';
+import PixelArtCard from '@components/ui/PixelArtCard.astro';
 import GhibliPixelBanner from '@components/ui/GhibliPixelBanner.astro';
 import PixelDivider from '@components/ui/PixelDivider.astro';
 // import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
@@ -33,12 +35,12 @@ import PixelDivider from '@components/ui/PixelDivider.astro';
         
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center animate-particle-emergence animation-delay-400">
-          <PixelButton variant="primary" href="/get-involved">
+          <PixelArtButton variant="primary" size="large" href="/get-involved" icon="arrow-right" iconPosition="right">
             Join the Movement
-          </PixelButton>
-          <PixelButton variant="secondary" href="/projects">
+          </PixelArtButton>
+          <PixelArtButton variant="secondary" size="large" href="/projects" icon="science" iconPosition="left">
             Explore Projects
-          </PixelButton>
+          </PixelArtButton>
         </div>
         
         <!-- Live Metrics Preview -->
@@ -121,64 +123,70 @@ import PixelDivider from '@components/ui/PixelDivider.astro';
         </h2>
         
         <div class="neodev-grid neodev-grid-3">
-          <!-- Featured Projects - Simplified for now -->
-          <div class="neodev-card">
+          <!-- Featured Projects with Pixel Art Cards -->
+          <PixelArtCard variant="project" glowColor="#00d4aa" href="/projects#ocean-vision">
             <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Ocean ViSION</h3>
             <p class="text-text-secondary mb-4">AI-powered marine ecosystem monitoring to track climate change impacts in real-time</p>
-            <div class="text-sm text-primary">50,000+ marine species tracked</div>
-          </div>
+            <div class="text-sm text-neon-cyan font-bold">50,000+ marine species tracked</div>
+          </PixelArtCard>
           
-          <div class="neodev-card">
+          <PixelArtCard variant="project" glowColor="#00ff88" href="/projects#rare-disease">
             <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Rare Disease AI</h3>
             <p class="text-text-secondary mb-4">Machine learning models trained on community data to identify rare genetic conditions</p>
-            <div class="text-sm text-primary">127 conditions identified faster</div>
-          </div>
+            <div class="text-sm text-electric-teal font-bold">127 conditions identified faster</div>
+          </PixelArtCard>
           
-          <div class="neodev-card">
+          <PixelArtCard variant="project" glowColor="#9370db" href="/projects#quantum-bio">
             <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Quantum Biology Lab</h3>
             <p class="text-text-secondary mb-4">Exploring quantum effects in photosynthesis to develop efficient solar panels</p>
-            <div class="text-sm text-primary">3x efficiency improvement</div>
-          </div>
+            <div class="text-sm text-neon-cyan font-bold">3x efficiency improvement</div>
+          </PixelArtCard>
           
-          <!-- Navigation Cards -->
-          <a href="/science-sunday" class="neodev-card ghibli-accent">
+          <!-- Navigation Cards with Pixel Art -->
+          <PixelArtCard variant="science-sunday" glowColor="#87ceeb" href="/science-sunday">
             <h3 class="text-2xl font-display font-bold mb-4 text-ghibli">
               Science Sunday
             </h3>
             <p class="text-text-secondary mb-4">
               Church for the Curious - Join us every Sunday in Venice Beach for hands-on science exploration
             </p>
-            <span class="text-gradient font-mono">
-              Learn More →
-            </span>
-          </a>
+            <div class="mt-auto">
+              <PixelArtButton variant="ghost" size="small" icon="arrow-right" iconPosition="right">
+                Learn More
+              </PixelArtButton>
+            </div>
+          </PixelArtCard>
           
-          <a href="/projects" class="neodev-card tech-accent">
+          <PixelArtCard variant="default" glowColor="#00ffff" href="/projects">
             <h3 class="text-2xl font-display font-bold mb-4 text-gradient">
               All Projects
             </h3>
             <p class="text-text-secondary mb-4">
               From rare disease research to ocean conservation - see how we're accelerating breakthroughs
             </p>
-            <span class="text-primary group-hover:translate-x-2 inline-block transition-transform">
-              Explore →
-            </span>
-          </a>
+            <div class="mt-auto">
+              <PixelArtButton variant="ghost" size="small" icon="arrow-right" iconPosition="right">
+                Explore
+              </PixelArtButton>
+            </div>
+          </PixelArtCard>
           
-          <a href="/charter" class="neodev-card">
+          <PixelArtCard variant="charter" glowColor="#663399" href="/charter">
             <h3 class="text-2xl font-display font-bold mb-4 text-gradient">
               Our Charter
             </h3>
             <p class="text-text-secondary mb-4">
               Read our manifesto for community-powered discovery and join the constellation
             </p>
-            <div class="neodev-progress mt-4">
-              <div class="neodev-progress-bar" style="width: 85%"></div>
+            <div class="mt-4">
+              <div class="h-4 bg-black/50 rounded overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-cyan-500" style="width: 85%"></div>
+              </div>
+              <span class="text-neon-cyan font-mono text-sm mt-2 block">
+                Constellation Progress: 85%
+              </span>
             </div>
-            <span class="text-primary font-mono mt-2 block">
-              Constellation Progress: 85%
-            </span>
-          </a>
+          </PixelArtCard>
         </div>
       </div>
     </section>
