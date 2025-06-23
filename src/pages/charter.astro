@@ -1,0 +1,977 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const pageTitle = 'The SwS Charter - Our Manifesto for Scientific Revolution';
+const pageDescription = 'Science plus community equals exponential impact. Read our manifesto and join the constellation of curious minds accelerating discovery through collective action.';
+
+// Core values for interactive cards
+const values = [
+  {
+    id: 'open-science',
+    title: 'Open Science',
+    icon: '🔓',
+    description: 'Knowledge wants to be free. We believe in FAIR data principles and transparent research.',
+    color: 'warp-core-blue',
+  },
+  {
+    id: 'community-first',
+    title: 'Community First',
+    icon: '🤝',
+    description: 'Every breakthrough begins with connection. We are stronger together than apart.',
+    color: 'plasma-green',
+  },
+  {
+    id: 'radical-inclusion',
+    title: 'Radical Inclusion',
+    icon: '🌍',
+    description: 'Science belongs to everyone. Your curiosity is your qualification.',
+    color: 'cyber-pink',
+  },
+  {
+    id: 'action-oriented',
+    title: 'Action Over Talk',
+    icon: '⚡',
+    description: 'We don\'t just discuss problems—we build solutions. Every day matters.',
+    color: 'hologram-cyan',
+  },
+  {
+    id: 'resource-sharing',
+    title: 'Resource Sharing',
+    icon: '💻',
+    description: 'Compute hours, expertise, connections—we pool our resources for maximum impact.',
+    color: 'royal-purple',
+  },
+];
+
+// Pod system data
+const pods = [
+  {
+    name: 'Ocean ViSION',
+    focus: 'Marine Climate Solutions',
+    description: 'Monitoring and protecting our oceans through AI and community science.',
+  },
+  {
+    name: 'AI Impact Ventures',
+    focus: 'Purpose-Driven Companies',
+    description: 'Building businesses that put impact before profit.',
+  },
+  {
+    name: 'Quantum Biology',
+    focus: 'Open Biological Research',
+    description: 'Exploring the quantum foundations of life itself.',
+  },
+  {
+    name: 'Community Resilience',
+    focus: 'Rapid-Response Science',
+    description: 'Mobilizing research for immediate community needs.',
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <div class="constellation-bg"></div>
+      <div class="gradient-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title" data-scroll-reveal>
+        <span class="title-word">The</span>
+        <span class="title-word">SwS</span>
+        <span class="title-word">Charter</span>
+      </h1>
+      <p class="hero-subtitle" data-scroll-reveal>
+        A Manifesto for the Scientific Revolution
+      </p>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+      <span>Scroll to discover</span>
+    </div>
+  </section>
+
+  <!-- Manifesto Section -->
+  <section class="manifesto-section">
+    <div class="container">
+      <div class="manifesto-content">
+        <!-- Opening Statement -->
+        <div class="manifesto-block" data-scroll-reveal>
+          <h2 class="manifesto-heading">We Believe</h2>
+          <p class="manifesto-text large">
+            Science is not a privilege—it's a human right. Discovery is not confined to 
+            ivory towers—it happens wherever curious minds gather. Progress is not linear—it's 
+            exponential when we work together.
+          </p>
+        </div>
+
+        <!-- Core Mission -->
+        <div class="manifesto-block" data-scroll-reveal>
+          <div class="equation-display">
+            <span class="equation-part">Science</span>
+            <span class="equation-operator">+</span>
+            <span class="equation-part">Community</span>
+            <span class="equation-operator">=</span>
+            <span class="equation-result">Exponential Impact</span>
+          </div>
+          <p class="manifesto-text">
+            This is not just our tagline—it's our operating system. When we combine 
+            scientific rigor with community power, we don't just add capabilities, 
+            we multiply them.
+          </p>
+        </div>
+
+        <!-- The Problem -->
+        <div class="manifesto-block" data-scroll-reveal>
+          <h2 class="manifesto-heading">The Problem We're Solving</h2>
+          <p class="manifesto-text">
+            Too much brilliant research dies in academic journals. Too many curious minds 
+            lack the resources to pursue their questions. Too many communities face challenges 
+            that science could solve, if only the two could connect.
+          </p>
+          <p class="manifesto-text">
+            Traditional research is slow, siloed, and inaccessible. We're changing that.
+          </p>
+        </div>
+
+        <!-- Our Approach -->
+        <div class="manifesto-block" data-scroll-reveal>
+          <h2 class="manifesto-heading">Our Approach</h2>
+          <div class="approach-grid">
+            <div class="approach-item">
+              <div class="approach-number">01</div>
+              <h3>Democratize Resources</h3>
+              <p>GPU hours shouldn't be a barrier to breakthrough. We provide computational 
+              power to researchers who need it, no red tape required.</p>
+            </div>
+            <div class="approach-item">
+              <div class="approach-number">02</div>
+              <h3>Amplify Voices</h3>
+              <p>Great ideas come from everywhere. We ensure research from underrepresented 
+              communities gets the visibility and support it deserves.</p>
+            </div>
+            <div class="approach-item">
+              <div class="approach-number">03</div>
+              <h3>Connect & Catalyze</h3>
+              <p>We're matchmakers for science—connecting researchers with communities, 
+              problems with solutions, and curiosity with capability.</p>
+            </div>
+            <div class="approach-item">
+              <div class="approach-number">04</div>
+              <h3>Move at the Speed of Need</h3>
+              <p>When communities face urgent challenges, we mobilize. No committees, 
+              no bureaucracy—just rapid response research.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Note -->
+        <div class="manifesto-block personal-note" data-scroll-reveal>
+          <blockquote class="stanley-quote">
+            <p>
+              "As someone living with a rare disease, I know firsthand how traditional 
+              research timelines fail those who need breakthroughs most. Every day we 
+              delay is a day someone suffers needlessly. That's why SwS exists—to 
+              collapse the timeline between question and cure, between problem and solution."
+            </p>
+            <cite>— Science Stanley, Founder</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Our Core Values</h2>
+      <p class="section-subtitle" data-scroll-reveal>
+        These aren't just words on a website—they're the DNA of everything we do.
+      </p>
+      
+      <div class="values-grid">
+        {values.map((value, index) => (
+          <div 
+            class="value-card data-crystal" 
+            data-scroll-reveal
+            data-delay={index * 100}
+            data-color={value.color}
+          >
+            <div class="value-icon">{value.icon}</div>
+            <h3 class="value-title">{value.title}</h3>
+            <p class="value-description">{value.description}</p>
+            <div class="value-glow"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pod System Section -->
+  <section class="pods-section">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>The Pod System</h2>
+      <p class="section-subtitle" data-scroll-reveal>
+        We organize into focused pods—small, autonomous teams tackling specific domains. 
+        Each pod is a microcosm of our larger mission.
+      </p>
+      
+      <div class="pods-visualization" data-scroll-reveal>
+        <div class="central-hub">
+          <div class="hub-core"></div>
+          <span class="hub-label">SwS Core</span>
+        </div>
+        
+        {pods.map((pod, index) => (
+          <div 
+            class="pod-node" 
+            data-pod={index}
+            style={`--rotation: ${index * 90}deg`}
+          >
+            <div class="pod-connection"></div>
+            <div class="pod-content">
+              <h4>{pod.name}</h4>
+              <p class="pod-focus">{pod.focus}</p>
+              <p class="pod-description">{pod.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Section -->
+  <section class="join-section">
+    <div class="container">
+      <div class="join-content" data-scroll-reveal>
+        <h2 class="join-title">Join the Constellation</h2>
+        <p class="join-description">
+          Every star in the night sky was once just hydrogen and curiosity. Your light, 
+          combined with others, can illuminate pathways we haven't even imagined yet.
+        </p>
+        
+        <div class="join-paths">
+          <div class="path-card quantum-glass">
+            <h3>For Researchers</h3>
+            <p>Access compute resources, find collaborators, and amplify your impact.</p>
+            <a href="/researchers" class="path-link">Learn More →</a>
+          </div>
+          
+          <div class="path-card quantum-glass">
+            <h3>For Communities</h3>
+            <p>Connect with researchers ready to tackle your most pressing challenges.</p>
+            <a href="/communities" class="path-link">Learn More →</a>
+          </div>
+          
+          <div class="path-card quantum-glass">
+            <h3>For Everyone</h3>
+            <p>Your curiosity is enough. Join Science Sunday and see where it leads.</p>
+            <a href="/science-sunday" class="path-link">Learn More →</a>
+          </div>
+        </div>
+        
+        <div class="join-cta">
+          <a href="https://discord.smarterwithscience.org" class="portal-button magnetic large">
+            <span>Join Our Discord</span>
+            <div class="button-glow"></div>
+          </a>
+          <p class="cta-note">Where the revolution is already in progress</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Statement -->
+  <section class="closing-section">
+    <div class="container">
+      <div class="closing-content" data-scroll-reveal>
+        <p class="closing-text">
+          The future of science isn't coming—it's here. It's open, it's collaborative, 
+          and it's powered by people like you. Welcome to Smarter with Science.
+        </p>
+        <p class="closing-signature">
+          Welcome to the revolution.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .constellation-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, var(--warp-core-blue), transparent),
+      radial-gradient(1px 1px at 50% 50%, var(--royal-purple), transparent),
+      radial-gradient(2px 2px at 80% 10%, white, transparent);
+    background-size: 300px 300px;
+    animation: constellation-drift 60s linear infinite;
+  }
+
+  @keyframes constellation-drift {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.1); }
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+  }
+
+  .title-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: word-emerge 0.8s ease-out forwards;
+  }
+
+  .title-word:nth-child(1) { animation-delay: 0.2s; }
+  .title-word:nth-child(2) { 
+    animation-delay: 0.4s;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(102, 51, 153, 0.5));
+  }
+  .title-word:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes word-emerge {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    animation: fade-in 1s ease-out 1s forwards;
+  }
+
+  @keyframes fade-in {
+    to { opacity: 1; }
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid var(--warp-core-blue);
+    border-bottom: 2px solid var(--warp-core-blue);
+    transform: rotate(45deg);
+    animation: arrow-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes arrow-bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(-5px); }
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Manifesto Section */
+  .manifesto-section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, transparent, rgba(102, 51, 153, 0.05), transparent);
+  }
+
+  .manifesto-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .manifesto-block {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .manifesto-block.revealed {
+    animation: content-reveal 0.8s ease-out forwards;
+  }
+
+  @keyframes content-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .manifesto-heading {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(102, 51, 153, 0.5));
+  }
+
+  .manifesto-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .manifesto-text.large {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 300;
+  }
+
+  /* Equation Display */
+  .equation-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .equation-part {
+    color: var(--warp-core-blue);
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .equation-operator {
+    color: var(--cyber-pink);
+  }
+
+  .equation-result {
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  /* Approach Grid */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .approach-item {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .approach-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .approach-item:hover::before {
+    opacity: 1;
+  }
+
+  .approach-number {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0, 212, 255, 0.2);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .approach-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--warp-core-blue);
+  }
+
+  .approach-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Personal Note */
+  .personal-note {
+    background: rgba(102, 51, 153, 0.1);
+    padding: 3rem;
+    border-left: 4px solid var(--royal-purple);
+    margin: 4rem 0;
+  }
+
+  .stanley-quote {
+    margin: 0;
+  }
+
+  .stanley-quote p {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .stanley-quote cite {
+    display: block;
+    text-align: right;
+    color: var(--warp-core-blue);
+    font-style: normal;
+  }
+
+  /* Values Section */
+  .values-section {
+    padding: 5rem 0;
+    background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .value-card.revealed {
+    animation: card-reveal 0.6s ease-out forwards;
+  }
+
+  @keyframes card-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .value-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .value-glow {
+    position: absolute;
+    inset: -2px;
+    background: var(--neural-gradient);
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .value-card:hover .value-glow {
+    opacity: 0.3;
+  }
+
+  .value-card[data-color="warp-core-blue"] .value-title { color: var(--warp-core-blue); }
+  .value-card[data-color="plasma-green"] .value-title { color: var(--plasma-green); }
+  .value-card[data-color="cyber-pink"] .value-title { color: var(--cyber-pink); }
+  .value-card[data-color="hologram-cyan"] .value-title { color: var(--hologram-cyan); }
+  .value-card[data-color="royal-purple"] .value-title { color: var(--royal-purple); }
+
+  /* Pod System Visualization */
+  .pods-section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, transparent, rgba(102, 51, 153, 0.05), transparent);
+  }
+
+  .pods-visualization {
+    position: relative;
+    height: 600px;
+    max-width: 800px;
+    margin: 3rem auto;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .pods-visualization.revealed {
+    animation: viz-expand 1s ease-out forwards;
+  }
+
+  @keyframes viz-expand {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .central-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .hub-core {
+    width: 120px;
+    height: 120px;
+    background: var(--singularity-gradient);
+    border-radius: 50%;
+    box-shadow: 
+      0 0 60px rgba(0, 212, 255, 0.6),
+      inset 0 0 60px rgba(102, 51, 153, 0.6);
+    animation: warp-core-pulse 3s ease-in-out infinite;
+  }
+
+  .hub-label {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .pod-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(var(--rotation)) translateX(250px) rotate(calc(-1 * var(--rotation)));
+    transition: all 0.3s ease;
+  }
+
+  .pod-connection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--warp-core-blue), transparent);
+    transform: translate(-100%, -50%) rotate(calc(-1 * var(--rotation)));
+    opacity: 0.5;
+  }
+
+  .pod-content {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(102, 51, 153, 0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 200px;
+    transition: all 0.3s ease;
+  }
+
+  .pod-content:hover {
+    transform: scale(1.1);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  }
+
+  .pod-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: var(--warp-core-blue);
+  }
+
+  .pod-focus {
+    font-size: 0.875rem;
+    color: var(--cyber-pink);
+    margin-bottom: 0.5rem;
+  }
+
+  .pod-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Join Section */
+  .join-section {
+    padding: 5rem 0;
+    background: radial-gradient(ellipse at bottom, rgba(102, 51, 153, 0.3) 0%, transparent 70%);
+  }
+
+  .join-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .join-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(102, 51, 153, 0.5));
+  }
+
+  .join-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .join-paths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .path-card {
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .path-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--warp-core-blue);
+  }
+
+  .path-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .path-link {
+    color: var(--cyber-pink);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .path-link:hover {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .join-cta {
+    margin-top: 2rem;
+  }
+
+  .portal-button.large {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
+  }
+
+  .cta-note {
+    margin-top: 1rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  /* Closing Section */
+  .closing-section {
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .closing-text {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+  }
+
+  .closing-signature {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: clamp(3rem, 10vw, 5rem);
+    }
+    
+    .equation-display {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+    }
+    
+    .pods-visualization {
+      height: 400px;
+    }
+    
+    .pod-node {
+      transform: translate(-50%, -50%) rotate(var(--rotation)) translateX(150px) rotate(calc(-1 * var(--rotation)));
+    }
+    
+    .pod-connection {
+      width: 150px;
+    }
+    
+    .pod-content {
+      width: 150px;
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Scroll reveal animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const delay = element.getAttribute('data-delay') || 0;
+        
+        setTimeout(() => {
+          element.classList.add('revealed');
+        }, parseInt(delay));
+        
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with data-scroll-reveal
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('[data-scroll-reveal]');
+    elements.forEach(el => observer.observe(el));
+  });
+
+  // Pod visualization interactions
+  const podNodes = document.querySelectorAll('.pod-node');
+  const hubCore = document.querySelector('.hub-core');
+
+  podNodes.forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      // Highlight connection
+      const connection = node.querySelector('.pod-connection');
+      if (connection) {
+        connection.style.opacity = '1';
+        connection.style.background = 'linear-gradient(90deg, var(--warp-core-blue), var(--cyber-pink))';
+      }
+      
+      // Pulse hub
+      if (hubCore) {
+        hubCore.style.animation = 'warp-core-pulse 0.5s ease-in-out infinite';
+      }
+    });
+
+    node.addEventListener('mouseleave', () => {
+      const connection = node.querySelector('.pod-connection');
+      if (connection) {
+        connection.style.opacity = '0.5';
+        connection.style.background = 'linear-gradient(90deg, var(--warp-core-blue), transparent)';
+      }
+      
+      if (hubCore) {
+        hubCore.style.animation = 'warp-core-pulse 3s ease-in-out infinite';
+      }
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
