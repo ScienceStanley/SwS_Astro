@@ -1,45 +1,48 @@
 /* 🚀 NeoDiv-inspired Cyberpunk Theme for Smarter with Science */
 
 :root {
-  /* Core NeoDiv Colors - Matching Reference */
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #1a1a1a;
-  --bg-quaternary: #2a2a2a;
+  /* Core Scientific Colors - Clean & Modern */
+  --bg-primary: #0A0E27;      /* Deep space blue */
+  --bg-secondary: #1A1F3A;    /* Midnight blue */
+  --bg-tertiary: #252B48;     /* Lighter midnight */
+  --bg-quaternary: #2D3548;   /* Card backgrounds */
   
-  /* Electric Neon Accents - True NeoDiv Style */
-  --neon-cyan: #00ffff;
-  --neon-blue: #007acc;
-  --electric-teal: #00d4aa;
-  --neon-green: #39ff14;
-  --electric-blue: #0080ff;
+  /* Primary Accents - Science & Energy */
+  --quantum-blue: #2563EB;    /* Primary CTA blue */
+  --plasma-green: #10B981;    /* Success/Growth green */
+  --fusion-purple: #8B5CF6;   /* Innovation purple */
+  
+  /* Supporting Colors */
+  --lunar-gray: #94A3B8;      /* Body text */
+  --stardust: #E2E8F0;        /* Light backgrounds */
+  --nebula-pink: #EC4899;     /* Accent pink */
+  --solar-orange: #F59E0B;    /* Warning/attention */
   
   /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --text-tertiary: #888888;
-  --text-muted: #555555;
+  --text-primary: #F8FAFC;    /* Pure white for headers */
+  --text-secondary: #CBD5E1;  /* Light gray for body */
+  --text-tertiary: #94A3B8;   /* Muted gray */
+  --text-muted: #64748B;      /* Very muted */
   
-  /* Legacy Support */
-  --accent-blue: #00ffff;
-  --accent-purple: #007acc;
-  --accent-green: #00d4aa;
-  --accent-pink: #ff0080;
+  /* Legacy Support - Mapped to new colors */
+  --neon-cyan: #06B6D4;
+  --neon-blue: #2563EB;
+  --electric-teal: #14B8A6;
+  --neon-green: #10B981;
+  --electric-blue: #3B82F6;
+  --accent-blue: #2563EB;
+  --accent-purple: #8B5CF6;
+  --accent-green: #10B981;
+  --accent-pink: #EC4899;
   
   /* Borders */
-  --border-primary: rgba(0, 255, 255, 0.2);
-  --border-accent: rgba(0, 212, 170, 0.3);
+  --border-primary: rgba(148, 163, 184, 0.2);
+  --border-accent: rgba(37, 99, 235, 0.3);
   
-  /* Studio Ghibli Nature Accents */
-  --ghibli-green: #7fb069;
-  --ghibli-blue: #87ceeb;
-  --ghibli-earth: #d2b48c;
-  --ghibli-moss: #8fbc8f;
-  
-  /* Gradients */
-  --gradient-tech: linear-gradient(135deg, var(--neon-cyan) 0%, var(--electric-teal) 100%);
-  --gradient-nature: linear-gradient(135deg, var(--ghibli-green) 0%, var(--ghibli-blue) 100%);
-  --gradient-hero: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  /* Gradients - Subtle and professional */
+  --gradient-aurora: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+  --gradient-nebula: linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%);
+  --gradient-hero: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   
   /* Typography */
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;

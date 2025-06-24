@@ -1,181 +1,379 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import PixelArtButton from '@components/ui/PixelArtButton.astro';
-import PixelArtCard from '@components/ui/PixelArtCard.astro';
+import Button from '@components/ui/Button.astro';
+import Card from '@components/ui/Card.astro';
+import StatCounter from '@components/ui/StatCounter.astro';
+import { Icon } from 'astro-icon/components';
+
+// Testimonials data
+const testimonials = [
+  {
+    quote: "SwS provided the GPU hours that made our rare disease AI possible. We've identified 127 conditions 73% faster than traditional methods.",
+    author: "Dr. Sarah Chen",
+    role: "Lead Researcher, RareGenomics",
+    avatar: "mdi:account-circle"
+  },
+  {
+    quote: "The community here doesn't just talk about problems—they solve them. Our ocean monitoring system is now tracking 50,000+ species in real-time.",
+    author: "Marcus Rodriguez",
+    role: "Founder, Ocean ViSION",
+    avatar: "mdi:account-circle"
+  },
+  {
+    quote: "Science Sunday changed my life. I went from curious attendee to leading a quantum biology research project in 6 months.",
+    author: "Emily Watson",
+    role: "Community Researcher",
+    avatar: "mdi:account-circle"
+  }
+];
+
+// Projects data for the gallery
+const featuredProjects = [
+  {
+    title: "Rare Disease AI",
+    description: "Machine learning models identifying genetic conditions",
+    impact: "127 conditions identified faster",
+    icon: "mdi:dna",
+    color: "var(--plasma-green)",
+    href: "/projects#rare-disease"
+  },
+  {
+    title: "Ocean ViSION",
+    description: "AI-powered marine ecosystem monitoring",
+    impact: "50,000+ species tracked",
+    icon: "mdi:waves",
+    color: "var(--quantum-blue)",
+    href: "/projects#ocean-vision"
+  },
+  {
+    title: "Quantum Biology Lab",
+    description: "Exploring quantum effects in living systems",
+    impact: "3x efficiency improvement",
+    icon: "mdi:atom",
+    color: "var(--fusion-purple)",
+    href: "/projects#quantum-bio"
+  }
+];
 ---
 
 <BaseLayout>
-  <main class="min-h-screen relative">
-    <!-- Hero Section with Space Background -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden" style="background-image: url('/images/space.jpg'); background-size: cover; background-position: center;">
-      <!-- Dark overlay for readability -->
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Gradient Background -->
+      <div class="absolute inset-0 bg-gradient-hero"></div>
       
-      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <!-- Cosmic Banner -->
-        <div class="mb-8 animate-particle-emergence">
-          <img src="/images/sws-cosmic-banner.png?v=2" alt="Smarter with Science - Cosmic Banner" class="mx-auto max-w-full h-auto rounded-lg shadow-2xl shadow-cyan-500/20" style="max-height: 400px;">
+      <!-- Animated background pattern -->
+      <div class="absolute inset-0 opacity-20">
+        <div class="grid-pattern"></div>
+      </div>
+      
+      <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+        <!-- Impact Statement -->
+        <div class="mb-12 animate-fade-in">
+          <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 text-gradient-title">
+            We've accelerated <span class="text-gradient-number">47 breakthrough discoveries</span> in 18 months
+          </h1>
+          <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-8">
+            Join 1,200+ researchers and communities solving humanity's biggest challenges through open science and shared resources
+          </p>
         </div>
         
-        <!-- Mission Statement -->
-        <div class="animate-particle-emergence animation-delay-200">
-          <h2 class="text-2xl md:text-4xl font-display font-bold text-white mb-4">
-            Science + Community = Exponential Impact
-          </h2>
-          <p class="text-lg md:text-xl text-text-tertiary max-w-3xl mx-auto">
-            We're turning the traditional model upside down: instead of scientists begging for resources, 
-            resources flow to scientists solving real problems.
-          </p>
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-200">
+          <Button variant="primary" size="large" href="#how-it-works" icon="mdi:arrow-down">
+            Show me how
+          </Button>
+          <Button variant="outline" size="large" href="https://discord.com/invite/smarter" icon="mdi:discord">
+            Join our Discord
+          </Button>
+        </div>
+        
+        <!-- Live Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in animation-delay-400">
+          <div class="stat-item">
+            <StatCounter end={50000} suffix="+" />
+            <p class="text-text-tertiary mt-2">GPU hours donated</p>
+          </div>
+          <div class="stat-item">
+            <StatCounter end={2.3} prefix="$" suffix="M" decimals={1} />
+            <p class="text-text-tertiary mt-2">In compute resources shared</p>
+          </div>
+          <div class="stat-item">
+            <StatCounter end={89} suffix="%" />
+            <p class="text-text-tertiary mt-2">Faster than traditional research</p>
+          </div>
         </div>
       </div>
       
       <!-- Scroll Indicator -->
       <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg width="30" height="50" viewBox="0 0 30 50" class="text-neon-cyan opacity-40">
-          <rect x="10" y="10" width="10" height="20" rx="5" stroke="currentColor" stroke-width="1" fill="none"/>
-          <circle cx="15" cy="20" r="2" fill="currentColor" class="animate-data-stream"/>
-        </svg>
+        <Icon name="mdi:chevron-down" class="w-8 h-8 text-text-tertiary opacity-60" />
       </div>
     </section>
     
-    <!-- Community Introduction Section -->
-    <section class="py-20 px-6" style="background: linear-gradient(to bottom, #000000, #0a0a0a);">
-      <div class="max-w-5xl mx-auto">
-        <!-- Who We Are -->
-        <div class="text-center mb-16 animate-particle-emergence">
-          <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-gradient">
-            We Are the Revolution
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 px-6 bg-bg-secondary">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+            From Question to Cure in <span class="text-gradient">Months, Not Years</span>
           </h2>
-          <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-            A global community where curious minds and critical problems collide to create breakthroughs. 
-            We don't wait for change—we build it.
+          <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+            We're not just talking about change—we're building it every day
           </p>
         </div>
-
-        <!-- What We Do -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-          <div class="text-center animate-particle-emergence animation-delay-200">
-            <div class="text-5xl mb-4">🖥️</div>
-            <h3 class="text-xl font-display font-bold text-neon-cyan mb-3">Computational Power</h3>
-            <p class="text-text-tertiary">GPU hours flow to researchers solving real problems, no red tape required</p>
-          </div>
-          <div class="text-center animate-particle-emergence animation-delay-400">
-            <div class="text-5xl mb-4">🤝</div>
-            <h3 class="text-xl font-display font-bold text-electric-teal mb-3">Community Support</h3>
-            <p class="text-text-tertiary">Connect with researchers, find collaborators, amplify your impact</p>
-          </div>
-          <div class="text-center animate-particle-emergence animation-delay-600">
-            <div class="text-5xl mb-4">⚡</div>
-            <h3 class="text-xl font-display font-bold text-neon-cyan mb-3">Rapid Response</h3>
-            <p class="text-text-tertiary">When communities face urgent challenges, we mobilize—no bureaucracy</p>
-          </div>
-        </div>
-
-        <!-- Join the Movement -->
-        <div class="neodev-card p-8 text-center animate-particle-emergence animation-delay-800">
-          <h3 class="text-3xl font-display font-bold mb-4 text-gradient">
-            Your Curiosity Could Spark the Next Breakthrough
-          </h3>
-          <p class="text-lg text-text-secondary mb-6">
-            Science belongs to everyone. Whether you're a researcher with a bold idea, a community with a pressing need, 
-            or simply someone who asks "what if?"—there's a place for you here.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <PixelArtButton variant="primary" size="large" href="https://discord.com/invite/smarter" icon="discord">
-              Join Our Discord
-            </PixelArtButton>
-            <PixelArtButton variant="secondary" size="large" href="/science-sunday">
-              Visit Science Sunday
-            </PixelArtButton>
-          </div>
-          <p class="text-sm text-text-tertiary mt-4">
-            Join 1,000+ members accelerating discovery together
-          </p>
+        
+        <!-- Value Props Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <Card variant="glass" className="animate-fade-in animation-delay-200">
+            <div class="mb-4">
+              <Icon name="mdi:lightning-bolt" class="w-12 h-12 text-quantum-blue" />
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-3">Rapid Response Science</h3>
+            <p class="text-text-secondary mb-4">
+              When communities face urgent challenges, we mobilize researchers and resources within days, not months.
+            </p>
+            <div class="mt-auto">
+              <p class="text-sm font-mono text-plasma-green">Case Study:</p>
+              <p class="text-sm text-text-tertiary">Water contamination solved in 3 weeks</p>
+            </div>
+          </Card>
+          
+          <Card variant="glass" className="animate-fade-in animation-delay-400">
+            <div class="mb-4">
+              <Icon name="mdi:cpu-64-bit" class="w-12 h-12 text-plasma-green" />
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-3">Democratized Computing</h3>
+            <p class="text-text-secondary mb-4">
+              Your laptop becomes part of a supercomputer. Researchers get the power they need, no grants required.
+            </p>
+            <div class="mt-auto">
+              <p class="text-sm font-mono text-plasma-green">This month:</p>
+              <p class="text-sm text-text-tertiary">4,200 GPU hours donated</p>
+            </div>
+          </Card>
+          
+          <Card variant="glass" className="animate-fade-in animation-delay-600">
+            <div class="mb-4">
+              <Icon name="mdi:account-group" class="w-12 h-12 text-fusion-purple" />
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-3">Community Intelligence</h3>
+            <p class="text-text-secondary mb-4">
+              Every Sunday, curious minds gather to tackle real problems. Ideas become experiments, experiments become breakthroughs.
+            </p>
+            <div class="mt-auto">
+              <p class="text-sm font-mono text-plasma-green">Next Sunday:</p>
+              <p class="text-sm text-text-tertiary">CRISPR workshop at KINN Venice</p>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
     
-    <!-- Quick Navigation -->
-    <section class="py-20 px-6 relative" style="background-image: url('/generated-images/navigation-section-bg-1.png'); background-size: cover; background-position: center;">
-      <!-- Subtle overlay for better text readability -->
-      <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-      
-      <div class="max-w-7xl mx-auto relative z-10">
-        <h2 class="text-4xl font-display text-center mb-12 gradient-text">
-          Explore the Constellation
-        </h2>
+    <!-- Featured Projects -->
+    <section class="py-20 px-6 bg-bg-primary">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+            Real Impact, <span class="text-gradient">Real Stories</span>
+          </h2>
+          <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+            These aren't just projects—they're lifelines for communities worldwide
+          </p>
+        </div>
         
-        <div class="neodev-grid neodev-grid-3">
-          <!-- Featured Projects with Pixel Art Cards -->
-          <PixelArtCard variant="project" glowColor="#00d4aa" href="/projects#ocean-vision">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Ocean ViSION</h3>
-            <p class="text-text-secondary mb-4">AI-powered marine ecosystem monitoring to track climate change impacts in real-time</p>
-            <div class="text-sm text-neon-cyan font-bold">50,000+ marine species tracked</div>
-          </PixelArtCard>
-          
-          <PixelArtCard variant="project" glowColor="#00ff88" href="/projects#rare-disease">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Rare Disease AI</h3>
-            <p class="text-text-secondary mb-4">Machine learning models trained on community data to identify rare genetic conditions</p>
-            <div class="text-sm text-electric-teal font-bold">127 conditions identified faster</div>
-          </PixelArtCard>
-          
-          <PixelArtCard variant="project" glowColor="#9370db" href="/projects#quantum-bio">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">Quantum Biology Lab</h3>
-            <p class="text-text-secondary mb-4">Exploring quantum effects in photosynthesis to develop efficient solar panels</p>
-            <div class="text-sm text-neon-cyan font-bold">3x efficiency improvement</div>
-          </PixelArtCard>
-          
-          <!-- Navigation Cards with Pixel Art -->
-          <PixelArtCard variant="science-sunday" glowColor="#87ceeb" href="/science-sunday">
-            <h3 class="text-2xl font-display font-bold mb-4 text-ghibli">
-              Science Sunday
-            </h3>
-            <p class="text-text-secondary mb-4">
-              Church for the Curious - Join us every Sunday in Venice Beach for hands-on science exploration
-            </p>
-            <div class="mt-auto">
-              <PixelArtButton variant="ghost" size="small" icon="arrow-right" iconPosition="right">
-                Learn More
-              </PixelArtButton>
-            </div>
-          </PixelArtCard>
-          
-          <PixelArtCard variant="default" glowColor="#00ffff" href="/projects">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">
-              All Projects
-            </h3>
-            <p class="text-text-secondary mb-4">
-              From rare disease research to ocean conservation - see how we're accelerating breakthroughs
-            </p>
-            <div class="mt-auto">
-              <PixelArtButton variant="ghost" size="small" icon="arrow-right" iconPosition="right">
-                Explore
-              </PixelArtButton>
-            </div>
-          </PixelArtCard>
-          
-          <PixelArtCard variant="charter" glowColor="#663399" href="/charter">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">
-              Our Charter
-            </h3>
-            <p class="text-text-secondary mb-4">
-              Read our manifesto for community-powered discovery and join the constellation
-            </p>
-            <div class="mt-4">
-              <div class="h-4 bg-black/50 rounded overflow-hidden">
-                <div class="h-full bg-gradient-to-r from-purple-500 to-cyan-500" style="width: 85%"></div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          {featuredProjects.map((project, index) => (
+            <Card 
+              variant="highlight" 
+              href={project.href}
+              className={`animate-fade-in animation-delay-${(index + 1) * 200}`}
+            >
+              <div class="flex items-start justify-between mb-4">
+                <Icon name={project.icon} class="w-10 h-10" style={`color: ${project.color}`} />
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-text-tertiary" />
               </div>
-              <span class="text-neon-cyan font-mono text-sm mt-2 block">
-                Constellation Progress: 85%
-              </span>
-            </div>
-          </PixelArtCard>
+              <h3 class="text-xl font-display font-bold mb-2">{project.title}</h3>
+              <p class="text-text-secondary mb-4">{project.description}</p>
+              <p class="text-sm font-mono mt-auto" style={`color: ${project.color}`}>
+                {project.impact}
+              </p>
+            </Card>
+          ))}
+        </div>
+        
+        <div class="text-center">
+          <Button variant="secondary" href="/projects" icon="mdi:arrow-right" iconPosition="right">
+            Explore all projects
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="py-20 px-6 bg-bg-secondary">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+            Voices from the <span class="text-gradient">Revolution</span>
+          </h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card variant="default" className={`animate-fade-in animation-delay-${(index + 1) * 200}`}>
+              <blockquote class="flex-1">
+                <p class="text-text-secondary mb-6 italic">"{testimonial.quote}"</p>
+              </blockquote>
+              <div class="flex items-center gap-3 mt-auto">
+                <Icon name={testimonial.avatar} class="w-12 h-12 text-text-tertiary" />
+                <div>
+                  <p class="font-semibold text-text-primary">{testimonial.author}</p>
+                  <p class="text-sm text-text-tertiary">{testimonial.role}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Join CTA Section -->
+    <section class="py-20 px-6 bg-gradient-aurora text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+          Your Curiosity Could Spark the Next Breakthrough
+        </h2>
+        <p class="text-xl mb-8 opacity-90">
+          Whether you're a researcher with a bold idea, a community with a pressing need, 
+          or simply someone who asks "what if?"—there's a place for you here.
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <Card variant="glass" className="text-left">
+            <h3 class="text-lg font-bold mb-2">For Researchers</h3>
+            <p class="text-sm opacity-80">Access compute, find collaborators, amplify impact</p>
+          </Card>
+          <Card variant="glass" className="text-left">
+            <h3 class="text-lg font-bold mb-2">For Communities</h3>
+            <p class="text-sm opacity-80">Connect with scientists ready to solve your challenges</p>
+          </Card>
+          <Card variant="glass" className="text-left">
+            <h3 class="text-lg font-bold mb-2">For the Curious</h3>
+            <p class="text-sm opacity-80">Join Science Sunday and see where it leads</p>
+          </Card>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="primary" size="large" href="https://discord.com/invite/smarter" icon="mdi:discord" className="bg-white text-quantum-blue hover:bg-gray-100">
+            Join Discord Community
+          </Button>
+          <Button variant="outline" size="large" href="/science-sunday" className="border-white text-white hover:bg-white hover:text-quantum-blue">
+            Visit Science Sunday
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Quick Links -->
+    <section class="py-20 px-6 bg-bg-primary">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-6">
+          <Card variant="default" href="/charter">
+            <Icon name="mdi:book-open-variant" class="w-8 h-8 text-fusion-purple mb-3" />
+            <h3 class="text-lg font-bold mb-2">Read Our Charter</h3>
+            <p class="text-sm text-text-secondary">Our manifesto for open science</p>
+          </Card>
+          
+          <Card variant="default" href="/projects">
+            <Icon name="mdi:rocket-launch" class="w-8 h-8 text-quantum-blue mb-3" />
+            <h3 class="text-lg font-bold mb-2">Start a Project</h3>
+            <p class="text-sm text-text-secondary">Turn your idea into reality</p>
+          </Card>
+          
+          <Card variant="default" href="/resources">
+            <Icon name="mdi:database" class="w-8 h-8 text-plasma-green mb-3" />
+            <h3 class="text-lg font-bold mb-2">Access Resources</h3>
+            <p class="text-sm text-text-secondary">GPU hours, data, and tools</p>
+          </Card>
+          
+          <Card variant="default" href="/science-sunday">
+            <Icon name="mdi:calendar-star" class="w-8 h-8 text-solar-orange mb-3" />
+            <h3 class="text-lg font-bold mb-2">Science Sunday</h3>
+            <p class="text-sm text-text-secondary">Every Sunday in Venice Beach</p>
+          </Card>
         </div>
       </div>
     </section>
   </main>
   
   <style>
+    /* Hero gradient background */
+    .bg-gradient-hero {
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+    
+    /* Grid pattern */
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: grid-move 20s linear infinite;
+      height: 100%;
+    }
+    
+    @keyframes grid-move {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    
+    /* Text gradients */
+    .text-gradient {
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .text-gradient-title {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .text-gradient-number {
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+    
+    /* Background gradients */
+    .bg-gradient-aurora {
+      background: var(--gradient-aurora);
+    }
+    
+    /* Animations */
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
     .animation-delay-200 {
       animation-delay: 200ms;
     }
@@ -192,26 +390,17 @@ import PixelArtCard from '@components/ui/PixelArtCard.astro';
       animation-delay: 800ms;
     }
     
-    .bg-gradient-radial {
-      background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-to));
+    /* Stat items */
+    .stat-item {
+      text-align: center;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 100vh;
+        padding: 2rem 0;
+      }
     }
   </style>
-  
-  <!-- Magnetic Hover Effect -->
-  <script>
-    const magneticElements = document.querySelectorAll('.magnetic');
-    magneticElements.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-      });
-      
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'translate(0, 0)';
-      });
-    });
-  </script>
 </BaseLayout>

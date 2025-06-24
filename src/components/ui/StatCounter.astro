@@ -1,0 +1,103 @@
+---
+export interface Props {
+  end: number;
+  duration?: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  className?: string;
+}
+
+const { 
+  end,
+  duration = 2000,
+  prefix = '',
+  suffix = '',
+  decimals = 0,
+  className = ''
+} = Astro.props;
+---
+
+<span 
+  class={`stat-counter ${className}`}
+  data-end={end}
+  data-duration={duration}
+  data-prefix={prefix}
+  data-suffix={suffix}
+  data-decimals={decimals}
+>
+  {prefix}0{suffix}
+</span>
+
+<style>
+  .stat-counter {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--quantum-blue);
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+</style>
+
+<script>
+  // Initialize all stat counters when they come into view
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const animateCounter = (element: HTMLElement) => {
+    const end = parseInt(element.dataset.end || '0');
+    const duration = parseInt(element.dataset.duration || '2000');
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+    const decimals = parseInt(element.dataset.decimals || '0');
+    
+    let startTime: number | null = null;
+    const startValue = 0;
+    
+    const updateCounter = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentValue = Math.floor(easeOutQuart * (end - startValue) + startValue);
+      
+      if (decimals > 0) {
+        element.textContent = `${prefix}${currentValue.toFixed(decimals)}${suffix}`;
+      } else {
+        element.textContent = `${prefix}${currentValue.toLocaleString()}${suffix}`;
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Ensure we display the final value
+        if (decimals > 0) {
+          element.textContent = `${prefix}${end.toFixed(decimals)}${suffix}`;
+        } else {
+          element.textContent = `${prefix}${end.toLocaleString()}${suffix}`;
+        }
+      }
+    };
+    
+    requestAnimationFrame(updateCounter);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target as HTMLElement);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all stat counters
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.stat-counter');
+    counters.forEach(counter => observer.observe(counter));
+  });
+</script>

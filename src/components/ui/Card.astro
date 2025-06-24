@@ -1,0 +1,141 @@
+---
+export interface Props {
+  variant?: 'default' | 'glass' | 'highlight' | 'metric';
+  href?: string;
+  className?: string;
+  animate?: boolean;
+}
+
+const { 
+  variant = 'default',
+  href,
+  className = '',
+  animate = true
+} = Astro.props;
+
+const Component = href ? 'a' : 'div';
+---
+
+<Component 
+  class={`card card-${variant} ${animate ? 'animate' : ''} ${className}`}
+  href={href}
+>
+  <div class="card-content">
+    <slot />
+  </div>
+  {variant === 'highlight' && <div class="card-glow"></div>}
+</Component>
+
+<style>
+  .card {
+    position: relative;
+    display: block;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Default Card */
+  .card-default {
+    background: var(--bg-quaternary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .card-default:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Glass Card */
+  .card-glass {
+    background: rgba(26, 31, 58, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-glass:hover {
+    background: rgba(26, 31, 58, 0.8);
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.1);
+  }
+
+  /* Highlight Card */
+  .card-highlight {
+    background: var(--bg-quaternary);
+    border: 1px solid var(--quantum-blue);
+    overflow: hidden;
+  }
+
+  .card-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-aurora);
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-aurora);
+    border-radius: 1rem;
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .card-highlight:hover .card-glow {
+    opacity: 0.3;
+  }
+
+  /* Metric Card */
+  .card-metric {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    padding: 0;
+  }
+
+  .card-metric .card-content {
+    padding: 1.5rem;
+  }
+
+  /* Animations */
+  .animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
