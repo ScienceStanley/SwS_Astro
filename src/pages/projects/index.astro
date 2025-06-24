@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-// import GhibliProjectCard from '@components/ui/GhibliProjectCard.astro';
-// import NeoDevCodeBlock from '@components/ui/NeoDevCodeBlock.astro';
+import ContentSection from '@components/layout/ContentSection.astro';
+import ProjectsGallery from '@components/sections/ProjectsGallery.astro';
+import { Icon } from 'astro-icon/components';
 
 const pageTitle = 'Projects - Accelerating Discovery Through Community';
 const pageDescription = 'Explore groundbreaking research projects powered by the Smarter with Science community. From ocean conservation to quantum biology, see how collective action drives scientific breakthroughs.';
@@ -107,642 +108,64 @@ const sampleProjects = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section with Full Height Space Background -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden" style="background-image: url('/images/space.jpg'); background-size: cover; background-position: center;">
-    <!-- Dark overlay for readability -->
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    
-    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-      <h1 class="text-6xl font-display font-bold mb-6 text-gradient">
-        Projects Gallery
+  <!-- Hero Section -->
+  <ContentSection 
+    theme="glass" 
+    padding="large"
+    centered
+    className="min-h-[80vh] flex items-center"
+  >
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="fluid-2xl font-display font-black mb-6">
+        <span class="gradient-text">Projects Gallery</span>
       </h1>
-      <p class="text-2xl mb-4 text-ghibli">
+      <p class="fluid-lg text-text-offset mb-4">
         Where Community Meets Discovery
       </p>
-      <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+      <p class="fluid-base text-text-muted max-w-3xl mx-auto mb-8">
         Every project here represents a collision of curiosity and capability. Explore how 
         your compute hours, expertise, and passion are accelerating breakthroughs across 
         every field of science.
       </p>
     </div>
-  </section>
+  </ContentSection>
 
-  <!-- Projects Grid -->
-  <section class="py-20 px-6" style="background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
-    <div class="max-w-7xl mx-auto">
-      <div class="neodev-grid neodev-grid-3">
-        {sampleProjects.map(project => (
-          <div class="neodev-card">
-            <h3 class="text-2xl font-display font-bold mb-4 text-gradient">{project.title}</h3>
-            <p class="text-text-secondary mb-4">{project.description}</p>
-            <div class="text-sm text-primary mb-2">{project.impact}</div>
-            <div class="text-xs text-text-tertiary">
-              {project.collaborators} collaborators • {project.computeHours.toLocaleString()} GPU hours
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Projects Gallery -->
+  <ProjectsGallery projects={sampleProjects} columns={3} />
 
   <!-- Start Project CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card quantum-glass">
-        <div class="cta-content">
-          <h2 class="cta-title">Have a Breakthrough Idea?</h2>
-          <p class="cta-description">
-            We provide the compute power, operational support, and community connections 
-            to turn your research vision into reality. No red tape, no barriers—just science.
-          </p>
-          <div class="cta-features">
-            <div class="feature">
-              <div class="feature-icon warp-core-mini"></div>
-              <span>Free GPU Hours</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon warp-core-mini"></div>
-              <span>Expert Mentorship</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon warp-core-mini"></div>
-              <span>Global Community</span>
-            </div>
-          </div>
-          <a href="/start-project" class="portal-button magnetic">
-            <span>Start Your Project</span>
-            <div class="button-glow"></div>
-          </a>
+  <ContentSection theme="dark" centered>
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+        Have a <span class="gradient-text">Breakthrough</span> Idea?
+      </h2>
+      <p class="text-xl text-text-offset mb-8 max-w-2xl mx-auto">
+        We provide the compute power, operational support, and community connections 
+        to turn your research vision into reality. No red tape, no barriers—just science.
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20">
+          <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium">Free GPU Hours</span>
         </div>
-        <div class="cta-visual">
-          <div class="rotating-helix"></div>
+        <div class="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-secondary/20">
+          <div class="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium">Expert Mentorship</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-accent-green/20">
+          <div class="w-3 h-3 bg-accent-green rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium">Global Community</span>
         </div>
       </div>
-    </div>
-  </section>
-</BaseLayout>
-
-<style>
-  /* Hero Section */
-  .hero-section {
-    position: relative;
-    padding: 8rem 0 4rem;
-    overflow: hidden;
-    background: var(--color-background);
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-
-  .data-streams {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 100px,
-      rgba(164, 118, 255, 0.02) 100px,
-      rgba(164, 118, 255, 0.02) 101px
-    );
-    animation: data-stream 10s linear infinite;
-  }
-
-  .gradient-mesh {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(164, 118, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(169, 255, 91, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(164, 118, 255, 0.05) 0%, transparent 50%);
-  }
-
-  .hero-content {
-    position: relative;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-  }
-
-  .hero-description {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    max-width: 700px;
-    margin: 0 auto 3rem;
-    line-height: 1.6;
-  }
-
-  /* Stats Row */
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-value {
-    font-family: var(--font-mono);
-    font-size: 3rem;
-    font-weight: 700;
-    background: var(--neural-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
-  }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* Container */
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  /* Filter Section */
-  .filter-section {
-    padding: 2rem 0;
-    background: rgba(102, 51, 153, 0.05);
-    border-top: 1px solid rgba(102, 51, 153, 0.2);
-    border-bottom: 1px solid rgba(102, 51, 153, 0.2);
-    position: sticky;
-    top: 65px;
-    z-index: 100;
-    backdrop-filter: blur(20px);
-  }
-
-  .filter-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-label {
-    font-weight: 600;
-    color: var(--text-secondary);
-  }
-
-  .filter-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-button {
-    padding: 0.75rem 1.5rem;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(102, 51, 153, 0.3);
-    color: var(--text-secondary);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .filter-button:hover {
-    color: var(--text-primary);
-    border-color: var(--warp-core-blue);
-  }
-
-  .filter-button.active {
-    color: var(--text-primary);
-    border-color: var(--warp-core-blue);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-  }
-
-  .filter-button .button-glow {
-    position: absolute;
-    inset: 0;
-    background: var(--neural-gradient);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .filter-button.active .button-glow {
-    opacity: 0.2;
-  }
-
-  /* Projects Grid */
-  .projects-section {
-    padding: 4rem 0;
-    background: var(--color-background);
-    min-height: 100vh;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-
-  /* Project Card */
-  .project-card {
-    background: var(--component-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all var(--transition-base);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primary);
-    box-shadow: var(--glow-subtle);
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .status-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-secondary);
-    box-shadow: 0 0 8px currentColor;
-  }
-
-  .status-indicator[data-status="planning"] {
-    background: var(--color-text-tertiary);
-  }
-
-  .status-indicator[data-status="completed"] {
-    background: var(--color-primary);
-  }
-
-  .category-badge {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.75rem;
-    background: rgba(164, 118, 255, 0.1);
-    border-radius: 20px;
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-
-  .category-badge[data-category="health"] { 
-    background: rgba(169, 255, 91, 0.1); 
-    color: var(--color-secondary);
-  }
-  .category-badge[data-category="climate"] { 
-    background: rgba(164, 118, 255, 0.1); 
-    color: var(--color-primary);
-  }
-  .category-badge[data-category="food"] { 
-    background: rgba(169, 255, 91, 0.1); 
-    color: var(--color-secondary);
-  }
-  .category-badge[data-category="education"] { 
-    background: rgba(164, 118, 255, 0.1); 
-    color: var(--color-primary);
-  }
-
-  .card-image {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-  }
-
-  .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-  }
-
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-    filter: brightness(1.1) drop-shadow(0 0 10px var(--color-primary));
-  }
-
-  .card-content {
-    padding: 1.5rem;
-    flex: 1;
-  }
-
-  .project-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-  }
-
-  .project-description {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .impact-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(164, 118, 255, 0.1);
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
-    margin-bottom: 1rem;
-  }
-
-  .impact-icon {
-    font-size: 1.25rem;
-  }
-
-  .impact-text {
-    font-size: 0.875rem;
-    color: var(--color-primary);
-    font-weight: 500;
-  }
-
-  .project-stats {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .project-stats .stat {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-stats .stat-value {
-    font-family: var(--font-mono);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .project-stats .stat-label {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .card-actions {
-    display: flex;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .action-button {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all var(--transition-base);
-    border: none;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: var(--radius-md);
-  }
-
-  .action-button.primary {
-    background: transparent;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-  }
-
-  .action-button.secondary {
-    background: transparent;
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-border);
-  }
-
-  .action-button:hover {
-    transform: translateY(-2px);
-  }
-  
-  .action-button.primary:hover {
-    background: var(--color-primary);
-    color: var(--color-background);
-    box-shadow: var(--glow-subtle);
-  }
-  
-  .action-button.secondary:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  .action-button .arrow {
-    opacity: 0.7;
-    transition: all 0.3s ease;
-  }
-
-  .action-button:hover .arrow {
-    opacity: 1;
-    transform: translateX(4px);
-  }
-
-  /* Empty State */
-  .empty-state {
-    text-align: center;
-    padding: 4rem;
-  }
-
-  .empty-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    opacity: 0.5;
-  }
-
-  .empty-state h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-text-secondary);
-  }
-
-  .empty-state p {
-    color: var(--color-text-tertiary);
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: 5rem 0;
-    background: var(--color-background);
-  }
-
-  .cta-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 3rem;
-    align-items: center;
-  }
-
-  @media (min-width: 768px) {
-    .cta-card {
-      grid-template-columns: 2fr 1fr;
-    }
-  }
-
-  .cta-title {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-primary);
-    text-shadow: 0 0 20px rgba(164, 118, 255, 0.3);
-  }
-
-  .cta-description {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
-  .cta-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .feature {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .feature-icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .warp-core-mini {
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: var(--glow-subtle);
-    animation: warp-core-pulse 2s ease-in-out infinite;
-  }
-
-  .cta-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .rotating-helix {
-    width: 200px;
-    height: 200px;
-    background: conic-gradient(
-      from 0deg,
-      transparent,
-      var(--color-secondary),
-      transparent,
-      var(--color-primary),
-      transparent
-    );
-    border-radius: 50%;
-    animation: rotate-slow 20s linear infinite;
-    filter: blur(10px);
-    opacity: 0.3;
-  }
-
-  @keyframes rotate-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  /* Hidden state for filtering */
-  .project-card.hidden {
-    display: none;
-  }
-
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    .filter-wrapper {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    
-    .filter-buttons {
-      justify-content: center;
-    }
-    
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .stats-row {
-      gap: 2rem;
-    }
-  }
-</style>
-
-<script>
-  
-  // Parallax effect on project cards
-  const projectsGrid = document.querySelector('[data-projects-grid]');
-  if (projectsGrid) {
-    projectsGrid.addEventListener('mousemove', (e) => {
-      const cards = projectsGrid.querySelectorAll('.project-card');
-      const rect = projectsGrid.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
       
-      cards.forEach((card, index) => {
-        const depth = (index % 3 + 1) * 0.5;
-        const moveX = (x - 0.5) * depth;
-        const moveY = (y - 0.5) * depth;
-        
-        (card as HTMLElement).style.transform = 
-          `translateX(${moveX}px) translateY(${moveY}px)`;
-      });
-    });
-    
-    projectsGrid.addEventListener('mouseleave', () => {
-      const cards = projectsGrid.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        (card as HTMLElement).style.transform = 'translateX(0) translateY(0)';
-      });
-    });
-  }
-</script>
+      <a 
+        href="/start-project" 
+        class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-primary"
+      >
+        Start Your Project
+        <Icon name="mdi:rocket-launch" class="w-5 h-5" />
+      </a>
+    </div>
+  </ContentSection>
+</BaseLayout>

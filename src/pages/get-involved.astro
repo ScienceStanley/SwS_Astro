@@ -1,0 +1,1305 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const pageTitle = 'Get Involved - Join the Scientific Revolution';
+const pageDescription = 'Multiple pathways to contribute to community-powered science. Whether you\'re a researcher, community member, or supporter - there\'s a place for you here.';
+
+// Involvement pathways
+const pathways = [
+  {
+    id: 'researchers',
+    title: 'For Researchers',
+    subtitle: 'Access resources, collaborate, amplify impact',
+    icon: 'mdi:flask',
+    color: 'var(--warp-core-blue)',
+    description: 'Get computational resources, find collaborators, and ensure your research creates real-world impact.',
+    benefits: [
+      'Free GPU hours for approved projects',
+      'Access to diverse datasets and collaborators',
+      'Community support and peer review',
+      'Help translating research into community solutions',
+      'Open science mentorship and resources'
+    ],
+    actions: [
+      { text: 'Request Computational Resources', url: '/resources#compute-resources', type: 'primary' },
+      { text: 'Submit a Project Proposal', url: '/resources#project-template', type: 'secondary' },
+      { text: 'Browse Active Collaborations', url: '/projects', type: 'tertiary' }
+    ]
+  },
+  {
+    id: 'communities',
+    title: 'For Communities',
+    subtitle: 'Connect problems with scientific solutions',
+    icon: 'mdi:account-group',
+    color: 'var(--plasma-green)',
+    description: 'Share your challenges, partner with researchers, and shape science that serves your community\'s needs.',
+    benefits: [
+      'Direct access to researchers ready to help',
+      'Community-led research partnerships',
+      'Rapid response to urgent challenges',
+      'Training and capacity building opportunities',
+      'Voice in research priorities and methods'
+    ],
+    actions: [
+      { text: 'Submit a Community Challenge', url: '/resources#problem-statements', type: 'primary' },
+      { text: 'Partner with Existing Projects', url: '/projects', type: 'secondary' },
+      { text: 'Host a Science Sunday', url: '/science-sunday', type: 'tertiary' }
+    ]
+  },
+  {
+    id: 'contributors',
+    title: 'For Contributors',
+    subtitle: 'Share your skills, learn, and grow',
+    icon: 'mdi:account-wrench',
+    color: 'var(--cyber-pink)',
+    description: 'Contribute your expertise - whether technical, creative, or organizational - to accelerate scientific breakthroughs.',
+    benefits: [
+      'Work on cutting-edge research projects',
+      'Learn from experts across disciplines',
+      'Build your portfolio with impactful work',
+      'Flexible contribution options',
+      'Professional networking and mentorship'
+    ],
+    actions: [
+      { text: 'Browse Skill-Based Opportunities', url: '#volunteer-opportunities', type: 'primary' },
+      { text: 'Join Technical Working Groups', url: '#working-groups', type: 'secondary' },
+      { text: 'Contribute to Open Source Tools', url: 'https://github.com/smarterwithscience', type: 'tertiary' }
+    ]
+  },
+  {
+    id: 'supporters',
+    title: 'For Supporters',
+    subtitle: 'Fund the future of science',
+    icon: 'mdi:heart',
+    color: 'var(--royal-purple)',
+    description: 'Support breakthrough research through financial contributions, resource sharing, or institutional partnerships.',
+    benefits: [
+      'Direct impact on research acceleration',
+      'Transparency in resource allocation',
+      'Regular updates on funded projects',
+      'Tax-deductible contributions',
+      'Recognition in our community'
+    ],
+    actions: [
+      { text: 'Make a Donation', url: '#donate', type: 'primary' },
+      { text: 'Corporate Partnership Program', url: '#partnerships', type: 'secondary' },
+      { text: 'Resource Sharing Opportunities', url: '#resource-sharing', type: 'tertiary' }
+    ]
+  }
+];
+
+// Current needs/opportunities
+const currentNeeds = [
+  {
+    title: 'Python Developers',
+    description: 'Help build tools for data analysis and community platform features.',
+    skills: ['Python', 'Django/FastAPI', 'Data Science'],
+    commitment: '5-10 hours/week',
+    type: 'technical'
+  },
+  {
+    title: 'Science Communicators',
+    description: 'Translate research findings into accessible content for communities.',
+    skills: ['Writing', 'Science Communication', 'Visual Design'],
+    commitment: '3-5 hours/week',
+    type: 'content'
+  },
+  {
+    title: 'Community Organizers',
+    description: 'Help launch Science Sunday chapters and facilitate local connections.',
+    skills: ['Event Planning', 'Community Building', 'Facilitation'],
+    commitment: '2-4 hours/week',
+    type: 'community'
+  },
+  {
+    title: 'Research Advocates',
+    description: 'Bridge researchers and communities, ensuring equitable partnerships.',
+    skills: ['Research Experience', 'Cultural Competency', 'Mediation'],
+    commitment: '4-8 hours/week',
+    type: 'research'
+  }
+];
+
+// Success stories
+const successStories = [
+  {
+    name: 'Dr. Maria Santos',
+    role: 'Pediatric Cancer Researcher',
+    story: 'Through SwS, I got computational resources that normally would have taken 18 months to secure. We validated a promising treatment in 6 weeks.',
+    impact: 'Research timeline: 18 months → 6 weeks'
+  },
+  {
+    name: 'Riverside Community Coalition',
+    role: 'Environmental Justice Advocates',
+    story: 'We partnered with SwS researchers to create real-time air quality monitoring. Now parents get alerts and we have data for policy advocacy.',
+    impact: '500+ families protected from poor air quality'
+  },
+  {
+    name: 'Alex Chen',
+    role: 'Software Engineer & Volunteer',
+    story: 'Contributing to SwS projects helped me transition from tech to biotech. The community supported my learning journey.',
+    impact: 'Career transition + 3 research collaborations'
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content" data-scroll-reveal>
+        <h1 class="hero-title">
+          <span class="title-gradient">Join the</span><br>
+          <span class="title-emphasis">Scientific Revolution</span>
+        </h1>
+        <p class="hero-description">
+          Multiple pathways to contribute to community-powered science. Whether you're a researcher, 
+          community member, contributor, or supporter - there's a place for you here.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Active Contributors</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Research Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Communities Served</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pathways Section -->
+  <section class="pathways-section">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Choose Your Path</h2>
+      <div class="pathways-grid">
+        {pathways.map((pathway, index) => (
+          <div 
+            class="pathway-card"
+            data-scroll-reveal
+            data-delay={index * 150}
+          >
+            <div class="pathway-header">
+              <Icon name={pathway.icon} class="pathway-icon" style={`color: ${pathway.color}`} />
+              <div class="pathway-title-section">
+                <h3>{pathway.title}</h3>
+                <p class="pathway-subtitle">{pathway.subtitle}</p>
+              </div>
+            </div>
+            
+            <p class="pathway-description">{pathway.description}</p>
+            
+            <div class="benefits-section">
+              <h4>What You Get:</h4>
+              <ul class="benefits-list">
+                {pathway.benefits.map(benefit => (
+                  <li>{benefit}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="actions-section">
+              {pathway.actions.map(action => (
+                <a 
+                  href={action.url} 
+                  class={`action-button ${action.type}`}
+                >
+                  {action.text}
+                  <Icon name="mdi:arrow-right" class="button-icon" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Opportunities -->
+  <section class="opportunities-section" id="volunteer-opportunities">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Current Opportunities</h2>
+      <p class="section-description" data-scroll-reveal>
+        We're actively looking for contributors with these skills. All roles are flexible 
+        and remote-friendly with mentorship provided.
+      </p>
+      
+      <div class="opportunities-grid">
+        {currentNeeds.map((need, index) => (
+          <div 
+            class="opportunity-card"
+            data-scroll-reveal
+            data-delay={index * 100}
+            data-type={need.type}
+          >
+            <div class="opportunity-header">
+              <h3>{need.title}</h3>
+              <span class="opportunity-type">{need.type}</span>
+            </div>
+            <p class="opportunity-description">{need.description}</p>
+            
+            <div class="skills-section">
+              <h4>Skills Needed:</h4>
+              <div class="skills-tags">
+                {need.skills.map(skill => (
+                  <span class="skill-tag">{skill}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div class="commitment-section">
+              <Icon name="mdi:clock-outline" class="commitment-icon" />
+              <span>Time Commitment: {need.commitment}</span>
+            </div>
+            
+            <a href="mailto:volunteer@smarterwithscience.org" class="apply-button">
+              Apply for This Role
+              <Icon name="mdi:send" class="button-icon" />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Working Groups -->
+  <section class="working-groups-section" id="working-groups">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Technical Working Groups</h2>
+      <div class="working-groups-grid">
+        <div class="working-group-card" data-scroll-reveal>
+          <Icon name="mdi:database" class="group-icon" />
+          <h3>Data Infrastructure</h3>
+          <p>Building FAIR data systems and improving research data accessibility.</p>
+          <div class="group-details">
+            <span class="meeting-time">Meets: Bi-weekly Thursdays</span>
+            <span class="members-count">12 active members</span>
+          </div>
+          <a href="https://discord.com/invite/smarter" class="join-group">Join Group</a>
+        </div>
+
+        <div class="working-group-card" data-scroll-reveal data-delay="100">
+          <Icon name="mdi:brain" class="group-icon" />
+          <h3>AI/ML Applications</h3>
+          <p>Developing machine learning tools for scientific research and community applications.</p>
+          <div class="group-details">
+            <span class="meeting-time">Meets: Weekly Tuesdays</span>
+            <span class="members-count">18 active members</span>
+          </div>
+          <a href="https://discord.com/invite/smarter" class="join-group">Join Group</a>
+        </div>
+
+        <div class="working-group-card" data-scroll-reveal data-delay="200">
+          <Icon name="mdi:web" class="group-icon" />
+          <h3>Platform Development</h3>
+          <p>Building and maintaining the SwS web platform and community tools.</p>
+          <div class="group-details">
+            <span class="meeting-time">Meets: Weekly Mondays</span>
+            <span class="members-count">8 active members</span>
+          </div>
+          <a href="https://discord.com/invite/smarter" class="join-group">Join Group</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="stories-section">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Success Stories</h2>
+      <div class="stories-grid">
+        {successStories.map((story, index) => (
+          <div 
+            class="story-card"
+            data-scroll-reveal
+            data-delay={index * 150}
+          >
+            <blockquote class="story-quote">
+              "{story.story}"
+            </blockquote>
+            <div class="story-author">
+              <div class="author-info">
+                <span class="author-name">{story.name}</span>
+                <span class="author-role">{story.role}</span>
+              </div>
+            </div>
+            <div class="story-impact">
+              <Icon name="mdi:chart-line" class="impact-icon" />
+              <span>{story.impact}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section class="support-section" id="donate">
+    <div class="container">
+      <div class="support-content" data-scroll-reveal>
+        <div class="support-text">
+          <h2>Support Our Mission</h2>
+          <p>
+            Help us provide computational resources to researchers, support community partnerships, 
+            and accelerate scientific breakthroughs that serve humanity.
+          </p>
+          <div class="impact-metrics">
+            <div class="metric">
+              <span class="metric-value">$100</span>
+              <span class="metric-description">Provides 50 GPU hours for cancer research</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">$500</span>
+              <span class="metric-description">Funds a community-researcher partnership for 3 months</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">$1000</span>
+              <span class="metric-description">Supports a full research project from inception to impact</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="support-actions">
+          <div class="donation-options">
+            <h3>Make a Donation</h3>
+            <div class="donation-buttons">
+              <button class="donation-button" data-amount="50">$50</button>
+              <button class="donation-button" data-amount="100">$100</button>
+              <button class="donation-button" data-amount="250">$250</button>
+              <button class="donation-button" data-amount="custom">Custom</button>
+            </div>
+            <a href="#" class="donate-now-button">
+              Donate Now
+              <Icon name="mdi:heart" class="button-icon" />
+            </a>
+          </div>
+          
+          <div class="other-support" id="partnerships">
+            <h3>Other Ways to Support</h3>
+            <div class="support-options">
+              <a href="mailto:partnerships@smarterwithscience.org" class="support-option">
+                <Icon name="mdi:handshake" class="option-icon" />
+                <div>
+                  <span class="option-title">Corporate Partnership</span>
+                  <span class="option-description">Institutional collaboration opportunities</span>
+                </div>
+              </a>
+              
+              <a href="mailto:resources@smarterwithscience.org" class="support-option" id="resource-sharing">
+                <Icon name="mdi:share-variant" class="option-icon" />
+                <div>
+                  <span class="option-title">Resource Sharing</span>
+                  <span class="option-description">Share computing power, data, or expertise</span>
+                </div>
+              </a>
+              
+              <a href="mailto:volunteer@smarterwithscience.org" class="support-option">
+                <Icon name="mdi:account-group" class="option-icon" />
+                <div>
+                  <span class="option-title">Skills-Based Volunteering</span>
+                  <span class="option-description">Contribute your professional expertise</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-scroll-reveal>
+        <h2>Ready to Get Started?</h2>
+        <p>
+          Join thousands of researchers, community members, and supporters who are 
+          accelerating scientific breakthroughs through collaboration.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://discord.com/invite/smarter" class="cta-button primary">
+            Join Our Discord
+            <Icon name="mdi:discord" class="button-icon" />
+          </a>
+          <a href="/science-sunday" class="cta-button secondary">
+            Attend Science Sunday
+            <Icon name="mdi:calendar" class="button-icon" />
+          </a>
+        </div>
+        <p class="cta-note">
+          Questions? Email us at <a href="mailto:hello@smarterwithscience.org">hello@smarterwithscience.org</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    padding: 8rem 0 4rem;
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.1) 0%, transparent 70%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .title-gradient {
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  .title-emphasis {
+    color: var(--warp-core-blue);
+    text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--warp-core-blue);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(102, 51, 153, 0.5));
+  }
+
+  .section-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Pathways Section */
+  .pathways-section {
+    padding: 5rem 0;
+  }
+
+  .pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+
+  .pathway-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .pathway-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pathway-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+  }
+
+  .pathway-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .pathway-icon {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+  }
+
+  .pathway-title-section h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .pathway-subtitle {
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  .pathway-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-section h4 {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-list li {
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .benefits-list li::before {
+    content: '✓';
+    color: var(--plasma-green);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .actions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .action-button.primary {
+    background: var(--neural-gradient);
+    color: white;
+  }
+
+  .action-button.secondary {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+    border: 1px solid var(--warp-core-blue);
+  }
+
+  .action-button.tertiary {
+    background: rgba(102, 51, 153, 0.2);
+    color: var(--royal-purple);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+  }
+
+  .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .button-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Opportunities Section */
+  .opportunities-section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+  }
+
+  .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .opportunity-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .opportunity-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .opportunity-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  }
+
+  .opportunity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .opportunity-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+  }
+
+  .opportunity-type {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .opportunity-card[data-type="technical"] .opportunity-type {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+  }
+
+  .opportunity-card[data-type="content"] .opportunity-type {
+    background: rgba(255, 0, 255, 0.2);
+    color: var(--cyber-pink);
+  }
+
+  .opportunity-card[data-type="community"] .opportunity-type {
+    background: rgba(0, 255, 136, 0.2);
+    color: var(--plasma-green);
+  }
+
+  .opportunity-card[data-type="research"] .opportunity-type {
+    background: rgba(102, 51, 153, 0.2);
+    color: var(--royal-purple);
+  }
+
+  .opportunity-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-section h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skills-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(102, 51, 153, 0.2);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 16px;
+    color: var(--royal-purple);
+    font-size: 0.875rem;
+  }
+
+  .commitment-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .commitment-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .apply-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--neural-gradient);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .apply-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 51, 153, 0.3);
+  }
+
+  /* Working Groups Section */
+  .working-groups-section {
+    padding: 5rem 0;
+  }
+
+  .working-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .working-group-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .working-group-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .working-group-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  }
+
+  .group-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--warp-core-blue);
+    margin-bottom: 1rem;
+  }
+
+  .working-group-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .working-group-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .group-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+
+  .join-group {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .join-group:hover {
+    background: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Stories Section */
+  .stories-section {
+    padding: 5rem 0;
+    background: rgba(102, 51, 153, 0.05);
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
+  .story-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(102, 51, 153, 0.4);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .story-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .story-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  }
+
+  .story-quote {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--royal-purple);
+    padding-left: 1rem;
+  }
+
+  .story-author {
+    margin-bottom: 1rem;
+  }
+
+  .author-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .author-role {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  .story-impact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 212, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: var(--warp-core-blue);
+    font-weight: 500;
+  }
+
+  .impact-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Support Section */
+  .support-section {
+    padding: 5rem 0;
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.15) 0%, transparent 70%);
+  }
+
+  .support-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .support-text h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .support-text p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .impact-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .metric-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--warp-core-blue);
+    min-width: 5rem;
+  }
+
+  .metric-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .donation-options h3,
+  .other-support h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .donation-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .donation-button {
+    padding: 0.75rem;
+    background: rgba(102, 51, 153, 0.2);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 8px;
+    color: var(--royal-purple);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .donation-button:hover,
+  .donation-button.active {
+    background: rgba(102, 51, 153, 0.4);
+    border-color: var(--royal-purple);
+  }
+
+  .donate-now-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--neural-gradient);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  .donate-now-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 51, 153, 0.3);
+  }
+
+  .support-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .support-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .support-option:hover {
+    border-color: var(--warp-core-blue);
+    transform: translateY(-2px);
+  }
+
+  .option-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--warp-core-blue);
+  }
+
+  .option-title {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .option-description {
+    display: block;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, rgba(102, 51, 153, 0.2), rgba(0, 212, 255, 0.1));
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button.primary {
+    background: var(--neural-gradient);
+    color: white;
+  }
+
+  .cta-button.secondary {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+    border: 1px solid var(--warp-core-blue);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 51, 153, 0.3);
+  }
+
+  .cta-note {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+  }
+
+  .cta-note a {
+    color: var(--warp-core-blue);
+    text-decoration: none;
+  }
+
+  .cta-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 6rem 0 3rem;
+    }
+
+    .hero-stats {
+      gap: 1.5rem;
+    }
+
+    .pathways-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .opportunities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .working-groups-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .support-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .donation-buttons {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+
+    .group-details {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  /* Scroll reveal animation */
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  [data-scroll-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Donation amount selection
+  document.addEventListener('DOMContentLoaded', () => {
+    const donationButtons = document.querySelectorAll('.donation-button');
+    let selectedAmount = '100'; // default
+
+    donationButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        donationButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Store selected amount
+        selectedAmount = button.getAttribute('data-amount') || '100';
+        
+        // Update donate button (you would integrate with actual payment processor)
+        const donateButton = document.querySelector('.donate-now-button');
+        if (donateButton && selectedAmount !== 'custom') {
+          donateButton.href = `#donate-${selectedAmount}`;
+        }
+      });
+    });
+
+    // Set default selection
+    const defaultButton = document.querySelector('.donation-button[data-amount="100"]');
+    if (defaultButton) {
+      defaultButton.classList.add('active');
+    }
+
+    // Scroll reveal animation
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const delay = element.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            element.classList.add('revealed');
+          }, parseInt(delay));
+          
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with data-scroll-reveal
+    const elements = document.querySelectorAll('[data-scroll-reveal]');
+    elements.forEach(el => observer.observe(el));
+  });
+</script>

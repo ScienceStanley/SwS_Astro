@@ -1,0 +1,329 @@
+---
+import { Icon } from "astro-icon/components";
+import Card from "@components/ui/Card.astro";
+
+export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  impact: string;
+  status: 'active' | 'planning' | 'completed';
+  image?: string;
+  computeHours: number;
+  collaborators: number;
+}
+
+export interface Props {
+  projects: Project[];
+  showFilters?: boolean;
+  columns?: 2 | 3 | 4;
+}
+
+const { 
+  projects = [],
+  showFilters = true,
+  columns = 3
+} = Astro.props;
+
+// Project categories with colors
+const categories = [
+  { id: 'all', label: 'All Projects', color: 'primary' },
+  { id: 'health', label: 'Health & Medicine', color: 'accent-green' },
+  { id: 'climate', label: 'Ocean & Climate', color: 'secondary' },
+  { id: 'food', label: 'Food Security', color: 'accent-cyan' },
+  { id: 'education', label: 'STEAM Education', color: 'accent-pink' },
+  { id: 'resilience', label: 'Community Resilience', color: 'primary' },
+];
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'active': return 'accent-green';
+    case 'planning': return 'text-muted';
+    case 'completed': return 'primary';
+    default: return 'text-muted';
+  }
+};
+
+const getCategoryColor = (category: string) => {
+  const cat = categories.find(c => c.id === category);
+  return cat?.color || 'primary';
+};
+---
+
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Filters -->
+    {showFilters && (
+      <div class="filter-section sticky top-16 z-40 bg-background/80 backdrop-blur-xl border-y border-default py-4 mb-8">
+        <div class="flex flex-wrap items-center gap-4">
+          <span class="text-sm font-medium text-text-offset">Filter by:</span>
+          <div class="flex flex-wrap gap-2">
+            {categories.map(category => (
+              <button
+                class={`filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border ${
+                  category.id === 'all' ? 'active' : ''
+                }`}
+                data-filter={category.id}
+                data-color={category.color}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- Projects Grid -->
+    <div 
+      class={`projects-grid grid gap-6 ${
+        columns === 2 ? 'md:grid-cols-2' : 
+        columns === 3 ? 'md:grid-cols-2 lg:grid-cols-3' :
+        'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+      }`}
+      data-projects-grid
+    >
+      {projects.map((project, index) => (
+        <Card 
+          variant="glass" 
+          className={`project-card animate-fade-up animation-delay-${(index % 3 + 1) * 100}`}
+          data-category={project.category}
+        >
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div 
+              class={`status-indicator w-3 h-3 rounded-full bg-${getStatusColor(project.status)}`}
+              title={`Status: ${project.status}`}
+            ></div>
+            <span 
+              class={`category-badge px-3 py-1 text-xs font-semibold rounded-full bg-${getCategoryColor(project.category)}/10 text-${getCategoryColor(project.category)}`}
+            >
+              {project.category}
+            </span>
+          </div>
+
+          <!-- Project Image -->
+          {project.image && (
+            <div class="project-image-container mb-4 aspect-video rounded-lg overflow-hidden bg-background-offset">
+              <img 
+                src={`/ui-elements/project-${project.image}-pixel.png`}
+                alt={project.title}
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                onerror="this.style.display='none'"
+              />
+            </div>
+          )}
+
+          <!-- Project Content -->
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-xl font-display font-bold text-text mb-2 group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-text-offset text-sm leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+
+            <!-- Impact Badge -->
+            <div class="flex items-center gap-2 p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <Icon name="mdi:trending-up" class="w-5 h-5 text-primary flex-shrink-0" />
+              <span class="text-sm font-medium text-primary">{project.impact}</span>
+            </div>
+
+            <!-- Project Stats -->
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-default">
+              <div class="text-center">
+                <div class="text-lg font-bold font-mono text-secondary">
+                  {project.computeHours.toLocaleString()}
+                </div>
+                <div class="text-xs text-text-muted uppercase tracking-wide">GPU Hours</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-bold font-mono text-accent-green">
+                  {project.collaborators}
+                </div>
+                <div class="text-xs text-text-muted uppercase tracking-wide">Collaborators</div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-2 pt-2">
+              <a 
+                href={`/projects/${project.id}`}
+                class="flex-1 px-4 py-2 text-center text-sm font-medium text-primary border border-primary rounded-lg hover:bg-primary hover:text-background transition-all duration-300"
+              >
+                Learn More
+              </a>
+              <a 
+                href={`/projects/${project.id}/contribute`}
+                class="flex-1 px-4 py-2 text-center text-sm font-medium text-text-offset border border-default rounded-lg hover:border-primary hover:text-primary transition-all duration-300"
+              >
+                Contribute
+              </a>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    {projects.length === 0 && (
+      <div class="text-center py-16">
+        <Icon name="mdi:flask-empty" class="w-16 h-16 text-text-muted mx-auto mb-4 opacity-50" />
+        <h3 class="text-xl font-medium text-text-offset mb-2">No projects found</h3>
+        <p class="text-text-muted">Try adjusting your filters or check back soon for new projects.</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  /* Filter Buttons */
+  .filter-btn {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-offset);
+  }
+  
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  
+  .filter-btn.active {
+    background: rgba(102, 51, 153, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  
+  /* Project Card Animations */
+  .project-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .project-card.visible {
+    animation: card-reveal 0.6s ease-out forwards;
+  }
+  
+  @keyframes card-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Status Indicators */
+  .status-indicator {
+    box-shadow: 0 0 10px currentColor;
+  }
+  
+  /* Project Image Hover Effects */
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(102, 51, 153, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .project-card:hover .project-image-container::after {
+    opacity: 1;
+  }
+  
+  /* Animation Delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .filter-section {
+      position: relative;
+      top: auto;
+    }
+    
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter projects
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const shouldShow = filter === 'all' || category === filter;
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          setTimeout(() => card.classList.add('visible'), 100);
+        } else {
+          card.classList.remove('visible');
+          setTimeout(() => card.style.display = 'none', 300);
+        }
+      });
+    });
+  });
+  
+  // Initialize visibility on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    projectCards.forEach(card => observer.observe(card));
+  });
+  
+  // Parallax effect on hover
+  const projectsGrid = document.querySelector('[data-projects-grid]');
+  if (projectsGrid) {
+    projectsGrid.addEventListener('mousemove', (e) => {
+      const cards = projectsGrid.querySelectorAll('.project-card');
+      const rect = projectsGrid.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      
+      cards.forEach((card, index) => {
+        const depth = (index % 3 + 1) * 0.3;
+        const moveX = (x - 0.5) * depth;
+        const moveY = (y - 0.5) * depth;
+        
+        card.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
+      });
+    });
+    
+    projectsGrid.addEventListener('mouseleave', () => {
+      const cards = projectsGrid.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        card.style.transform = 'translateX(0) translateY(0)';
+      });
+    });
+  }
+</script>

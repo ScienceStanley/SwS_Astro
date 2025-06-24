@@ -1,0 +1,541 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const pageTitle = 'Resources - Your Guide to Community-Powered Science';
+const pageDescription = 'Everything you need to get started, contribute, and thrive in the SwS community. From onboarding guides to technical documentation.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content" data-scroll-reveal>
+        <h1 class="hero-title">
+          <span class="title-gradient">Your Guide to</span><br>
+          <span class="title-emphasis">Community-Powered Science</span>
+        </h1>
+        <p class="hero-description">
+          Everything you need to get started, contribute, and thrive in the SwS community. 
+          From onboarding guides to technical documentation - your journey starts here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links-section">
+    <div class="container">
+      <h2 class="section-title" data-scroll-reveal>Quick Access</h2>
+      <div class="quick-links-grid">
+        <a href="https://discord.com/invite/smarter" class="quick-link-card">
+          <Icon name="mdi:discord" class="link-icon" />
+          <span>Discord Community</span>
+          <Icon name="mdi:arrow-right" class="arrow-icon" />
+        </a>
+        <a href="https://github.com/smarterwithscience" class="quick-link-card">
+          <Icon name="mdi:github" class="link-icon" />
+          <span>GitHub Repository</span>
+          <Icon name="mdi:arrow-right" class="arrow-icon" />
+        </a>
+        <a href="/science-sunday" class="quick-link-card">
+          <Icon name="mdi:calendar" class="link-icon" />
+          <span>Science Sunday Events</span>
+          <Icon name="mdi:arrow-right" class="arrow-icon" />
+        </a>
+        <a href="/get-involved" class="quick-link-card">
+          <Icon name="mdi:plus-circle" class="link-icon" />
+          <span>Get Involved</span>
+          <Icon name="mdi:arrow-right" class="arrow-icon" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <div class="container">
+      <div class="content-grid">
+        
+        <!-- Getting Started -->
+        <div class="content-card" data-scroll-reveal>
+          <Icon name="mdi:rocket-launch" class="card-icon" />
+          <h3>Getting Started</h3>
+          <p>New to SwS? Start here for your orientation to community-powered science.</p>
+          
+          <div class="content-body">
+            <h4>Community Guidelines</h4>
+            <p>We're building something extraordinary together - a place where science and community amplify each other. Here are our shared principles:</p>
+            
+            <ul>
+              <li><strong>Respect & Inclusion:</strong> Everyone's expertise is valued</li>
+              <li><strong>Scientific Integrity:</strong> Share methods, acknowledge uncertainties</li>
+              <li><strong>Community First:</strong> Center the needs of affected communities</li>
+            </ul>
+
+            <h4>First Steps Checklist</h4>
+            <ul>
+              <li>Join our <a href="https://discord.com/invite/smarter">Discord community</a></li>
+              <li>Introduce yourself in #introductions</li>
+              <li>Attend a <a href="/science-sunday">Science Sunday event</a></li>
+              <li>Explore active <a href="/projects">projects</a></li>
+              <li>Read the <a href="/charter">SwS Charter</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- For Researchers -->
+        <div class="content-card" data-scroll-reveal>
+          <Icon name="mdi:flask" class="card-icon" />
+          <h3>For Researchers</h3>
+          <p>Access computational resources, submit projects, and collaborate.</p>
+          
+          <div class="content-body">
+            <h4>Accessing Computational Resources</h4>
+            <p>We provide GPU hours and computational power to researchers working on projects aligned with our mission. No red tape, no bureaucracy.</p>
+            
+            <ol>
+              <li><strong>Project Description:</strong> Submit a brief overview explaining the problem, approach, and community impact</li>
+              <li><strong>Community Review:</strong> Projects reviewed within 72 hours</li>
+              <li><strong>Resource Allocation:</strong> Approved projects get immediate access</li>
+              <li><strong>Progress Sharing:</strong> Share monthly updates with the community</li>
+            </ol>
+
+            <a href="mailto:compute@smarterwithscience.org" class="action-button">
+              Request Computational Resources
+            </a>
+          </div>
+        </div>
+
+        <!-- For Communities -->
+        <div class="content-card" data-scroll-reveal>
+          <Icon name="mdi:account-group" class="card-icon" />
+          <h3>For Communities</h3>
+          <p>Submit problems, find solutions, and partner with researchers.</p>
+          
+          <div class="content-body">
+            <h4>Effective Problem Statements</h4>
+            <p>Communities are the experts on their own challenges. Here's how to communicate your needs:</p>
+            
+            <ol>
+              <li><strong>Context & Background:</strong> Describe your community and situation</li>
+              <li><strong>Specific Challenge:</strong> What exactly needs to be solved?</li>
+              <li><strong>Current Impacts:</strong> How is this affecting people now?</li>
+              <li><strong>Desired Outcomes:</strong> What would success look like?</li>
+              <li><strong>Community Assets:</strong> What strengths can you contribute?</li>
+            </ol>
+
+            <a href="mailto:communities@smarterwithscience.org" class="action-button">
+              Submit Your Challenge
+            </a>
+          </div>
+        </div>
+
+        <!-- Technical Documentation -->
+        <div class="content-card" data-scroll-reveal>
+          <Icon name="mdi:code-tags" class="card-icon" />
+          <h3>Technical Documentation</h3>
+          <p>APIs, tools, integration guides, and development resources.</p>
+          
+          <div class="content-body">
+            <h4>APIs & Integrations</h4>
+            <p>SwS provides APIs and tools for integrating with our platform:</p>
+            
+            <ul>
+              <li><strong>Projects API:</strong> Access project data and manage collaborations</li>
+              <li><strong>Metrics API:</strong> Track impact and resource utilization</li>
+              <li><strong>Community API:</strong> Manage profiles and collaboration requests</li>
+            </ul>
+
+            <h4>Development Tools</h4>
+            <ul>
+              <li><strong>SwS CLI:</strong> Command-line interface for project management</li>
+              <li><strong>Python SDK:</strong> Official Python library for SwS integration</li>
+              <li><strong>Docker Images:</strong> Pre-configured research environments</li>
+              <li><strong>Jupyter Templates:</strong> Notebook templates for analysis</li>
+            </ul>
+
+            <a href="https://github.com/smarterwithscience/sws-tools" class="action-button">
+              Browse Tools on GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Help & Support -->
+  <section class="support-section">
+    <div class="container">
+      <div class="support-card" data-scroll-reveal>
+        <Icon name="mdi:help-circle" class="support-icon" />
+        <h3>Need Help?</h3>
+        <p>Can't find what you're looking for? Our community is here to help.</p>
+        <div class="support-options">
+          <a href="https://discord.com/invite/smarter" class="support-button">
+            <Icon name="mdi:discord" class="button-icon" />
+            Ask in Discord
+          </a>
+          <a href="mailto:help@smarterwithscience.org" class="support-button">
+            <Icon name="mdi:email" class="button-icon" />
+            Email Support
+          </a>
+          <a href="/science-sunday" class="support-button">
+            <Icon name="mdi:calendar" class="button-icon" />
+            Science Sunday Q&A
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    padding: 8rem 0 4rem;
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.1) 0%, transparent 70%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .title-gradient {
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  .title-emphasis {
+    color: var(--warp-core-blue);
+    text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(102, 51, 153, 0.5));
+  }
+
+  /* Quick Links Section */
+  .quick-links-section {
+    padding: 5rem 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .quick-link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .quick-link-card:hover {
+    border-color: var(--warp-core-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  }
+
+  .link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--warp-core-blue);
+  }
+
+  .arrow-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .quick-link-card:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  /* Content Section */
+  .content-section {
+    padding: 5rem 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+
+  .content-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .content-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .content-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--warp-core-blue);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  }
+
+  .card-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--warp-core-blue);
+    margin-bottom: 1rem;
+  }
+
+  .content-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .content-card > p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .content-body h4 {
+    color: var(--warp-core-blue);
+    font-size: 1.125rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .content-body p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-body ul,
+  .content-body ol {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content-body li {
+    margin-bottom: 0.5rem;
+  }
+
+  .content-body a {
+    color: var(--warp-core-blue);
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .content-body a:hover {
+    color: var(--cyber-pink);
+    text-decoration-color: var(--cyber-pink);
+  }
+
+  /* Action Button */
+  .action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--neural-gradient);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+
+  .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 51, 153, 0.3);
+  }
+
+  /* Support Section */
+  .support-section {
+    padding: 5rem 0;
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.15) 0%, transparent 70%);
+  }
+
+  .support-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(102, 51, 153, 0.4);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .support-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--warp-core-blue);
+    margin-bottom: 1.5rem;
+  }
+
+  .support-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .support-card p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .support-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .support-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .support-button:hover {
+    background: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .button-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 6rem 0 3rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .quick-links-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .support-options {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .support-button {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+
+  /* Scroll reveal animation */
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  [data-scroll-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Scroll reveal animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const delay = element.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            element.classList.add('revealed');
+          }, parseInt(delay));
+          
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with data-scroll-reveal
+    const elements = document.querySelectorAll('[data-scroll-reveal]');
+    elements.forEach(el => observer.observe(el));
+  });
+</script>

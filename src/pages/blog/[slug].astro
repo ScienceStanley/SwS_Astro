@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogLayout from '@layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const pageTitle = `${post.data.title} - SwS Blog`;
+const pageDescription = post.data.description;
+---
+
+<BlogLayout 
+  title={pageTitle} 
+  description={pageDescription}
+  post={post.data}
+  slug={post.slug}
+>
+  <Content />
+</BlogLayout>

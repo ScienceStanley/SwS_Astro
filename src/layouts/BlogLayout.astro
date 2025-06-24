@@ -1,0 +1,763 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  title: string;
+  description: string;
+  post: {
+    title: string;
+    description: string;
+    author: string;
+    publishDate: Date;
+    updatedDate?: Date;
+    heroImage?: string;
+    category: 'research' | 'community' | 'impact' | 'technical';
+    tags: string[];
+    featured: boolean;
+  };
+  slug: string;
+}
+
+const { title, description, post, slug } = Astro.props;
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+function getReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+}
+
+// Get content for reading time calculation
+const content = await Astro.slots.render('default');
+const readingTime = getReadingTime(content);
+
+// Category config
+const categoryConfig = {
+  research: { icon: 'mdi:flask', color: 'var(--warp-core-blue)' },
+  community: { icon: 'mdi:account-group', color: 'var(--plasma-green)' },
+  impact: { icon: 'mdi:chart-line', color: 'var(--cyber-pink)' },
+  technical: { icon: 'mdi:code-tags', color: 'var(--hologram-cyan)' }
+};
+
+const currentCategory = categoryConfig[post.category];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Blog Post Hero -->
+  <article class="blog-post">
+    <header class="post-header">
+      {post.heroImage && (
+        <div class="hero-image">
+          <img 
+            src={post.heroImage} 
+            alt={post.title}
+            class="hero-img"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+      )}
+      
+      <div class="header-content">
+        <div class="container">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" data-scroll-reveal>
+            <a href="/blog" class="breadcrumb-link">
+              <Icon name="mdi:arrow-left" class="breadcrumb-icon" />
+              Back to Blog
+            </a>
+          </nav>
+
+          <!-- Post Meta -->
+          <div class="post-meta" data-scroll-reveal>
+            <span class="category-tag" style={`color: ${currentCategory.color}`}>
+              <Icon name={currentCategory.icon} class="category-icon" />
+              {post.category}
+            </span>
+            <time datetime={post.publishDate.toISOString()}>
+              {formatDate(post.publishDate)}
+            </time>
+            <span class="reading-time">
+              <Icon name="mdi:clock-outline" class="meta-icon" />
+              {readingTime} min read
+            </span>
+          </div>
+
+          <!-- Post Title -->
+          <h1 class="post-title" data-scroll-reveal>
+            {post.title}
+          </h1>
+
+          <!-- Post Description -->
+          <p class="post-description" data-scroll-reveal>
+            {post.description}
+          </p>
+
+          <!-- Author Info -->
+          <div class="author-info" data-scroll-reveal>
+            <div class="author-avatar">
+              <Icon name="mdi:account-circle" class="avatar-icon" />
+            </div>
+            <div class="author-details">
+              <span class="author-name">{post.author}</span>
+              <span class="author-title">Founder & Chief Science Officer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <main class="post-content">
+      <div class="container">
+        <div class="content-wrapper" data-scroll-reveal>
+          <slot />
+        </div>
+
+        <!-- Post Footer -->
+        <footer class="post-footer" data-scroll-reveal>
+          {post.tags.length > 0 && (
+            <div class="post-tags">
+              <h4>Tags</h4>
+              <div class="tags-list">
+                {post.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {post.updatedDate && (
+            <div class="update-info">
+              <Icon name="mdi:update" class="update-icon" />
+              <span>Last updated: {formatDate(post.updatedDate)}</span>
+            </div>
+          )}
+
+          <!-- Share Buttons -->
+          <div class="share-section">
+            <h4>Share this post</h4>
+            <div class="share-buttons">
+              <a 
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(Astro.url.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="share-button twitter"
+                aria-label="Share on Twitter"
+              >
+                <Icon name="mdi:twitter" class="share-icon" />
+              </a>
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="share-button linkedin"
+                aria-label="Share on LinkedIn"
+              >
+                <Icon name="mdi:linkedin" class="share-icon" />
+              </a>
+              <button 
+                class="share-button copy"
+                onclick="copyToClipboard()"
+                aria-label="Copy link"
+              >
+                <Icon name="mdi:link" class="share-icon" />
+              </button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </article>
+
+  <!-- Related Posts / CTA Section -->
+  <section class="related-section">
+    <div class="container">
+      <div class="cta-card" data-scroll-reveal>
+        <Icon name="mdi:rocket-launch" class="cta-icon" />
+        <h3>Ready to Join the Revolution?</h3>
+        <p>Connect with researchers, contribute to projects, and help shape the future of community-powered science.</p>
+        <div class="cta-buttons">
+          <a href="/get-involved" class="cta-button primary">
+            Get Involved
+            <Icon name="mdi:arrow-right" class="button-icon" />
+          </a>
+          <a href="https://discord.com/invite/smarter" class="cta-button secondary">
+            Join Discord
+            <Icon name="mdi:discord" class="button-icon" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Blog Post Structure */
+  .blog-post {
+    margin-top: -4rem; /* Overlap with header */
+  }
+
+  /* Post Header */
+  .post-header {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: end;
+    padding-bottom: 4rem;
+    background: linear-gradient(135deg, rgba(102, 51, 153, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  .header-content {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--warp-core-blue);
+  }
+
+  .breadcrumb-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Post Meta */
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .category-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .category-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .post-meta time {
+    color: var(--text-secondary);
+  }
+
+  .reading-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-tertiary);
+  }
+
+  .meta-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  /* Post Title */
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: var(--neural-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(102, 51, 153, 0.5));
+  }
+
+  /* Post Description */
+  .post-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+
+  /* Author Info */
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--neural-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+  }
+
+  .author-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .author-title {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  /* Post Content */
+  .post-content {
+    padding: 5rem 0;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Typography for post content */
+  .content-wrapper :global(h2) {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(102, 51, 153, 0.3);
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--warp-core-blue);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .content-wrapper :global(h4) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .content-wrapper :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-wrapper :global(blockquote) {
+    border-left: 4px solid var(--royal-purple);
+    background: rgba(102, 51, 153, 0.1);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .content-wrapper :global(code) {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: var(--cyber-pink);
+  }
+
+  .content-wrapper :global(pre) {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid rgba(102, 51, 153, 0.3);
+  }
+
+  .content-wrapper :global(pre code) {
+    background: none;
+    padding: 0;
+    color: var(--text-primary);
+  }
+
+  .content-wrapper :global(ul),
+  .content-wrapper :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .content-wrapper :global(li) {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .content-wrapper :global(a) {
+    color: var(--warp-core-blue);
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .content-wrapper :global(a:hover) {
+    color: var(--cyber-pink);
+    text-decoration-color: var(--cyber-pink);
+  }
+
+  /* Post Footer */
+  .post-footer {
+    border-top: 2px solid rgba(102, 51, 153, 0.3);
+    padding-top: 3rem;
+    margin-top: 3rem;
+  }
+
+  .post-tags {
+    margin-bottom: 2rem;
+  }
+
+  .post-tags h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .tags-list {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    padding: 0.5rem 1rem;
+    background: rgba(102, 51, 153, 0.2);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+    border-radius: 20px;
+    color: var(--royal-purple);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .tag:hover {
+    background: rgba(102, 51, 153, 0.4);
+    border-color: var(--royal-purple);
+  }
+
+  /* Update Info */
+  .update-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .update-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Share Section */
+  .share-section h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .share-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .share-button.twitter {
+    background: rgba(29, 161, 242, 0.2);
+    color: #1da1f2;
+  }
+
+  .share-button.linkedin {
+    background: rgba(0, 119, 181, 0.2);
+    color: #0077b5;
+  }
+
+  .share-button.copy {
+    background: rgba(102, 51, 153, 0.2);
+    color: var(--royal-purple);
+  }
+
+  .share-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .share-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Related Section */
+  .related-section {
+    padding: 5rem 0;
+    background: radial-gradient(ellipse at center, rgba(102, 51, 153, 0.15) 0%, transparent 70%);
+  }
+
+  .cta-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(102, 51, 153, 0.4);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--warp-core-blue);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-card p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button.primary {
+    background: var(--neural-gradient);
+    color: white;
+  }
+
+  .cta-button.secondary {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--warp-core-blue);
+    border: 1px solid var(--warp-core-blue);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 51, 153, 0.3);
+  }
+
+  .button-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .post-header {
+      min-height: 50vh;
+      padding-bottom: 2rem;
+    }
+
+    .post-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .author-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .content-wrapper :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .content-wrapper :global(h3) {
+      font-size: 1.25rem;
+    }
+
+    .content-wrapper :global(p) {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+
+  /* Scroll reveal animation */
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  [data-scroll-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Copy to clipboard functionality
+  function copyToClipboard() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      // Show a temporary success message
+      const button = document.querySelector('.share-button.copy');
+      const originalContent = button?.innerHTML;
+      if (button && originalContent) {
+        button.innerHTML = '<svg class="share-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/></svg>';
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+        }, 2000);
+      }
+    });
+  }
+
+  // Scroll reveal animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const delay = element.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            element.classList.add('revealed');
+          }, parseInt(delay));
+          
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with data-scroll-reveal
+    const elements = document.querySelectorAll('[data-scroll-reveal]');
+    elements.forEach(el => observer.observe(el));
+  });
+
+  // Make copyToClipboard globally available
+  (window as any).copyToClipboard = copyToClipboard;
+</script>
