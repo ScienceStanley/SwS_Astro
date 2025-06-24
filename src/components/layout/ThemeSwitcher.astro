@@ -1,0 +1,91 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  id="theme-switcher"
+  type="button"
+  class="p-2 rounded-lg text-text-offset hover:text-primary transition-colors"
+  aria-label="Toggle theme"
+>
+  <div id="icon-theme-light" class="hidden">
+    <Icon name="mdi:white-balance-sunny" class="size-5" />
+    <span class="sr-only">Switch to dark theme</span>
+  </div>
+  <div id="icon-theme-dark" class="hidden">
+    <Icon name="mdi:weather-night" class="size-5" />
+    <span class="sr-only">Switch to cyberpunk theme</span>
+  </div>
+  <div id="icon-theme-cyberpunk" class="hidden">
+    <Icon name="mdi:atom" class="size-5" />
+    <span class="sr-only">Switch to light theme</span>
+  </div>
+</button>
+
+<script>
+  import invariant from "tiny-invariant";
+
+  // Theme order: dark -> cyberpunk -> light -> dark
+  const themes = ["dark", "cyberpunk", "light"];
+  const button = document.querySelector("#theme-switcher");
+  invariant(button, "theme switcher button should not be null");
+
+  // Get current theme from localStorage or default to dark
+  const getStoredTheme = () => localStorage.getItem("theme") || "dark";
+  
+  // Initialize theme on page load
+  const initializeTheme = () => {
+    const theme = getStoredTheme();
+    document.documentElement.dataset.theme = theme;
+    updateIcon(theme);
+  };
+
+  // Get the next theme in the cycle
+  const getNextTheme = (current: string) => {
+    const currentIndex = themes.indexOf(current);
+    return themes[(currentIndex + 1) % themes.length];
+  };
+
+  // Update the icon based on current theme
+  const updateIcon = (theme: string) => {
+    // Hide all icons
+    themes.forEach(t => {
+      document.querySelector(`#icon-theme-${t}`)?.classList.add("hidden");
+    });
+    
+    // Show the icon for the next theme we'll switch to
+    const nextTheme = getNextTheme(theme);
+    document.querySelector(`#icon-theme-${nextTheme}`)?.classList.remove("hidden");
+  };
+
+  // Handle theme switching
+  button.addEventListener("click", () => {
+    const currentTheme = document.documentElement.dataset.theme || "dark";
+    const nextTheme = getNextTheme(currentTheme);
+    
+    // Apply theme
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("theme", nextTheme);
+    
+    // Update icon
+    updateIcon(nextTheme);
+  });
+
+  // Initialize on load
+  initializeTheme();
+</script>
+
+<style>
+  #theme-switcher {
+    @apply relative;
+  }
+
+  #theme-switcher:hover {
+    @apply bg-offset;
+  }
+
+  /* Smooth icon transitions */
+  #theme-switcher > div {
+    @apply transition-opacity duration-200;
+  }
+</style>

@@ -1,9 +1,8 @@
 ---
 import '@styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
-import Navigation from '@components/layout/Navigation.astro';
+import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
-import AdvancedBackground from '@components/effects/AdvancedBackground.astro';
 
 export interface Props {
   title: string;
@@ -20,11 +19,10 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="cyber">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,136 +64,43 @@ const currentPath = Astro.url.pathname;
       }
       
       ::view-transition-old(root) {
-        animation-name: fade-and-scale-out;
+        animation-name: fade-out;
       }
       
       ::view-transition-new(root) {
-        animation-name: fade-and-scale-in;
+        animation-name: fade-in;
       }
       
-      @keyframes fade-and-scale-out {
-        from {
-          opacity: 1;
-          transform: scale(1);
-        }
-        to {
-          opacity: 0;
-          transform: scale(0.95);
-        }
+      @keyframes fade-out {
+        from { opacity: 1; }
+        to { opacity: 0; }
       }
       
-      @keyframes fade-and-scale-in {
-        from {
-          opacity: 0;
-          transform: scale(1.05);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-    </style>
-    
-    <!-- Critical CSS for immediate render -->
-    <style is:inline>
-      body {
-        margin: 0;
-        background: #000000;
-        color: white;
-        font-family: system-ui, -apple-system, sans-serif;
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
     </style>
   </head>
   
   <body>
-    <!-- Advanced Background System -->
-    <AdvancedBackground />
-    
-    <!-- Navigation -->
-    <Navigation currentPath={currentPath} />
+    <!-- Header -->
+    <Header />
     
     <!-- Main Content -->
-    <main class="main-content">
+    <main>
       <slot />
     </main>
     
     <!-- Footer -->
     <Footer />
     
-    <!-- Theme Script -->
+    <!-- Theme initialization script -->
     <script is:inline>
-      // Theme management
-      const theme = localStorage.getItem('sws-theme') || 'cyber';
-      document.documentElement.setAttribute('data-theme', theme);
-      
-      // Page is ready - no loading screen needed with View Transitions
-      
-      // Listen for theme changes
-      window.addEventListener('theme-change', (e) => {
-        const newTheme = e.detail.theme;
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('sws-theme', newTheme);
-        
-        // Trigger theme transition animation
-        document.body.classList.add('theme-transitioning');
-        setTimeout(() => {
-          document.body.classList.remove('theme-transitioning');
-        }, 500);
-      });
+      // Initialize theme from localStorage or default to dark
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme || 'dark';
+      document.documentElement.dataset.theme = theme;
     </script>
-    
-    <!-- Quantum Ripple Effect -->
-    <script>
-      document.addEventListener('click', (e) => {
-        // Skip if clicking on interactive elements
-        if (e.target.closest('button, a, input, textarea, select')) return;
-        
-        const ripple = document.createElement('div');
-        ripple.style.cssText = `
-          position: fixed;
-          width: 20px;
-          height: 20px;
-          background: #00D4FF;
-          border-radius: 50%;
-          left: ${e.clientX}px;
-          top: ${e.clientY}px;
-          transform: translate(-50%, -50%) scale(0);
-          animation: ripple-expand 1s ease-out forwards;
-          pointer-events: none;
-          z-index: 9998;
-        `;
-        
-        const style = document.createElement('style');
-        style.textContent = `
-          @keyframes ripple-expand {
-            to {
-              transform: translate(-50%, -50%) scale(10);
-              opacity: 0;
-              box-shadow: 0 0 40px 40px rgba(0, 212, 255, 0);
-            }
-          }
-        `;
-        
-        if (!document.querySelector('style[data-ripple]')) {
-          style.setAttribute('data-ripple', '');
-          document.head.appendChild(style);
-        }
-        
-        document.body.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 1000);
-      });
-    </script>
-    
-    <!-- Global CSS for theme transitions -->
-    <style>
-      .theme-transitioning * {
-        transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-      }
-      
-      .main-content {
-        min-height: 100vh;
-        padding-top: 65px; /* Account for fixed navigation */
-      }
-    </style>
   </body>
 </html>

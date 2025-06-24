@@ -1,0 +1,201 @@
+---
+import { Icon } from "astro-icon/components";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+const navItems = [
+  { title: "Mission", url: "/charter" },
+  { title: "Science Sunday", url: "/science-sunday" },
+  { title: "Projects", url: "/projects" },
+  { title: "Resources", url: "/resources" },
+  { title: "Blog", url: "/blog" },
+];
+---
+
+<header
+  id="page-header"
+  class="fixed top-0 z-50 w-full border-b border-transparent backdrop-blur-xl transition-all duration-300"
+  style="background-color: rgba(0, 0, 0, 0.8);"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 text-primary hover:text-secondary transition-colors">
+        <Icon name="mdi:atom" class="size-8" />
+        <span class="font-display font-bold text-lg hidden sm:block">Smarter with Science</span>
+        <span class="font-display font-bold text-lg sm:hidden">SwS</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-8">
+          {navItems.map(({ title, url }) => (
+            <li>
+              <a 
+                href={url}
+                class="text-sm font-medium text-text-offset hover:text-primary transition-colors"
+              >
+                {title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Right side actions -->
+      <div class="flex items-center gap-4">
+        <!-- Discord CTA -->
+        <a
+          href="https://discord.com/invite/smarter"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary hover:text-background transition-all"
+        >
+          <Icon name="mdi:discord" class="size-5" />
+          <span class="text-sm font-medium">Join Discord</span>
+        </a>
+
+        <!-- Theme Switcher -->
+        <ThemeSwitcher />
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="open-nav-button"
+          type="button"
+          class="md:hidden p-2 text-text-offset hover:text-primary transition-colors"
+          aria-label="Open navigation menu"
+        >
+          <Icon name="mdi:menu" class="size-6" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Modal -->
+  <div id="menu-modal" class="modal hidden" aria-hidden="true">
+    <div class="fixed inset-0 z-50 bg-background">
+      <div class="flex h-full flex-col" role="dialog" aria-modal="true">
+        <!-- Mobile Header -->
+        <div class="flex items-center justify-between border-b border-default px-4 py-4">
+          <a href="/" class="flex items-center gap-3 text-primary">
+            <Icon name="mdi:atom" class="size-8" />
+            <span class="font-display font-bold text-lg">SwS</span>
+          </a>
+          <button
+            id="close-nav-button"
+            type="button"
+            class="p-2 text-text-offset hover:text-primary transition-colors"
+            aria-label="Close navigation menu"
+          >
+            <Icon name="mdi:close" class="size-6" />
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="flex-1 overflow-y-auto px-4 py-8">
+          <ul class="space-y-6">
+            {navItems.map(({ title, url }) => (
+              <li>
+                <a
+                  href={url}
+                  class="block text-2xl font-display font-semibold text-text hover:text-primary transition-colors"
+                >
+                  {title}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Mobile Discord CTA -->
+          <div class="mt-12">
+            <a
+              href="https://discord.com/invite/smarter"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-3 rounded-lg bg-primary px-6 py-4 text-background font-semibold hover:bg-primary/90 transition-colors"
+            >
+              <Icon name="mdi:discord" class="size-6" />
+              <span>Join Discord Community</span>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mobile Footer -->
+        <div class="border-t border-default px-4 py-4 text-center text-sm text-text-muted">
+          <p>Science plus community equals exponential impact</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  import MicroModal from "micromodal";
+  import invariant from "tiny-invariant";
+
+  const menuModalId = "menu-modal";
+
+  const header = document.querySelector("#page-header") as HTMLElement;
+  const menu = document.querySelector(`#${menuModalId} ul`);
+  const openNavButton = document.querySelector("#open-nav-button");
+  const closeNavButton = document.querySelector("#close-nav-button");
+
+  invariant(header, "header should not be null");
+  invariant(menu, "menu should not be null");
+  invariant(openNavButton, "openNavButton should not be null");
+  invariant(closeNavButton, "closeNavButton should not be null");
+
+  const openMenu = () => {
+    MicroModal.show(menuModalId, { disableScroll: true });
+  };
+
+  const closeMenu = () => {
+    MicroModal.close(menuModalId);
+  };
+
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
+
+  // Add scroll behavior
+  let lastScroll = 0;
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+    
+    // Add background when scrolled
+    if (currentScroll > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+    // Hide/show on scroll
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header.classList.add("-translate-y-full");
+    } else {
+      header.classList.remove("-translate-y-full");
+    }
+    
+    lastScroll = currentScroll;
+  });
+
+  // Close menu on link click
+  menu.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).tagName === "A") {
+      closeMenu();
+    }
+  });
+</script>
+
+<style>
+  #page-header {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  #page-header.scrolled {
+    @apply border-b border-default;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+  }
+
+  .modal.is-open {
+    @apply block;
+  }
+</style>

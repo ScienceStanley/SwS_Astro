@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "../layout/ContentSection.astro";
+
+export interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+  color?: 'primary' | 'secondary' | 'accent-pink' | 'accent-green' | 'accent-cyan';
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+}
+
+const {
+  title = "What We |Offer|",
+  subtitle = "Full-stack support for researchers and innovators",
+  features,
+  columns = 3,
+} = Astro.props;
+
+const gridCols = {
+  2: 'md:grid-cols-2',
+  3: 'md:grid-cols-2 lg:grid-cols-3',
+  4: 'md:grid-cols-2 lg:grid-cols-4',
+};
+
+const iconColors = {
+  primary: 'text-primary',
+  secondary: 'text-secondary',
+  'accent-pink': 'text-accent-pink',
+  'accent-green': 'text-accent-green',
+  'accent-cyan': 'text-accent-cyan',
+};
+---
+
+<ContentSection
+  title={title}
+  subtitle={subtitle}
+  theme="alternate"
+  centered
+>
+  <div class:list={[
+    'grid gap-8',
+    gridCols[columns],
+  ]}>
+    {features.map((feature, index) => (
+      <div
+        class="group relative p-8 rounded-2xl bg-background border border-default hover:border-primary transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-primary animate-fade-up"
+        style={`animation-delay: ${(index + 1) * 100}ms`}
+      >
+        <!-- Icon -->
+        <div class="mb-6">
+          <div class={`inline-flex p-3 rounded-xl bg-background-offset group-hover:bg-primary/10 transition-colors duration-300`}>
+            <Icon 
+              name={feature.icon} 
+              class:list={[
+                'w-8 h-8 transition-transform duration-300 group-hover:scale-110',
+                iconColors[feature.color || 'primary']
+              ]}
+            />
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <h3 class="text-xl font-display font-semibold mb-3 text-text group-hover:text-primary transition-colors">
+          {feature.title}
+        </h3>
+        <p class="text-text-offset">
+          {feature.description}
+        </p>
+        
+        <!-- Hover glow effect -->
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/0 via-primary/0 to-secondary/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+      </div>
+    ))}
+  </div>
+</ContentSection>
+
+<style>
+  /* Additional hover effects */
+  .group:hover {
+    transform: translateY(-4px);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .group:hover {
+      transform: none;
+    }
+  }
+</style>

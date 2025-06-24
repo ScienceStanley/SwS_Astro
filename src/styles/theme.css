@@ -1,0 +1,105 @@
+/* Cyberpunk Utopian Theme Variables */
+
+/* Default theme (dark) */
+:root {
+  /* Core Colors */
+  --color-primary: #663399; /* Royal Purple */
+  --color-secondary: #00D4FF; /* Warp Core Blue */
+  --color-accent-pink: #FF00FF; /* Cyber Pink */
+  --color-accent-green: #00FF88; /* Plasma Green */
+  --color-accent-cyan: #00FFFF; /* Hologram Cyan */
+  
+  /* Text Colors */
+  --color-text: #E0E7FF; /* Light text for dark backgrounds */
+  --color-text-offset: #A5B4FC; /* Secondary text */
+  --color-text-muted: #6B7280; /* Muted text */
+  
+  /* Background Colors */
+  --color-background: #000000; /* Void Black */
+  --color-background-rgb: 0, 0, 0; /* RGB for transparency */
+  --color-background-offset: #0A0E27; /* Deep Space Blue */
+  --color-background-elevated: #1A1F3A; /* Elevated surfaces */
+  
+  /* Border Colors */
+  --color-border: rgba(99, 102, 241, 0.2); /* Subtle glow border */
+  --color-border-hover: rgba(99, 102, 241, 0.4); /* Hover state */
+  
+  /* Semantic Colors */
+  --color-success: #00FF88;
+  --color-warning: #FFA500;
+  --color-error: #FF0066;
+  --color-info: #00D4FF;
+}
+
+/* Light theme (for accessibility) */
+[data-theme="light"] {
+  /* Core Colors - adjusted for light backgrounds */
+  --color-primary: #5B21B6; /* Darker Purple */
+  --color-secondary: #0891B2; /* Darker Cyan */
+  --color-accent-pink: #DB2777; /* Darker Pink */
+  --color-accent-green: #059669; /* Darker Green */
+  --color-accent-cyan: #0891B2; /* Darker Cyan */
+  
+  /* Text Colors */
+  --color-text: #111827; /* Dark text for light backgrounds */
+  --color-text-offset: #4B5563; /* Secondary text */
+  --color-text-muted: #9CA3AF; /* Muted text */
+  
+  /* Background Colors */
+  --color-background: #FFFFFF; /* White */
+  --color-background-offset: #F3F4F6; /* Light Gray */
+  --color-background-elevated: #FFFFFF; /* White for elevated */
+  
+  /* Border Colors */
+  --color-border: rgba(0, 0, 0, 0.1); /* Subtle border */
+  --color-border-hover: rgba(0, 0, 0, 0.2); /* Hover state */
+}
+
+/* Cyberpunk theme (enhanced dark) */
+[data-theme="cyberpunk"] {
+  /* Core Colors - more neon */
+  --color-primary: #8B5CF6; /* Brighter Purple */
+  --color-secondary: #00F5FF; /* Brighter Cyan */
+  --color-accent-pink: #FF0080; /* Hot Pink */
+  --color-accent-green: #39FF14; /* Matrix Green */
+  --color-accent-cyan: #00FFFF; /* Pure Cyan */
+  
+  /* Text Colors */
+  --color-text: #FFFFFF; /* Pure white */
+  --color-text-offset: #E0E7FF; /* Bright secondary */
+  --color-text-muted: #8B5CF6; /* Purple muted */
+  
+  /* Background Colors */
+  --color-background: #000000; /* Pure black */
+  --color-background-offset: #0D0416; /* Deep purple black */
+  --color-background-elevated: #1A0B2E; /* Purple elevated */
+  
+  /* Border Colors */
+  --color-border: rgba(139, 92, 246, 0.3); /* Purple glow */
+  --color-border-hover: rgba(0, 245, 255, 0.5); /* Cyan glow */
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-theme="cyberpunk"]) {
+    /* Light theme values (same as above) */
+    --color-primary: #5B21B6;
+    --color-secondary: #0891B2;
+    --color-accent-pink: #DB2777;
+    --color-accent-green: #059669;
+    --color-accent-cyan: #0891B2;
+    --color-text: #111827;
+    --color-text-offset: #4B5563;
+    --color-text-muted: #9CA3AF;
+    --color-background: #FFFFFF;
+    --color-background-offset: #F3F4F6;
+    --color-background-elevated: #FFFFFF;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-border-hover: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

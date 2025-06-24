@@ -1,0 +1,139 @@
+---
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  theme?: 'default' | 'alternate' | 'dark' | 'glass';
+  padding?: 'small' | 'medium' | 'large';
+  centered?: boolean;
+  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  theme = 'default',
+  padding = 'medium',
+  centered = false,
+  maxWidth = 'xl',
+  class: className = '',
+} = Astro.props;
+
+const themeClasses = {
+  default: 'bg-background',
+  alternate: 'bg-background-offset',
+  dark: 'bg-background-elevated',
+  glass: 'backdrop-blur-xl border-y border-default',
+};
+
+const paddingClasses = {
+  small: 'py-12 md:py-16',
+  medium: 'py-16 md:py-24',
+  large: 'py-24 md:py-32',
+};
+
+const maxWidthClasses = {
+  sm: 'max-w-3xl',
+  md: 'max-w-4xl',
+  lg: 'max-w-5xl',
+  xl: 'max-w-6xl',
+  full: 'max-w-full',
+};
+---
+
+<section
+  id={id}
+  class:list={[
+    'relative overflow-hidden',
+    themeClasses[theme],
+    paddingClasses[padding],
+    className,
+  ]}
+>
+  <!-- Optional background pattern -->
+  {theme === 'glass' && (
+    <div class="absolute inset-0 cyber-grid opacity-5"></div>
+  )}
+  
+  <div class:list={[
+    'relative z-10 mx-auto px-4 sm:px-6 lg:px-8',
+    maxWidthClasses[maxWidth],
+  ]}>
+    {(title || subtitle) && (
+      <div class:list={[
+        'mb-12 md:mb-16',
+        centered && 'text-center',
+      ]}>
+        {title && (
+          <h2 class="fluid-xl font-display font-bold mb-4 animate-fade-up">
+            {title.includes('|') ? (
+              <>
+                {title.split('|')[0]}
+                <span class="gradient-text">{title.split('|')[1]}</span>
+                {title.split('|')[2]}
+              </>
+            ) : (
+              title
+            )}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="fluid-base text-text-offset max-w-3xl animate-fade-up animation-delay-200" class:list={[centered && 'mx-auto']}>
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+    
+    <div class:list={[centered && 'text-center']}>
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fluid typography for section headers */
+  .fluid-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  .fluid-base {
+    @apply text-lg md:text-xl;
+  }
+  
+  /* Intersection Observer for animations */
+  section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Add intersection observer for section animations
+  const sections = document.querySelectorAll('section');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>

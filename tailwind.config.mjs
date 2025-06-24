@@ -1,63 +1,67 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import fluidType from 'tailwindcss-fluid-type';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        // Using CSS variables for dynamic theming
-        'primary': 'var(--color-primary)',
-        'primary-hover': 'var(--color-primary-hover)',
-        'secondary': 'var(--color-secondary)',
-        'secondary-hover': 'var(--color-secondary-hover)',
-        'accent-pink': 'var(--color-accent-pink)',
-        'accent-green': 'var(--color-accent-green)',
-        'accent-cyan': 'var(--color-accent-cyan)',
-        'background': 'var(--color-background)',
-        'surface': 'var(--color-surface)',
-        'surface-elevated': 'var(--color-surface-elevated)',
-        'border': 'var(--color-border)',
-        'border-hover': 'var(--color-border-hover)',
-        'text': {
-          DEFAULT: 'var(--color-text)',
-          'secondary': 'var(--color-text-secondary)',
-          'tertiary': 'var(--color-text-tertiary)',
-        },
-        // Legacy mappings
-        'void-black': 'var(--color-background)',
-        'royal-purple': 'var(--color-primary)',
-        'warp-core-blue': 'var(--color-secondary)',
-        'cyber-pink': 'var(--color-accent-pink)',
-        'plasma-green': 'var(--color-accent-green)',
-        'hologram-cyan': 'var(--color-accent-cyan)',
-      },
       fontFamily: {
-        'display': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
-        'body': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
-        'mono': ['Fira Code', 'JetBrains Mono', 'monospace'],
-        'accent': ['Montserrat', '-apple-system', 'system-ui', 'sans-serif'],
+        sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+        display: ['Orbitron', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Code', 'JetBrains Mono', ...defaultTheme.fontFamily.mono],
       },
+      colors: {
+        // Theme system using CSS variables
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        accent: {
+          pink: 'var(--color-accent-pink)',
+          green: 'var(--color-accent-green)',
+          cyan: 'var(--color-accent-cyan)',
+        },
+      },
+      textColor: {
+        default: 'var(--color-text)',
+        offset: 'var(--color-text-offset)',
+        muted: 'var(--color-text-muted)',
+      },
+      backgroundColor: {
+        default: 'var(--color-background)',
+        offset: 'var(--color-background-offset)',
+        elevated: 'var(--color-background-elevated)',
+      },
+      borderColor: {
+        default: 'var(--color-border)',
+        hover: 'var(--color-border-hover)',
+      },
+      // SwS specific extensions
       backgroundImage: {
-        'neural-gradient': 'linear-gradient(135deg, #663399 0%, #00D4FF 100%)',
-        'singularity-gradient': 'radial-gradient(circle at center, #00D4FF 0%, #663399 50%, #000000 100%)',
-        'data-stream': 'linear-gradient(180deg, transparent 0%, #00D4FF 50%, transparent 100%)',
+        'neural-gradient': 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)',
+        'singularity-gradient': 'radial-gradient(circle at center, var(--color-secondary) 0%, var(--color-primary) 50%, var(--color-background) 100%)',
+        'data-stream': 'linear-gradient(180deg, transparent 0%, var(--color-secondary) 50%, transparent 100%)',
       },
       boxShadow: {
-        'glow-purple': '0 0 20px rgba(102, 51, 153, 0.8)',
-        'glow-blue': '0 0 30px rgba(0, 212, 255, 0.9)',
+        'glow-primary': '0 0 20px rgba(102, 51, 153, 0.8)',
+        'glow-secondary': '0 0 30px rgba(0, 212, 255, 0.9)',
         'glow-intense': '0 0 50px rgba(0, 212, 255, 0.5)',
       },
       animation: {
+        'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
         'data-stream': 'data-stream 3s linear infinite',
         'quantum-flutter': 'quantum-flutter 4s ease-in-out infinite',
         'grid-flow': 'grid-flow 20s linear infinite',
         'particle-emergence': 'particle-emergence 1s ease-out forwards',
-        'float': 'float 6s ease-in-out infinite',
-        'radar-sweep': 'radar-sweep 4s linear infinite',
-        'warp-core-pulse': 'warp-core-pulse 2s ease-in-out infinite',
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'fade-up': 'fade-up 0.5s ease-out forwards',
       },
       keyframes: {
+        'float': {
+          '0%, 100%': { transform: 'translateY(0) rotateX(0) rotateY(0)' },
+          '33%': { transform: 'translateY(-10px) rotateX(5deg) rotateY(-5deg)' },
+          '66%': { transform: 'translateY(5px) rotateX(-5deg) rotateY(5deg)' },
+        },
         'pulse-glow': {
           '0%': { filter: 'brightness(1) drop-shadow(0 0 10px currentColor)' },
           '100%': { filter: 'brightness(1.2) drop-shadow(0 0 30px currentColor)' },
@@ -89,24 +93,19 @@ export default {
             filter: 'blur(0)',
           },
         },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0) rotateX(0) rotateY(0)' },
-          '33%': { transform: 'translateY(-10px) rotateX(5deg) rotateY(-5deg)' },
-          '66%': { transform: 'translateY(5px) rotateX(-5deg) rotateY(5deg)' },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
-        'radar-sweep': {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        'warp-core-pulse': {
-          '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
-          '50%': { transform: 'scale(1.1)', opacity: '1' },
-        },
-      },
-      backdropBlur: {
-        'xs': '2px',
       },
     },
   },
-  plugins: [],
+  corePlugins: {
+    fontSize: false,
+  },
+  plugins: [fluidType],
 }

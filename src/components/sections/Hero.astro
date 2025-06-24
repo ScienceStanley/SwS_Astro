@@ -1,0 +1,156 @@
+---
+import { Icon } from "astro-icon/components";
+import CyberStarfield from "../effects/CyberStarfield.astro";
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  primaryCTA?: {
+    text: string;
+    href: string;
+    icon?: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+    icon?: string;
+  };
+}
+
+const { 
+  title = "Smarter with Science",
+  subtitle = "Where cutting-edge research meets community power",
+  tagline = "Science plus community equals exponential impact",
+  primaryCTA = {
+    text: "Join the Movement",
+    href: "/get-involved",
+    icon: "mdi:rocket-launch"
+  },
+  secondaryCTA = {
+    text: "Explore Projects",
+    href: "/projects",
+    icon: "mdi:telescope"
+  }
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Cyberpunk Starfield Background -->
+  <CyberStarfield theme="neural" speed={0.5} density={1000} />
+  
+  <!-- Grid Overlay -->
+  <div class="absolute inset-0 cyber-grid opacity-10"></div>
+  
+  <!-- Gradient Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+  <div class="absolute inset-0 bg-singularity-gradient opacity-30"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Science Stanley Avatar (floating) -->
+    <div class="mb-8 animate-float">
+      <div class="inline-block relative">
+        <div class="w-32 h-32 mx-auto rounded-full bg-neural-gradient p-1">
+          <div class="w-full h-full rounded-full bg-background flex items-center justify-center">
+            <Icon name="mdi:atom" class="w-16 h-16 text-primary animate-pulse-glow" />
+          </div>
+        </div>
+        <div class="absolute -inset-4 bg-primary/20 blur-xl rounded-full animate-pulse"></div>
+      </div>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 class="fluid-2xl font-display font-black mb-6 animate-fade-up">
+      <span class="gradient-text">{title}</span>
+    </h1>
+    
+    <!-- Subtitle -->
+    <p class="fluid-lg text-text-offset max-w-3xl mx-auto mb-8 animate-fade-up animation-delay-200">
+      {subtitle}
+    </p>
+    
+    <!-- Tagline -->
+    <p class="fluid-base text-text-muted font-mono mb-12 animate-fade-up animation-delay-400">
+      {tagline}
+    </p>
+    
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up animation-delay-600">
+      <a
+        href={primaryCTA.href}
+        class="group relative px-8 py-4 font-semibold text-background bg-primary rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-primary"
+      >
+        <span class="relative z-10 flex items-center gap-2">
+          {primaryCTA.text}
+          {primaryCTA.icon && <Icon name={primaryCTA.icon} class="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 transition-all duration-500 group-hover:bg-pos-100"></div>
+      </a>
+      
+      <a
+        href={secondaryCTA.href}
+        class="group px-8 py-4 font-semibold text-primary border-2 border-primary rounded-lg transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-background hover:shadow-glow-primary"
+      >
+        <span class="flex items-center gap-2">
+          {secondaryCTA.text}
+          {secondaryCTA.icon && <Icon name={secondaryCTA.icon} class="w-5 h-5" />}
+        </span>
+      </a>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <Icon name="mdi:chevron-down" class="w-8 h-8 text-text-muted opacity-50" />
+    </div>
+  </div>
+  
+  <!-- Decorative Elements -->
+  <div class="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+</section>
+
+<style>
+  /* Gradient background utilities */
+  .bg-size-200 {
+    background-size: 200% 100%;
+  }
+  
+  .bg-pos-0 {
+    background-position: 0% 0%;
+  }
+  
+  .bg-pos-100 {
+    background-position: 100% 0%;
+  }
+  
+  /* Animation delays */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  /* Fluid typography (using Tailwind's fluid-type plugin) */
+  .fluid-2xl {
+    @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
+  }
+  
+  .fluid-lg {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  .fluid-base {
+    @apply text-base md:text-lg;
+  }
+</style>

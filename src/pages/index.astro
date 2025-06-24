@@ -1,9 +1,54 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Button from '@components/ui/Button.astro';
+import Hero from '@components/sections/Hero.astro';
+import Features from '@components/sections/Features.astro';
+import ContentSection from '@components/layout/ContentSection.astro';
 import Card from '@components/ui/Card.astro';
 import StatCounter from '@components/ui/StatCounter.astro';
 import { Icon } from 'astro-icon/components';
+
+const pageTitle = 'Smarter with Science - Community-Powered Scientific Discovery';
+const pageDescription = 'Join Science Stanley and the SwS movement. We provide computational resources, operational support, and community connections to accelerate scientific breakthroughs.';
+
+// Features data
+const features = [
+  {
+    title: "Computational Power",
+    description: "50,000+ GPU hours donated to researchers solving humanity's greatest challenges",
+    icon: "mdi:gpu",
+    color: "primary" as const,
+  },
+  {
+    title: "Community Support",
+    description: "5,000+ scientists, engineers, and curious minds collaborating across disciplines",
+    icon: "mdi:account-group",
+    color: "secondary" as const,
+  },
+  {
+    title: "Open Science",
+    description: "All research findings shared openly, accelerating discovery for everyone",
+    icon: "mdi:book-open-variant",
+    color: "accent-green" as const,
+  },
+  {
+    title: "Project Incubation",
+    description: "From idea to impact: full-stack support for breakthrough research projects",
+    icon: "mdi:rocket-launch",
+    color: "accent-pink" as const,
+  },
+  {
+    title: "Science Sundays",
+    description: "Weekly gatherings where curiosity meets coffee and breakthroughs are born",
+    icon: "mdi:calendar-star",
+    color: "accent-cyan" as const,
+  },
+  {
+    title: "Funding Amplification",
+    description: "Connecting researchers with resources, from compute credits to venture capital",
+    icon: "mdi:currency-usd",
+    color: "primary" as const,
+  },
+];
 
 // Testimonials data
 const testimonials = [
@@ -11,396 +56,209 @@ const testimonials = [
     quote: "SwS provided the GPU hours that made our rare disease AI possible. We've identified 127 conditions 73% faster than traditional methods.",
     author: "Dr. Sarah Chen",
     role: "Lead Researcher, RareGenomics",
-    avatar: "mdi:account-circle"
   },
   {
     quote: "The community here doesn't just talk about problems—they solve them. Our ocean monitoring system is now tracking 50,000+ species in real-time.",
     author: "Marcus Rodriguez",
     role: "Founder, Ocean ViSION",
-    avatar: "mdi:account-circle"
   },
   {
     quote: "Science Sunday changed my life. I went from curious attendee to leading a quantum biology research project in 6 months.",
     author: "Emily Watson",
     role: "Community Researcher",
-    avatar: "mdi:account-circle"
-  }
-];
-
-// Projects data for the gallery
-const featuredProjects = [
-  {
-    title: "Rare Disease AI",
-    description: "Machine learning models identifying genetic conditions",
-    impact: "127 conditions identified faster",
-    icon: "mdi:dna",
-    color: "var(--plasma-green)",
-    href: "/projects#rare-disease"
   },
-  {
-    title: "Ocean ViSION",
-    description: "AI-powered marine ecosystem monitoring",
-    impact: "50,000+ species tracked",
-    icon: "mdi:waves",
-    color: "var(--quantum-blue)",
-    href: "/projects#ocean-vision"
-  },
-  {
-    title: "Quantum Biology Lab",
-    description: "Exploring quantum effects in living systems",
-    impact: "3x efficiency improvement",
-    icon: "mdi:atom",
-    color: "var(--fusion-purple)",
-    href: "/projects#quantum-bio"
-  }
 ];
 ---
 
-<BaseLayout>
-  <main class="min-h-screen">
-    <!-- Hero Section -->
-    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-      <!-- Gradient Background -->
-      <div class="absolute inset-0 bg-gradient-hero"></div>
-      
-      <!-- Animated background pattern -->
-      <div class="absolute inset-0 opacity-20">
-        <div class="grid-pattern"></div>
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <Hero 
+    title="Smarter with Science"
+    subtitle="Where cutting-edge research meets community power. Together, we're accelerating breakthroughs that matter."
+    tagline="Science plus community equals exponential impact"
+    primaryCTA={{
+      text: "Join the Movement",
+      href: "https://discord.com/invite/smarter",
+      icon: "mdi:discord"
+    }}
+    secondaryCTA={{
+      text: "Explore Projects",
+      href: "/projects",
+      icon: "mdi:telescope"
+    }}
+  />
+
+  <!-- Impact Stats -->
+  <ContentSection theme="dark" padding="small">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-4xl md:text-5xl font-bold font-display text-primary">
+          <StatCounter end={47} />
+        </div>
+        <p class="text-text-offset mt-2">Breakthrough Discoveries</p>
       </div>
-      
-      <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        <!-- Impact Statement -->
-        <div class="mb-12 animate-fade-in">
-          <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 text-gradient-title">
-            We've accelerated <span class="text-gradient-number">47 breakthrough discoveries</span> in 18 months
-          </h1>
-          <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-8">
-            Join 1,200+ researchers and communities solving humanity's biggest challenges through open science and shared resources
-          </p>
+      <div>
+        <div class="text-4xl md:text-5xl font-bold font-display text-secondary">
+          <StatCounter end={50000} separator="," />+
         </div>
-        
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-200">
-          <Button variant="primary" size="large" href="#how-it-works" icon="mdi:arrow-down">
-            Show me how
-          </Button>
-          <Button variant="outline" size="large" href="https://discord.com/invite/smarter" icon="mdi:discord">
-            Join our Discord
-          </Button>
-        </div>
-        
-        <!-- Live Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in animation-delay-400">
-          <div class="stat-item">
-            <StatCounter end={50000} suffix="+" />
-            <p class="text-text-tertiary mt-2">GPU hours donated</p>
-          </div>
-          <div class="stat-item">
-            <StatCounter end={2.3} prefix="$" suffix="M" decimals={1} />
-            <p class="text-text-tertiary mt-2">In compute resources shared</p>
-          </div>
-          <div class="stat-item">
-            <StatCounter end={89} suffix="%" />
-            <p class="text-text-tertiary mt-2">Faster than traditional research</p>
-          </div>
-        </div>
+        <p class="text-text-offset mt-2">GPU Hours Donated</p>
       </div>
-      
-      <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Icon name="mdi:chevron-down" class="w-8 h-8 text-text-tertiary opacity-60" />
+      <div>
+        <div class="text-4xl md:text-5xl font-bold font-display text-accent-green">
+          <StatCounter end={5000} separator="," />+
+        </div>
+        <p class="text-text-offset mt-2">Community Members</p>
       </div>
-    </section>
-    
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 px-6 bg-bg-secondary">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-            From Question to Cure in <span class="text-gradient">Months, Not Years</span>
-          </h2>
-          <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-            We're not just talking about change—we're building it every day
-          </p>
+      <div>
+        <div class="text-4xl md:text-5xl font-bold font-display text-accent-pink">
+          <StatCounter end={12} />M+
         </div>
-        
-        <!-- Value Props Grid -->
-        <div class="grid md:grid-cols-3 gap-8">
-          <Card variant="glass" className="animate-fade-in animation-delay-200">
-            <div class="mb-4">
-              <Icon name="mdi:lightning-bolt" class="w-12 h-12 text-quantum-blue" />
-            </div>
-            <h3 class="text-2xl font-display font-bold mb-3">Rapid Response Science</h3>
-            <p class="text-text-secondary mb-4">
-              When communities face urgent challenges, we mobilize researchers and resources within days, not months.
-            </p>
-            <div class="mt-auto">
-              <p class="text-sm font-mono text-plasma-green">Case Study:</p>
-              <p class="text-sm text-text-tertiary">Water contamination solved in 3 weeks</p>
-            </div>
-          </Card>
-          
-          <Card variant="glass" className="animate-fade-in animation-delay-400">
-            <div class="mb-4">
-              <Icon name="mdi:cpu-64-bit" class="w-12 h-12 text-plasma-green" />
-            </div>
-            <h3 class="text-2xl font-display font-bold mb-3">Democratized Computing</h3>
-            <p class="text-text-secondary mb-4">
-              Your laptop becomes part of a supercomputer. Researchers get the power they need, no grants required.
-            </p>
-            <div class="mt-auto">
-              <p class="text-sm font-mono text-plasma-green">This month:</p>
-              <p class="text-sm text-text-tertiary">4,200 GPU hours donated</p>
-            </div>
-          </Card>
-          
-          <Card variant="glass" className="animate-fade-in animation-delay-600">
-            <div class="mb-4">
-              <Icon name="mdi:account-group" class="w-12 h-12 text-fusion-purple" />
-            </div>
-            <h3 class="text-2xl font-display font-bold mb-3">Community Intelligence</h3>
-            <p class="text-text-secondary mb-4">
-              Every Sunday, curious minds gather to tackle real problems. Ideas become experiments, experiments become breakthroughs.
-            </p>
-            <div class="mt-auto">
-              <p class="text-sm font-mono text-plasma-green">Next Sunday:</p>
-              <p class="text-sm text-text-tertiary">CRISPR workshop at KINN Venice</p>
-            </div>
-          </Card>
-        </div>
+        <p class="text-text-offset mt-2">Lives Impacted</p>
       </div>
-    </section>
-    
-    <!-- Featured Projects -->
-    <section class="py-20 px-6 bg-bg-primary">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-            Real Impact, <span class="text-gradient">Real Stories</span>
-          </h2>
-          <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-            These aren't just projects—they're lifelines for communities worldwide
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-          {featuredProjects.map((project, index) => (
-            <Card 
-              variant="highlight" 
-              href={project.href}
-              className={`animate-fade-in animation-delay-${(index + 1) * 200}`}
-            >
-              <div class="flex items-start justify-between mb-4">
-                <Icon name={project.icon} class="w-10 h-10" style={`color: ${project.color}`} />
-                <Icon name="mdi:arrow-right" class="w-5 h-5 text-text-tertiary" />
-              </div>
-              <h3 class="text-xl font-display font-bold mb-2">{project.title}</h3>
-              <p class="text-text-secondary mb-4">{project.description}</p>
-              <p class="text-sm font-mono mt-auto" style={`color: ${project.color}`}>
-                {project.impact}
-              </p>
-            </Card>
-          ))}
-        </div>
-        
-        <div class="text-center">
-          <Button variant="secondary" href="/projects" icon="mdi:arrow-right" iconPosition="right">
-            Explore all projects
-          </Button>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Social Proof -->
-    <section class="py-20 px-6 bg-bg-secondary">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-            Voices from the <span class="text-gradient">Revolution</span>
-          </h2>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card variant="default" className={`animate-fade-in animation-delay-${(index + 1) * 200}`}>
-              <blockquote class="flex-1">
-                <p class="text-text-secondary mb-6 italic">"{testimonial.quote}"</p>
-              </blockquote>
-              <div class="flex items-center gap-3 mt-auto">
-                <Icon name={testimonial.avatar} class="w-12 h-12 text-text-tertiary" />
-                <div>
-                  <p class="font-semibold text-text-primary">{testimonial.author}</p>
-                  <p class="text-sm text-text-tertiary">{testimonial.role}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-    
-    <!-- Join CTA Section -->
-    <section class="py-20 px-6 bg-gradient-aurora text-white">
-      <div class="max-w-4xl mx-auto text-center">
+    </div>
+  </ContentSection>
+
+  <!-- Mission Statement -->
+  <ContentSection 
+    title="Our |Mission|"
+    subtitle="Smarter with Science (SwS) is building the future of collaborative research"
+    centered
+    theme="default"
+  >
+    <div class="max-w-3xl mx-auto space-y-6 text-lg text-text-offset">
+      <p>
+        We believe humanity's greatest challenges—from rare diseases to climate change—require 
+        not just brilliant minds, but connected communities. SwS provides the infrastructure, 
+        resources, and connections that transform individual curiosity into collective breakthrough.
+      </p>
+      <p>
+        Founded by Science Stanley, a rare disease patient turned science advocate, we've built 
+        a movement where everyone—from Nobel laureates to curious beginners—contributes to 
+        advancing human knowledge.
+      </p>
+    </div>
+    <div class="mt-8 flex justify-center">
+      <a 
+        href="/charter" 
+        class="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-semibold"
+      >
+        Read Our Charter
+        <Icon name="mdi:arrow-right" class="w-5 h-5" />
+      </a>
+    </div>
+  </ContentSection>
+
+  <!-- Features Grid -->
+  <Features 
+    title="What We |Provide|"
+    subtitle="Full-stack support for researchers and innovators"
+    features={features}
+    columns={3}
+  />
+
+  <!-- Testimonials -->
+  <ContentSection
+    title="Real Impact, |Real Stories|"
+    subtitle="Hear from the researchers and innovators we've empowered"
+    theme="dark"
+    centered
+  >
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial, index) => (
+        <Card variant="glass" className={`animate-fade-up animation-delay-${(index + 1) * 200}`}>
+          <blockquote class="space-y-4">
+            <p class="text-text-offset italic">"{testimonial.quote}"</p>
+            <footer>
+              <p class="font-semibold text-text">{testimonial.author}</p>
+              <p class="text-sm text-text-muted">{testimonial.role}</p>
+            </footer>
+          </blockquote>
+        </Card>
+      ))}
+    </div>
+  </ContentSection>
+
+  <!-- Science Sunday CTA -->
+  <ContentSection theme="alternate">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
         <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
-          Your Curiosity Could Spark the Next Breakthrough
+          Join Us This <span class="gradient-text">Sunday</span>
         </h2>
-        <p class="text-xl mb-8 opacity-90">
-          Whether you're a researcher with a bold idea, a community with a pressing need, 
-          or simply someone who asks "what if?"—there's a place for you here.
+        <p class="text-xl text-text-offset mb-6">
+          Every Sunday, 1-5 PM at KINN Venice Beach, we gather to explore the 
+          frontiers of science. No PhD required—just bring your curiosity.
         </p>
-        
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-          <Card variant="glass" className="text-left">
-            <h3 class="text-lg font-bold mb-2">For Researchers</h3>
-            <p class="text-sm opacity-80">Access compute, find collaborators, amplify impact</p>
-          </Card>
-          <Card variant="glass" className="text-left">
-            <h3 class="text-lg font-bold mb-2">For Communities</h3>
-            <p class="text-sm opacity-80">Connect with scientists ready to solve your challenges</p>
-          </Card>
-          <Card variant="glass" className="text-left">
-            <h3 class="text-lg font-bold mb-2">For the Curious</h3>
-            <p class="text-sm opacity-80">Join Science Sunday and see where it leads</p>
-          </Card>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <Icon name="mdi:check-circle" class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" />
+            <span class="text-text-offset">Meet researchers working on cutting-edge projects</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="mdi:check-circle" class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" />
+            <span class="text-text-offset">Learn complex science through engaging discussions</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="mdi:check-circle" class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" />
+            <span class="text-text-offset">Find collaborators for your next breakthrough</span>
+          </li>
+        </ul>
+        <a 
+          href="/science-sunday" 
+          class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-background font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+        >
+          Learn More About Science Sunday
+          <Icon name="mdi:arrow-right" class="w-5 h-5" />
+        </a>
+      </div>
+      <div class="relative">
+        <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+          <Icon name="mdi:calendar-star" class="w-32 h-32 text-primary opacity-50" />
         </div>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="primary" size="large" href="https://discord.com/invite/smarter" icon="mdi:discord" className="bg-white text-quantum-blue hover:bg-gray-100">
-            Join Discord Community
-          </Button>
-          <Button variant="outline" size="large" href="/science-sunday" className="border-white text-white hover:bg-white hover:text-quantum-blue">
-            Visit Science Sunday
-          </Button>
+        <div class="absolute -top-4 -right-4 px-4 py-2 bg-accent-green text-background font-bold rounded-full">
+          Free & Open
         </div>
       </div>
-    </section>
-    
-    <!-- Quick Links -->
-    <section class="py-20 px-6 bg-bg-primary">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-6">
-          <Card variant="default" href="/charter">
-            <Icon name="mdi:book-open-variant" class="w-8 h-8 text-fusion-purple mb-3" />
-            <h3 class="text-lg font-bold mb-2">Read Our Charter</h3>
-            <p class="text-sm text-text-secondary">Our manifesto for open science</p>
-          </Card>
-          
-          <Card variant="default" href="/projects">
-            <Icon name="mdi:rocket-launch" class="w-8 h-8 text-quantum-blue mb-3" />
-            <h3 class="text-lg font-bold mb-2">Start a Project</h3>
-            <p class="text-sm text-text-secondary">Turn your idea into reality</p>
-          </Card>
-          
-          <Card variant="default" href="/resources">
-            <Icon name="mdi:database" class="w-8 h-8 text-plasma-green mb-3" />
-            <h3 class="text-lg font-bold mb-2">Access Resources</h3>
-            <p class="text-sm text-text-secondary">GPU hours, data, and tools</p>
-          </Card>
-          
-          <Card variant="default" href="/science-sunday">
-            <Icon name="mdi:calendar-star" class="w-8 h-8 text-solar-orange mb-3" />
-            <h3 class="text-lg font-bold mb-2">Science Sunday</h3>
-            <p class="text-sm text-text-secondary">Every Sunday in Venice Beach</p>
-          </Card>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  <style>
-    /* Hero gradient background */
-    .bg-gradient-hero {
-      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    }
-    
-    /* Grid pattern */
-    .grid-pattern {
-      background-image: 
-        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: grid-move 20s linear infinite;
-      height: 100%;
-    }
-    
-    @keyframes grid-move {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-    
-    /* Text gradients */
-    .text-gradient {
-      background: var(--gradient-aurora);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .text-gradient-title {
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .text-gradient-number {
-      background: var(--gradient-aurora);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-    
-    /* Background gradients */
-    .bg-gradient-aurora {
-      background: var(--gradient-aurora);
-    }
-    
-    /* Animations */
-    .animate-fade-in {
-      animation: fadeInUp 0.8s ease-out forwards;
-      opacity: 0;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .animation-delay-200 {
-      animation-delay: 200ms;
-    }
-    
-    .animation-delay-400 {
-      animation-delay: 400ms;
-    }
-    
-    .animation-delay-600 {
-      animation-delay: 600ms;
-    }
-    
-    .animation-delay-800 {
-      animation-delay: 800ms;
-    }
-    
-    /* Stat items */
-    .stat-item {
-      text-align: center;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .hero-section {
-        min-height: 100vh;
-        padding: 2rem 0;
-      }
-    }
-  </style>
+    </div>
+  </ContentSection>
+
+  <!-- Final CTA -->
+  <ContentSection theme="glass" centered>
+    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+      Ready to Make Science <span class="gradient-text">Smarter</span>?
+    </h2>
+    <p class="text-xl text-text-offset max-w-2xl mx-auto mb-8">
+      Whether you're a researcher needing resources, a developer wanting to contribute, 
+      or simply curious about science, there's a place for you in our community.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href="https://discord.com/invite/smarter" 
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary/90 transition-all hover:-translate-y-0.5 hover:shadow-glow-primary"
+      >
+        <Icon name="mdi:discord" class="w-6 h-6" />
+        Join Our Discord
+      </a>
+      <a 
+        href="/resources" 
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-background transition-all hover:-translate-y-0.5 hover:shadow-glow-primary"
+      >
+        <Icon name="mdi:book-open-variant" class="w-6 h-6" />
+        Browse Resources
+      </a>
+    </div>
+  </ContentSection>
 </BaseLayout>
+
+<style>
+  /* Animation utilities */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+</style>
