@@ -38,44 +38,69 @@ import PixelArtCard from '@components/ui/PixelArtCard.astro';
       </div>
     </section>
     
-    <!-- Code Demo Section -->
+    <!-- Community Introduction Section -->
     <section class="py-20 px-6" style="background: linear-gradient(to bottom, #000000, #0a0a0a);">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-display text-center mb-12 text-gradient">
-          How Science Gets Smarter
-        </h2>
-        <div class="neodev-card p-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-2xl font-mono text-neon-cyan">Discovery Engine</h3>
-            <div class="flex gap-2">
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-            </div>
+      <div class="max-w-5xl mx-auto">
+        <!-- Who We Are -->
+        <div class="text-center mb-16 animate-particle-emergence">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-gradient">
+            We Are the Revolution
+          </h2>
+          <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+            A global community where curious minds and critical problems collide to create breakthroughs. 
+            We don't wait for change—we build it.
+          </p>
+        </div>
+
+        <!-- What We Do -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center animate-particle-emergence animation-delay-200">
+            <div class="text-5xl mb-4">🖥️</div>
+            <h3 class="text-xl font-display font-bold text-neon-cyan mb-3">Computational Power</h3>
+            <p class="text-text-tertiary">GPU hours flow to researchers solving real problems, no red tape required</p>
           </div>
-          <div class="bg-black p-4 rounded border border-border-primary font-mono text-sm">
-            <div class="text-text-muted">// Breakthrough discovery pipeline</div>
-            <div class="text-code-keyword">function</div> <div class="text-code-function inline">accelerateDiscovery</div><span class="text-white">(</span><span class="text-code-variable">community, resources</span><span class="text-white">) {</span>
-            <div class="ml-4 text-code-keyword">const</div> <div class="text-code-variable inline">impact</div> = <div class="text-code-string inline">"exponential"</div><span class="text-white">;</span>
-            <div class="ml-4 text-code-keyword">return</div> <div class="text-code-variable inline">breakthrough</div><span class="text-white">;</span>
-            <span class="text-white">}</span>
+          <div class="text-center animate-particle-emergence animation-delay-400">
+            <div class="text-5xl mb-4">🤝</div>
+            <h3 class="text-xl font-display font-bold text-electric-teal mb-3">Community Support</h3>
+            <p class="text-text-tertiary">Connect with researchers, find collaborators, amplify your impact</p>
           </div>
+          <div class="text-center animate-particle-emergence animation-delay-600">
+            <div class="text-5xl mb-4">⚡</div>
+            <h3 class="text-xl font-display font-bold text-neon-cyan mb-3">Rapid Response</h3>
+            <p class="text-text-tertiary">When communities face urgent challenges, we mobilize—no bureaucracy</p>
+          </div>
+        </div>
+
+        <!-- Join the Movement -->
+        <div class="neodev-card p-8 text-center animate-particle-emergence animation-delay-800">
+          <h3 class="text-3xl font-display font-bold mb-4 text-gradient">
+            Your Curiosity Could Spark the Next Breakthrough
+          </h3>
+          <p class="text-lg text-text-secondary mb-6">
+            Science belongs to everyone. Whether you're a researcher with a bold idea, a community with a pressing need, 
+            or simply someone who asks "what if?"—there's a place for you here.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <PixelArtButton variant="primary" size="large" href="https://discord.com/invite/smarter" icon="discord">
+              Join Our Discord
+            </PixelArtButton>
+            <PixelArtButton variant="secondary" size="large" href="/science-sunday">
+              Visit Science Sunday
+            </PixelArtButton>
+          </div>
+          <p class="text-sm text-text-tertiary mt-4">
+            1,000+ members accelerating discovery together
+          </p>
         </div>
       </div>
     </section>
     
     <!-- Quick Navigation -->
-    <section class="py-20 px-6">
-      <!-- IMAGE_PROMPT[navigation-section-bg]
-      Style: Subtle abstract constellation pattern, very dark and minimal
-      Mood: Mysterious, expansive, guiding
-      Elements: Faint constellation lines connecting distant stars, subtle purple glow at connection points, mostly dark space
-      Colors: Background #101010, very faint purple #a476ff lines (10% opacity), tiny green #A9FF5B star points
-      Dimensions: 1920x800
-      Variations: 2
-      -->
+    <section class="py-20 px-6 relative" style="background-image: url('/generated-images/navigation-section-bg-1.png'); background-size: cover; background-position: center;">
+      <!-- Subtle overlay for better text readability -->
+      <div class="absolute inset-0 bg-black bg-opacity-70"></div>
       
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto relative z-10">
         <h2 class="text-4xl font-display text-center mb-12 gradient-text">
           Explore the Constellation
         </h2>
@@ -161,6 +186,10 @@ import PixelArtCard from '@components/ui/PixelArtCard.astro';
     
     .animation-delay-600 {
       animation-delay: 600ms;
+    }
+    
+    .animation-delay-800 {
+      animation-delay: 800ms;
     }
     
     .bg-gradient-radial {
